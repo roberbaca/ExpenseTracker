@@ -1,0 +1,12 @@
+
+$main: linear-gradient(to right, hsl(246, 94%, 67%), hsl(265, 94%, 67%));
+$secondary: hsl(248, 30%, 95%);
+$accent: linear-gradient(to right bottom, hsl(150, 62%, 65%), hsl(176, 68%, 64%));
+$error: hsl(0, 69%, 60%);
+$txt-main: hsl(222, 20%, 35%);
+$txt-grey: hsl(0, 0%, 66%);
+$shadow: hsla(0, 0%, 0%, 0.16);
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}

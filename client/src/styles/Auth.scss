@@ -1,0 +1,152 @@
+@use "./Global.scss";
+
+.auth__wraper {
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 25rem;
+    height: 35rem; 
+    background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    border-radius: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 4em;    
+    box-shadow: 3px 3px 6px Global.$shadow;
+
+    .auth__title {
+        color: white;
+        font-weight: bold;
+        font-size: 4em;        
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+    }
+
+    .auth__input {
+        width: 80%;
+        margin: 0.5rem 0;
+        border-radius: 2rem;
+        border: none;
+        padding: 0.5rem;
+        padding-left: 1rem;
+        background: Global.$secondary;
+        box-shadow: 3px 3px 6px Global.$shadow;
+        color: Global.$txt-main;
+        font-size: 1rem;
+        font-weight: 300;
+        height: 2rem;
+    }
+
+    .auth__input:focus {      
+        outline-color: #FF9D00;
+        outline-style:dashed;  
+        outline-width: 0.2rem;    
+        outline-offset: 0.3rem;          
+    }
+
+    .auth__btn {
+        background-color: #00FFED;
+        border-radius: 2rem;
+        border: none;        
+        padding: 0.5rem;
+        margin-top: 2rem;
+        color: #0066FF;
+        box-sizing: border-box;
+        width: 8rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        box-shadow: 3px 3px 6px Global.$shadow;
+
+    }   
+    
+    .auth__btn:hover {
+        cursor: pointer;
+        animation: shake 0.5s;
+    }
+
+    .logwith {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .social__wraper {
+        .social__icon {
+            color: Global.$txt-main;
+            font-size: 2.5rem;
+            margin:0.5rem;
+            background-color: Global.$secondary;
+            padding: 0.5rem;
+            border-radius: 100%;
+            box-shadow: 3px 3px 6px Global.$shadow;
+        }
+    
+        .social__icon:hover {
+            cursor: pointer;
+            animation: shake 0.5s;
+        }
+    }
+
+    .sign {      
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        width: 100%;
+        margin-top: 1rem;      
+
+        .sign__title {
+            color: #FF0066;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 1rem;            
+        }
+
+        .sign__title:hover {
+            cursor: pointer;               
+            animation: shake 0.5s;
+        }
+
+        .sign__icon {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;            
+        }
+      
+    }
+}
+
+
+
+@keyframes shake {
+    0% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+      transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+      transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+      transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+      transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+      transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+      transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+      transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+      transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
