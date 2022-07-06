@@ -1,0 +1,26 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.header__wraper {
+  background: linear-gradient(90deg, hsl(217deg, 100%, 50%) 0%, hsl(186deg, 100%, 69%) 100%);
+  box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
+  display: flex;
+  flex-direction: row;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+.header__wraper .header__title {
+  color: hsl(248deg, 30%, 95%);
+  font-size: 5em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.header__wraper .sitelogo {
+  width: 6rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+/*# sourceMappingURL=Header.css.map */

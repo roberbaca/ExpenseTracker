@@ -5,10 +5,13 @@ import '../../styles/Global.css';
 import { FaGithubAlt, FaGoogle, FaFacebook, FaUser, FaLock } from 'react-icons/fa';
 import Login from '../../components/Login/Login';
 import Register from '../../components/Register/Register';
+import axiosInstance from "../../utils/axiosInstance";
 
 const Home = () => {
 
     const [isLogin, setIsLogin] = useState(true);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState(""); 
 
     const handleLogin = () => {
         setIsLogin(true);
@@ -16,18 +19,33 @@ const Home = () => {
 
     const handleRegister = () => {
         setIsLogin(false);
+    } 
+
+    const handleChangePassword = (e) => {
+        setPassword(e.target.value);
+    }
+
+    const handleChangeEmail = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const onLogin = async () => {
+        try {
+            const response = await axiosInstance.post('/auth/login', { email, password });  // llamada al back y obtenemos el token       
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
   return (
     <section className='home'>
-        <h1 className='home__title'>Expense Tracker</h1>
-
         {isLogin && <div className='auth'>       
             <div className='auth__wraper'>
             <h2 className='auth__title'>Login</h2>
-            <input className='auth__input' type="text" placeholder='Email'/>
-            <input className='auth__input' type="text" placeholder='Password' />
-            <button className='auth__btn'>Sign In</button>
+            <input className='auth__input' type="text" placeholder='Email' value={email} onChange={handleChangeEmail}/>
+            <input className='auth__input' type="text" placeholder='Password' value={password} onChange={handleChangePassword}/>
+            <button className='auth__btn' onClick={onLogin}>Sign In</button>
             <p className='logwith'>Or login with:</p>
             <div className='social__wraper'>
                 <FaGithubAlt className='social__icon'/>

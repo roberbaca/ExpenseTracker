@@ -1,20 +1,8 @@
 @use "./Global.scss";
 
-.home {
-    background-color: Global.$secondary;
-    display: flex;
-    flex-direction: column;
+.home {   
+    display: flex;    
     justify-content: center;
-    align-items: center;    
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-
-    .home__title {
-        color: Global.$txt-main;
-        font-size: 5em;
-        margin-top: 1rem;
-        margin-bottom: 3rem;
-    }
+    align-items: center;        
 }
 

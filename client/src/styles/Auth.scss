@@ -10,7 +10,7 @@
     background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
     border-radius: 1.5rem;
     padding: 1rem;
-    margin-bottom: 4em;    
+    margin-bottom: 2rem;    
     box-shadow: 3px 3px 6px Global.$shadow;
 
     .auth__title {
@@ -45,6 +45,7 @@
 
     .auth__btn {
         background-color: #00FFED;
+        //background-color: #FF9D00;;
         border-radius: 2rem;
         border: none;        
         padding: 0.5rem;
@@ -55,7 +56,6 @@
         font-size: 1.5rem;
         font-weight: bold;
         box-shadow: 3px 3px 6px Global.$shadow;
-
     }   
     
     .auth__btn:hover {
