@@ -1,26 +1,47 @@
 body {
   font-family: "Montserrat", sans-serif;
+  background-color: hsl(248deg, 30%, 95%);
 }
 
 .header__wraper {
-  background: linear-gradient(90deg, hsl(217deg, 100%, 50%) 0%, hsl(186deg, 100%, 69%) 100%);
+  background: linear-gradient(to right, hsl(246deg, 94%, 67%), hsl(265deg, 94%, 67%));
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
   display: flex;
   flex-direction: row;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   margin-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
-.header__wraper .header__title {
+.header__wraper .header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__wraper .header__logo .header__title {
   color: hsl(248deg, 30%, 95%);
   font-size: 5em;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 0;
 }
-.header__wraper .sitelogo {
+.header__wraper .header__logo .sitelogo {
   width: 6rem;
   margin-left: 2rem;
   margin-right: 2rem;
+}
+.header__wraper .logout {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(222deg, 20%, 35%);
+  font-size: 2rem;
+  background-color: hsl(248deg, 30%, 95%);
+  padding: 1rem;
+  border-radius: 100%;
+  box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
 }
 
 /*# sourceMappingURL=Header.css.map */

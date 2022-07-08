@@ -1,13 +1,14 @@
 body {
   font-family: "Montserrat", sans-serif;
+  background-color: hsl(248deg, 30%, 95%);
 }
 
 footer {
-  background: linear-gradient(90deg, hsl(217deg, 100%, 50%) 0%, hsl(186deg, 100%, 69%) 100%);
+  background: linear-gradient(to right, hsl(246deg, 94%, 67%), hsl(265deg, 94%, 67%));
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 0.8rem;
+  padding-top: 1.2rem;
   padding-bottom: 0.8rem;
   position: absolute;
   bottom: 0;
@@ -46,6 +47,7 @@ footer .footer__iconcontainer .footer__socialicon:hover {
 }
 footer .footer__copy {
   font-weight: 400;
+  color: white;
 }
 footer span {
   font-weight: bold;

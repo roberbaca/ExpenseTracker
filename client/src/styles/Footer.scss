@@ -2,11 +2,12 @@
 
 footer {
     //background-color: Global.$txt-main;
-    background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    //background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    background: Global.$main;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 0.8rem;
+    padding-top: 1.2rem;
     padding-bottom: 0.8rem;
     // padding-left: 1rem;
     // padding-right: 1rem;
@@ -55,6 +56,7 @@ footer {
 
     .footer__copy {
         font-weight: 400;
+        color: white;
     }
 
     span {

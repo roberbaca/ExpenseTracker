@@ -1,0 +1,54 @@
+@use "./Global.scss";
+
+.card__wraper {
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 15rem;
+    height: 11rem;   
+    background: linear-gradient(to right, hsl(246, 94%, 67%), hsl(265, 94%, 67%));
+    border-radius: 1.5rem;
+    padding: 1rem;
+    margin: 1rem;      
+    box-shadow: 3px 3px 6px Global.$shadow;
+    
+    .title__container {
+        width: 100%;
+
+        .card__title {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0;           
+            margin-bottom: 1rem;    
+            text-align: left;
+        }
+        
+        .card__category {
+            color: lightgray;
+            font-size: 1.1rem;
+            margin: 0;       
+            margin-bottom: 0.2rem;    
+            text-align: left;
+        }
+
+        .card__date {
+            color: lightgray;
+            font-size: 1rem;
+            margin: 0;
+            width: 100%;
+            text-align: left;
+        }
+    }
+
+    .card__amount {
+        color: white;  
+        font-size: 2rem;        
+        font-weight: bold;
+        margin: 0;
+        width: 100%;
+        text-align: right;
+    }   
+
+}

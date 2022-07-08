@@ -1,0 +1,132 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: hsl(248deg, 30%, 95%);
+}
+
+.search__wraper {
+  margin-bottom: 2rem;
+}
+.search__wraper .searchbar {
+  width: 20%;
+  margin: 0;
+  margin-right: 2rem;
+  border-radius: 2rem;
+  border: none;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  background: white;
+  box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
+  color: hsl(222deg, 20%, 35%);
+  font-size: 1rem;
+  font-weight: 300;
+  height: 2rem;
+}
+.search__wraper .searchbar::placeholder {
+  color: hsl(0deg, 0%, 66%);
+}
+.search__wraper .searchbar:focus {
+  outline-color: #FF9D00;
+  outline-style: dashed;
+  outline-width: 0.2rem;
+  outline-offset: 0.3rem;
+}
+.search__wraper .select {
+  width: 10%;
+  margin: 0;
+  margin-right: 2rem;
+  border-radius: 2rem;
+  border: none;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  background: white;
+  box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
+  color: hsl(222deg, 20%, 35%);
+  font-size: 1rem;
+  font-weight: 300;
+  height: 3rem;
+}
+.search__wraper .select:focus {
+  outline-color: #FF9D00;
+  outline-style: dashed;
+  outline-width: 0.2rem;
+  outline-offset: 0.3rem;
+}
+
+.cards__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard__info {
+  color: hsl(222deg, 20%, 35%);
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.add__wraper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5rem;
+  width: 100%;
+}
+
+.add__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+  margin-right: 2rem;
+  background: linear-gradient(to right bottom, hsl(150deg, 62%, 65%), hsl(176deg, 68%, 64%));
+  padding: 0.4rem;
+  border-radius: 100%;
+  box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
+}
+
+.add__icon:hover {
+  cursor: pointer;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+/*# sourceMappingURL=Dashboard.css.map */

@@ -3,15 +3,17 @@ import '../../styles/Home.css';
 import '../../styles/Auth.css';
 import '../../styles/Global.css';
 import { FaGithubAlt, FaGoogle, FaFacebook, FaUser, FaLock } from 'react-icons/fa';
-import Login from '../../components/Login/Login';
-import Register from '../../components/Register/Register';
+//import Login from '../../components/Login/Login';
+//import Register from '../../components/Register/Register';
 import axiosInstance from "../../utils/axiosInstance";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); 
+    //const navigate = useNavigate();    
 
     const handleLogin = () => {
         setIsLogin(true);
@@ -32,10 +34,36 @@ const Home = () => {
     const onLogin = async () => {
         try {
             const response = await axiosInstance.post('/auth/login', { email, password });  // llamada al back y obtenemos el token       
+            const token = response.data.accessToken;
+            console.log('token', response.data);
+            localStorage.setItem('token', token);
+            onGetUser(token); 
+
         } catch (error) {
+            alert("Incorrect email or password");
             console.log(error);
         }
+    }
 
+ 
+
+  // Obtenemos los datos del usuario
+    const onGetUser = async (token) => {   
+
+        try {        
+            const response = await axiosInstance.get('/auth/user/me',{                
+                headers: {
+                    Authorization: `Bearer ${token}`                
+                }              
+            });
+
+            console.log(response.data);
+            //window.localStorage.setItem('username', json.data.name);     
+            //navigate('/dashboard');
+
+        } catch(error) {
+            alert("User info error: " + error);
+        }
     }
 
   return (
