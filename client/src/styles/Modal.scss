@@ -1,0 +1,173 @@
+@use "./Global.scss";
+
+.modal__card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: Global.$secondary;   
+    z-index: 1000;
+    width: 20rem;
+    height: 28rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 3px 3px 6px Global.$shadow;
+
+    .modal__header {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 0.2rem solid Global.$txt-grey;
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+
+        .modal__title {
+            color: Global.$txt-main;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0;            
+            text-align: left;
+        }
+    }
+
+    .close__icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        background: linear-gradient(to right, hsl(0, 69%, 60%), hsl(0, 100%, 50%));
+        border-radius: 50%;
+        color: white;
+        padding: 0.3rem;
+        box-shadow: 3px 3px 6px Global.$shadow;
+
+        &:hover {
+            cursor: pointer;
+            animation: shake 0.5s;
+        }
+    } 
+
+    .modal__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .select {
+            width: 98%;
+            margin: 0;            
+            margin-bottom: 1rem;
+            border-radius: 2rem;
+            border: none;
+            padding: 0.5rem;
+            padding-left: 1rem;     
+            background: white;        
+            box-shadow: 3px 3px 6px Global.$shadow;
+            color: Global.$txt-main;        
+            font-size: 1rem;
+            font-weight: 300;
+            height: 3rem;   
+
+            &:focus {
+                outline-color: #FF9D00;
+                outline-style:dashed;  
+                outline-width: 0.2rem;    
+                outline-offset: 0.3rem;
+            }
+        } 
+
+        .modal__input {
+            width: 90%;
+            margin: 0;
+            margin-bottom: 1rem;          
+            border-radius: 2rem;
+            border: none;
+            padding: 0.5rem;
+            padding-left: 1rem;
+            background: white;        
+            box-shadow: 3px 3px 6px Global.$shadow;
+            color: Global.$txt-main;        
+            font-size: 1rem;
+            font-weight: 300;
+            height: 2rem;   
+    
+            &:focus {
+              outline-color: #FF9D00;
+              outline-style:dashed;  
+              outline-width: 0.2rem;    
+              outline-offset: 0.3rem;  
+            }
+    
+            &::placeholder {
+                color: Global.$txt-grey;
+            }
+        }  
+        
+        .modal__btn {
+            background-color: #00FFED;   
+            border-radius: 2rem;
+            border: none;        
+            padding: 0.5rem;
+            margin-top: 2rem;
+            color: #0066FF;
+            box-sizing: border-box;
+            width: 8rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 3px 3px 6px Global.$shadow;
+    
+            &:hover {
+                cursor: pointer;
+                animation: shake 0.5s;
+            }
+        }  
+    }
+}
+
+
+
+
+
+/* ----------------
+    Media Queries
+------------------*/
+
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+@media (min-width: 1440px) { 
+   
+    
+}
+
+
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+@media (max-width: 1440px) { 
+           
+}
+
+
+/* Pantallas grandes (desktops de menos de 1200px) */
+@media (max-width: 1200px) { 
+     
+}
+
+
+/* Pantallas medianas (tablets de menos de 992px) */
+@media (max-width: 992px) { 
+}
+
+
+/* Pantallas pequeñas (móviles en landscape de menos de 768px) */
+@media (max-width: 768px) { 
+ 
+  
+}
+
+
+/* Pantallas muy pequeñas (móviles en portrait de menos de 576px) */
+@media (max-width: 576px) { 
+    .modal__card {      
+        padding: 1rem;       
+    }   
+}
+
+@media (max-width: 375px) { 
+    
+       
+}

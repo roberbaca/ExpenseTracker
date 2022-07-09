@@ -16,6 +16,32 @@ body {
   margin: 1rem;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
 }
+.card__wraper .close__wraper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card__wraper .close__wraper .card__category {
+  color: lightgray;
+  font-size: 1.1rem;
+  margin: 0;
+  margin-bottom: 0.2rem;
+  text-align: left;
+}
+.card__wraper .close__wraper .close__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(to right, hsl(0deg, 69%, 60%), hsl(0deg, 100%, 50%));
+  border-radius: 50%;
+  color: white;
+  padding: 0.3rem;
+  box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
+}
+.card__wraper .close__wraper .close__icon:hover {
+  cursor: pointer;
+  animation: shake 0.5s;
+}
 .card__wraper .title__container {
   width: 100%;
 }
@@ -25,13 +51,6 @@ body {
   font-weight: bold;
   margin: 0;
   margin-bottom: 1rem;
-  text-align: left;
-}
-.card__wraper .title__container .card__category {
-  color: lightgray;
-  font-size: 1.1rem;
-  margin: 0;
-  margin-bottom: 0.2rem;
   text-align: left;
 }
 .card__wraper .title__container .card__date {

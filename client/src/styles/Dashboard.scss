@@ -18,21 +18,20 @@
         font-weight: 300;
         height: 2rem;   
 
-    }
+        &:focus {
+          outline-color: #FF9D00;
+          outline-style:dashed;  
+          outline-width: 0.2rem;    
+          outline-offset: 0.3rem;  
+        }
 
-    .searchbar::placeholder{
-        color: Global.$txt-grey;  
-    }
-
-    .searchbar:focus {
-        outline-color: #FF9D00;
-        outline-style:dashed;  
-        outline-width: 0.2rem;    
-        outline-offset: 0.3rem;  
-    }
+        &::placeholder {
+            color: Global.$txt-grey;
+        }
+    } 
 
     .select {
-        width: 10%;
+        width: 15%;
         margin: 0;
         margin-right: 2rem;
         border-radius: 2rem;
@@ -58,8 +57,9 @@
 
 .cards__container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .dashboard__info {
@@ -90,11 +90,11 @@
     padding: 0.4rem;
     border-radius: 100%;
     box-shadow: 3px 3px 6px Global.$shadow;
-}
 
-.add__icon:hover {
-    cursor: pointer;               
-    animation: shake 0.5s;
+    &:hover {
+        cursor: pointer;
+        animation: shake 0.5s;
+    }
 }
 
 

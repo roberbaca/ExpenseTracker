@@ -21,17 +21,17 @@ body {
   font-weight: 300;
   height: 2rem;
 }
-.search__wraper .searchbar::placeholder {
-  color: hsl(0deg, 0%, 66%);
-}
 .search__wraper .searchbar:focus {
   outline-color: #FF9D00;
   outline-style: dashed;
   outline-width: 0.2rem;
   outline-offset: 0.3rem;
 }
+.search__wraper .searchbar::placeholder {
+  color: hsl(0deg, 0%, 66%);
+}
 .search__wraper .select {
-  width: 10%;
+  width: 15%;
   margin: 0;
   margin-right: 2rem;
   border-radius: 2rem;
@@ -54,8 +54,9 @@ body {
 
 .cards__container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .dashboard__info {
@@ -87,7 +88,6 @@ body {
   border-radius: 100%;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
 }
-
 .add__icon:hover {
   cursor: pointer;
   animation: shake 0.5s;
