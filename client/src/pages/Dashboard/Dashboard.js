@@ -1,15 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import Card from '../../components/Card/Card'
 import Modal from '../../components/Modal/Modal'
 import '../../styles/Dashboard.css';
 import '../../styles/Global.css';
 import { AiOutlinePlus } from 'react-icons/ai';
+import { showAllExpensesAction } from '../../Redux/slices/expenses';
 
 const Dashboard = () => {
 
     const [searchvalue, setSearchValue] = useState('');
-    const [dropdownValue, setDropdownValue] = useState('');
+    const [dropdownValue, setDropdownValue] = useState('All');
     const [isModalOpen, setModalIsOpen] = useState(false);
+
+    const dispatch = useDispatch(); 
+
+    const token  = useSelector(store => store.auth.token); 
+    const expenses  = useSelector(store => store.expenses.expensesList); 
 
     const categories = [    
 
@@ -31,7 +38,7 @@ const Dashboard = () => {
         }
     ]
         
-
+/*
     const expenses = [
         {   
             category: 'Food',
@@ -88,6 +95,8 @@ const Dashboard = () => {
             amount: '100'
         }
     ];
+*/
+
 
     const handleSearch = (e) => {
         setSearchValue(e.target.value.toUpperCase());
@@ -100,6 +109,12 @@ const Dashboard = () => {
     const addExpense = () => {
         setModalIsOpen(true);        
     }
+
+    useEffect(() => {
+        if (token) {
+            dispatch( showAllExpensesAction(token) );                 
+        }
+    }, [token])
 
   return (
     <section className='dashboard__section'>
@@ -137,11 +152,7 @@ const Dashboard = () => {
 
 
         {/* Pop Ups (Modal) */}        
-      <Modal open={isModalOpen} onClose={() => setModalIsOpen(false)}>
-        { <div>
-            <h1>Add Expense</h1>
-        </div>}        
-      </Modal>
+      <Modal open={isModalOpen} onClose={() => setModalIsOpen(false)}></Modal>
 
 
         

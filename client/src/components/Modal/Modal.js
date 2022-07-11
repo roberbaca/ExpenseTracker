@@ -44,6 +44,10 @@ export default function Modal({ open, children, onClose }) {
         setDropdownValue(e.target.value);    
     }  
 
+    const createExpense = () => {
+        onClose();
+    }
+
   if (!open) return null
 
   return ReactDom.createPortal(
@@ -63,8 +67,8 @@ export default function Modal({ open, children, onClose }) {
             <input className='modal__input' type="text" placeholder='Title'/>
             <input className='modal__input' type="number" placeholder='Amount' />
             <input className='modal__input' type="date" placeholder='Date' />
-            <button className='modal__btn'>Submit</button>    
-
+            <textarea className='modal__textarea' type="text" placeholder='Description (optional)' />
+            <button className='modal__btn' onClick={createExpense}>Submit</button>   
         </div>
 
 

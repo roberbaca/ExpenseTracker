@@ -12,7 +12,7 @@ body {
   background-color: hsl(248deg, 30%, 95%);
   z-index: 1000;
   width: 20rem;
-  height: 28rem;
+  height: 35rem;
   padding: 1.5rem;
   border-radius: 0.5rem;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
@@ -93,6 +93,30 @@ body {
   outline-offset: 0.3rem;
 }
 .modal__card .modal__body .modal__input::placeholder {
+  color: hsl(0deg, 0%, 66%);
+}
+.modal__card .modal__body .modal__textarea {
+  width: 90%;
+  margin: 0;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  border: none;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  background: white;
+  box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
+  color: hsl(222deg, 20%, 35%);
+  font-size: 1rem;
+  font-weight: 300;
+  height: 6rem;
+}
+.modal__card .modal__body .modal__textarea:focus {
+  outline-color: #FF9D00;
+  outline-style: dashed;
+  outline-width: 0.2rem;
+  outline-offset: 0.3rem;
+}
+.modal__card .modal__body .modal__textarea::placeholder {
   color: hsl(0deg, 0%, 66%);
 }
 .modal__card .modal__body .modal__btn {

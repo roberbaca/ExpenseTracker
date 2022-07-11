@@ -33,18 +33,41 @@
         }
     }
     
+    .header__authwraper {
+        display: flex;
+        flex-direction: row;
 
-    .logout {      
-        color: white;
-        display: flex;        
-        align-items: center;     
-        justify-content: center;               
-        color: Global.$txt-main;
-        font-size: 2rem;        
-        background-color: Global.$secondary;
-        padding: 1rem;
-        border-radius: 100%;
-        box-shadow: 3px 3px 6px Global.$shadow;
+        .icon__wraper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: 2rem;
+
+            .auth__icon {      
+                color: white;
+                display: flex;        
+                align-items: center;     
+                justify-content: center;               
+                color: Global.$txt-main;
+                font-size: 2rem;        
+                background-color: Global.$secondary;
+                padding: 1rem;
+                border-radius: 100%;
+                box-shadow: 3px 3px 6px Global.$shadow;            
+
+                &:hover {
+                    cursor: pointer;
+                    animation: shake 0.5s;
+                }
+            }
+
+            .auth__title {
+                color: Global.$secondary;
+                font-size: 1rem;
+            }
+        }
+
     }
 }
 

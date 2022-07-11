@@ -1,19 +1,29 @@
-import React, { useState }from 'react'
+import React, { useState, useEffect }from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import axiosInstance from "../../utils/axiosInstance";
+import { useNavigate } from "react-router-dom";
+import { getUserInfoAction, loginAction } from '../../Redux/slices/auth';
+import { FaGithubAlt, FaGoogle, FaFacebook, FaUser, FaLock } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/Home.css';
 import '../../styles/Auth.css';
 import '../../styles/Global.css';
-import { FaGithubAlt, FaGoogle, FaFacebook, FaUser, FaLock } from 'react-icons/fa';
+
 //import Login from '../../components/Login/Login';
 //import Register from '../../components/Register/Register';
-import axiosInstance from "../../utils/axiosInstance";
-import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
 
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); 
-    //const navigate = useNavigate();    
+    const navigate = useNavigate(); 
+    const dispatch = useDispatch(); 
+    const token  = useSelector(store => store.auth.token); 
+    const userInfo  = useSelector(store => store.auth.userInfo.name);     
+ 
 
     const handleLogin = () => {
         setIsLogin(true);
@@ -31,20 +41,20 @@ const Home = () => {
         setEmail(e.target.value);
     }
 
-    const onLogin = async () => {
-        try {
-            const response = await axiosInstance.post('/auth/login', { email, password });  // llamada al back y obtenemos el token       
-            const token = response.data.accessToken;
-            console.log('token', response.data);
-            localStorage.setItem('token', token);
-            onGetUser(token); 
+    const notify = () => toast("👋 Welcome ! " + userInfo);
 
-        } catch (error) {
-            alert("Incorrect email or password");
-            console.log(error);
-        }
+    const onLogin = () => {
+        dispatch( loginAction(email, password) );       
     }
 
+    useEffect(() => {
+        if (token) {
+            dispatch( getUserInfoAction(token) );     
+            notify();
+            navigate("/user/dashboard");
+        }
+    }, [token])
+    
  
 
   // Obtenemos los datos del usuario
@@ -59,12 +69,14 @@ const Home = () => {
 
             console.log(response.data);
             //window.localStorage.setItem('username', json.data.name);     
-            //navigate('/dashboard');
+            navigate('/dashboard');
 
         } catch(error) {
             alert("User info error: " + error);
         }
     }
+
+  
 
   return (
     <section className='home'>
@@ -73,7 +85,7 @@ const Home = () => {
             <h2 className='auth__title'>Login</h2>
             <input className='auth__input' type="text" placeholder='Email' value={email} onChange={handleChangeEmail}/>
             <input className='auth__input' type="text" placeholder='Password' value={password} onChange={handleChangePassword}/>
-            <button className='auth__btn' onClick={onLogin}>Sign In</button>
+            <button className='auth__btn' type='submit' onClick={onLogin}>Sign In</button>
             <p className='logwith'>Or login with:</p>
             <div className='social__wraper'>
                 <FaGithubAlt className='social__icon'/>
@@ -98,6 +110,17 @@ const Home = () => {
                 </div>
             </div>
         </div>}
+        <ToastContainer 
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
 
     </section>
   )

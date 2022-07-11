@@ -31,7 +31,18 @@ body {
   margin-left: 2rem;
   margin-right: 2rem;
 }
-.header__wraper .logout {
+.header__wraper .header__authwraper {
+  display: flex;
+  flex-direction: row;
+}
+.header__wraper .header__authwraper .icon__wraper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+}
+.header__wraper .header__authwraper .icon__wraper .auth__icon {
   color: white;
   display: flex;
   align-items: center;
@@ -42,6 +53,14 @@ body {
   padding: 1rem;
   border-radius: 100%;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
+}
+.header__wraper .header__authwraper .icon__wraper .auth__icon:hover {
+  cursor: pointer;
+  animation: shake 0.5s;
+}
+.header__wraper .header__authwraper .icon__wraper .auth__title {
+  color: hsl(248deg, 30%, 95%);
+  font-size: 1rem;
 }
 
 /*# sourceMappingURL=Header.css.map */
