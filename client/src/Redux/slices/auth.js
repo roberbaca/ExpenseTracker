@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axiosInstance from "../../utils/axiosInstance";
+import { toast } from 'react-toastify';
 
 // REDUCERS
 export const authSlice = createSlice({
@@ -7,10 +8,11 @@ export const authSlice = createSlice({
     initialState: {
         token: null,
         userInfo: {},
+        message: null,        
     },
     reducers: {
         login: (state, action) => {
-            state.token = action.payload;            
+            state.token = action.payload;                      
         },
 
         logout: (state, action) => {
@@ -19,11 +21,15 @@ export const authSlice = createSlice({
 
         getUserInfo: (state, action) => {
             state.userInfo = action.payload;;        
+        },
+
+        register: (state, action) => {
+            state.user = action.payload;;        
         }
     }
 });
 
-export const { login, logout, getUserInfo } = authSlice.actions;
+export const { login, logout, getUserInfo, register } = authSlice.actions;
 export default authSlice.reducer;
 
 
@@ -31,14 +37,15 @@ export default authSlice.reducer;
 export const loginAction = ( email, password ) => async (dispatch) => {    
     try {
         const response = await axiosInstance.post('/auth/login', { email, password });  // llamada al back y obtenemos el token       
-        const token = response.data.accessToken;           
-    
-        dispatch(login(token));         
-        console.log(token);
-        //localStorage.setItem('token', token);
+        const token = response.data.accessToken;       
+        dispatch(login(token));           
+        console.log(token);   
+        const notify = () => toast("✔️ Login successful");
+        notify();             
 
-    } catch (error) {
-        alert("Incorrect email or password");
+    } catch (error) {     
+        const notify = () => toast("❌ Incorrect email or password");
+        notify();
         console.log(error);
     }
 }
@@ -63,15 +70,29 @@ export const getUserInfoAction = (token)  => async (dispatch) => {
                 id: response.data.userId
             }
 
-            dispatch(getUserInfo(userInfo));         
+            dispatch(getUserInfo(userInfo));   
+            const notify = () => toast("👋 Welcome " + userInfo.name + " !" );
+            notify();           
             console.log(userInfo);
-        } 
-               
-        
-        //localStorage.setItem('token', token);
+        }      
 
     } catch (error) {
-        alert("User not found");
+        const notify = () => toast("❌ User not found");
+        notify()
+        console.log(error);
+    }
+}
+
+export const registerAction = ( name, email, password, role ) => async (dispatch) => {    
+    try {
+        const response = await axiosInstance.post('/auth/register', { name, email, password, role });  // llamada al back y obtenemos el token               
+        dispatch(register());  
+        const notify = () => toast("✔️ Register successful");
+        notify();                     
+
+    } catch (error) {
+        const notify = () => toast("❌ Error registering: " + error.response.data.message);
+        notify()
         console.log(error);
     }
 }
