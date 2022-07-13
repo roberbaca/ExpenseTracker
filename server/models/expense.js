@@ -118,7 +118,7 @@ const getTotalAmount = async (user) => {
             totalAmount += totalExpenses[i].amount;           ;
         }     
 
-       return ("Total Amount: $ " + totalAmount);
+       return (totalAmount);
         
     } catch(error) {
         console.log(error);

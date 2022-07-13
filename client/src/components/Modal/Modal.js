@@ -3,6 +3,8 @@ import ReactDom from 'react-dom'
 import '../../styles/Modal.css';
 import '../../styles/Global.css';
 import { AiOutlineClose } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
+import { addExpenseAction, showAllExpensesAction } from '../../Redux/slices/expenses';
 
 const OVERLAY_STYLES = {
   position: 'fixed',
@@ -14,39 +16,36 @@ const OVERLAY_STYLES = {
   zIndex: 1000
 }
 
-const categories = [    
-
-    {
-        id: 1,
-        title: 'Food',
-    },
-    {
-        id: 2,
-        title: 'Fuel',
-    },
-    {
-        id: 3,
-        title: 'Entertainment',
-    },
-    {
-        id: 4,
-        title: 'Other',
-    }
-]
-
-
 
 export default function Modal({ open, children, onClose }) {
-
-    const [dropdownValue, setDropdownValue] = useState('');
-
-    const handleDropdown = (e) => {
-        setDropdownValue(e.target.value);    
-    }  
+ 
+    const [title, setTitle] = useState("");
+    const [amount, setAmount] = useState(""); 
+    const [categoryId, setCategoryId] = useState(-1); 
+    const categories = useSelector(store => store.category.categoriesList);
+    const token  = useSelector(store => store.auth.token);     
+    
+    const dispatch = useDispatch(); 
 
     const createExpense = () => {
-        onClose();
+      dispatch( addExpenseAction(token, title, amount, categoryId ) );
+      dispatch( showAllExpensesAction(token) );   
+      onClose();
     }
+
+    const handleChangeCategory = (e) => {
+      setCategoryId(parseInt(e.target.value));
+    }
+
+    const handleChangeTitle = (e) => {
+      setTitle(e.target.value);
+    }
+
+    const handleChangeAmount = (e) => {     
+      setAmount(+e.target.value);
+    }
+
+
 
   if (!open) return null
 
@@ -59,16 +58,16 @@ export default function Modal({ open, children, onClose }) {
           <AiOutlineClose className='close__icon' onClick={onClose}/>
         </div>
         <div className='modal__body'>
-            <select className='select' onChange={handleDropdown}>                 
+            <select className='select' onChange={handleChangeCategory}>                 
                     { categories.map ( (category, index) => (
-                    <option key = {index} value = {category.title}>{category.title}</option>                     
+                    <option key = {index} value = {category.id}>{category.title}</option>                     
                 ))}
             </select>
-            <input className='modal__input' type="text" placeholder='Title'/>
-            <input className='modal__input' type="number" placeholder='Amount' />
+            <input className='modal__input' type="text" placeholder='Title' value={title} onChange={handleChangeTitle}/>
+            <input className='modal__input' type="number" placeholder='Amount' value={amount} onInput={handleChangeAmount}/>
             <input className='modal__input' type="date" placeholder='Date' />
             <textarea className='modal__textarea' type="text" placeholder='Description (optional)' />
-            <button className='modal__btn' onClick={createExpense}>Submit</button>   
+            <button className='modal__btn' type='submit' onClick={createExpense}>Submit</button>   
         </div>
 
 

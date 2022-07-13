@@ -5,7 +5,8 @@ import Modal from '../../components/Modal/Modal'
 import '../../styles/Dashboard.css';
 import '../../styles/Global.css';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { showAllExpensesAction } from '../../Redux/slices/expenses';
+import { getTotalBalanceAction, getCategoryBalanceAction, showAllExpensesAction, addExpenseAction } from '../../Redux/slices/expenses';
+import { showAllCategoriesAction } from '../../Redux/slices/category';
 
 const Dashboard = () => {
 
@@ -17,27 +18,11 @@ const Dashboard = () => {
 
     const token  = useSelector(store => store.auth.token); 
     const expenses  = useSelector(store => store.expenses.expensesList); 
+    const totalBalance  = useSelector(store => store.expenses.totalBalance); 
+    const categoryBalance  = useSelector(store => store.expenses.categoryBalance); 
+    const categories = useSelector(store => store.category.categoriesList);
 
-    const categories = [    
-
-        {
-            id: 1,
-            title: 'Food',
-        },
-        {
-            id: 2,
-            title: 'Fuel',
-        },
-        {
-            id: 3,
-            title: 'Entertainment',
-        },
-        {
-            id: 4,
-            title: 'Other',
-        }
-    ]
-        
+   
 /*
     const expenses = [
         {   
@@ -97,13 +82,14 @@ const Dashboard = () => {
     ];
 */
 
-
     const handleSearch = (e) => {
         setSearchValue(e.target.value.toUpperCase());
     }
 
     const handleDropdown = (e) => {
-        setDropdownValue(e.target.value);    
+        setDropdownValue(e.target.value); 
+        dispatch( getCategoryBalanceAction( dropdownValue, token) );     
+        console.log("el id es: " + e.target.value);        
     }    
 
     const addExpense = () => {
@@ -112,34 +98,44 @@ const Dashboard = () => {
 
     useEffect(() => {
         if (token) {
-            dispatch( showAllExpensesAction(token) );                 
+            dispatch( showAllExpensesAction(token) );   
+            dispatch( getTotalBalanceAction(token) );              
         }
     }, [token])
 
+    useEffect(() => {
+        dispatch( showAllCategoriesAction() );         
+    }, [])
+
+    useEffect(() => {
+        dispatch( showAllExpensesAction(token) );           
+    }, [expenses])
+
   return (
-    <section className='dashboard__section'>
+    <section className='dashboard__section'>       
     
         <div className='search__wraper'>
             
             <input type="text" placeholder='Search Expenses' className='searchbar' onChange={handleSearch}/>
             <select className='select' onChange={handleDropdown}>
                 <option value = "All">All</option>         
-            { categories.map ( (category, index) => (
-                    <option key = {index} value = {category.title}>{category.title}</option>                     
+            { categories?.map ( (category, index) => (
+                    <option key = {index} value = {category.id} id={category.id}>{category.title}</option>                     
                 ))}
             </select>
 
         </div>
 
         <div>
-            <p className='dashboard__info'>You've spent $ 4740,24 in a total of 2 expenses</p>
+            <p className='dashboard__info'>You've spent $ {totalBalance} in a total of {expenses?.length} expenses</p>
+            <p className='dashboard__info'>Category Balance $ {categoryBalance}</p>
         </div>
         <div className='cards__container'>   
 
-        { expenses.filter(e => dropdownValue === "All" ?
+        { expenses?.filter(e => dropdownValue === "All" ?
             e.title.toUpperCase().includes(searchvalue) : 
-            e.title.toUpperCase().includes(searchvalue) && e.category === dropdownValue).map( (e, index) => (
-                <Card key = {index} category={e.category} title={e.title} date={e.date} amount={e.amount}/>))
+            e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue).map( (e, index) => (
+                <Card key = {index} category={e.categoryId} title={e.title} date={e.date} amount={e.amount}/>))
         }
           
         </div>
