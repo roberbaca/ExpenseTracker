@@ -3,10 +3,17 @@ body {
   background-color: hsl(248deg, 30%, 95%);
 }
 
-.search__wraper {
-  margin-bottom: 2rem;
+.dashboard__section {
+  height: 100%;
+  margin-bottom: 6rem;
+  padding: 1rem;
 }
-.search__wraper .searchbar {
+.dashboard__section .search__wraper {
+  margin-left: 1rem;
+  display: flex;
+  align-items: flex-end;
+}
+.dashboard__section .search__wraper .searchbar {
   width: 20%;
   margin: 0;
   margin-right: 2rem;
@@ -21,17 +28,31 @@ body {
   font-weight: 300;
   height: 2rem;
 }
-.search__wraper .searchbar:focus {
+.dashboard__section .search__wraper .searchbar:focus {
   outline-color: #FF9D00;
   outline-style: dashed;
   outline-width: 0.2rem;
   outline-offset: 0.3rem;
 }
-.search__wraper .searchbar::placeholder {
+.dashboard__section .search__wraper .searchbar::placeholder {
   color: hsl(0deg, 0%, 66%);
 }
-.search__wraper .select {
+.dashboard__section .search__wraper .sort__title {
+  color: hsl(0deg, 0%, 66%);
+  font-size: 1rem;
+  margin-top: 0;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.dashboard__section .search__wraper .select__wraper {
+  display: flex;
+  flex-direction: column;
   width: 15%;
+}
+.dashboard__section .search__wraper .select__wraper .select {
+  width: 100%;
   margin: 0;
   margin-right: 2rem;
   border-radius: 2rem;
@@ -45,38 +66,94 @@ body {
   font-weight: 300;
   height: 3rem;
 }
-.search__wraper .select:focus {
+.dashboard__section .search__wraper .select__wraper .select:focus {
   outline-color: #FF9D00;
   outline-style: dashed;
   outline-width: 0.2rem;
   outline-offset: 0.3rem;
 }
-
-.cards__container {
+.dashboard__section .search__wraper .sort__wraper {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-left: 4rem;
+}
+.dashboard__section .search__wraper .sort__wraper .checkbox__wraper {
+  margin-right: 1rem;
+  height: 3rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
 }
-
-.dashboard__info {
+.dashboard__section .search__wraper .sort__wraper .checkbox__wraper .checkbox__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(222deg, 20%, 35%);
+  margin-left: 0.5rem;
+}
+.dashboard__section .search__wraper .sort__wraper .sort__checkboxwraper {
+  display: flex;
+}
+.dashboard__section .search__wraper .sort__wraper .sort__checkboxwraper .sort__checkbox {
+  appearance: none;
+  font: inherit;
+  display: grid;
+  place-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 20%;
+  border: none;
+  background: white;
+  box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
+  color: hsl(222deg, 20%, 35%);
+  margin: 0;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+.dashboard__section .search__wraper .sort__wraper .sort__checkboxwraper .sort__checkbox::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 20%;
+  border: none;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1.5rem 1.5rem hsl(150deg, 62%, 65%);
+  background-color: CanvasText;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+.dashboard__section .search__wraper .sort__wraper .sort__checkboxwraper .sort__checkbox:checked::before {
+  transform: scale(1);
+}
+.dashboard__section .dashboard__amountsummary {
+  margin-left: 1rem;
+}
+.dashboard__section .dashboard__amountsummary .dashboard__info {
   color: hsl(222deg, 20%, 35%);
   font-size: 2.5rem;
   font-weight: bold;
 }
-
-.add__wraper {
+.dashboard__section .cards__container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+}
+.dashboard__section .add__wraper {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   margin-bottom: 5rem;
   width: 100%;
 }
-
-.add__icon {
+.dashboard__section .add__wraper .add__icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +165,7 @@ body {
   border-radius: 100%;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
 }
-.add__icon:hover {
+.dashboard__section .add__wraper .add__icon:hover {
   cursor: pointer;
   animation: shake 0.5s;
 }

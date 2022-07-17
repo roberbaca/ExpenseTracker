@@ -17,7 +17,7 @@ const OVERLAY_STYLES = {
 }
 
 
-export default function Modal({ open, children, onClose }) {
+export default function AddExpenseModal({ open, children, onClose }) {
  
     const [title, setTitle] = useState("");
     const [amount, setAmount] = useState(""); 

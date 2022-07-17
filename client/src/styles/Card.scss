@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: space-between;
     width: 15rem;
-    height: 11rem;   
+    height: 15rem;   
     background: linear-gradient(to right, hsl(246, 94%, 67%), hsl(265, 94%, 67%));
     border-radius: 1.5rem;
     padding: 1rem;
@@ -17,34 +17,61 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        
-        .card__category {
-            color: lightgray;
-            font-size: 1.1rem;
-            margin: 0;       
-            margin-bottom: 0.2rem;    
-            text-align: left;
+        align-items: center;     
+
+        .card__icons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            .close__icon--delete {
+                width: 1.5rem;
+                height: 1.5rem;
+                background: linear-gradient(to right, hsl(0, 69%, 60%), hsl(0, 100%, 50%));
+                border-radius: 50%;
+                color: white;
+                padding: 0.3rem;
+                box-shadow: 3px 3px 6px Global.$shadow;
+    
+                &:hover {
+                    cursor: pointer;
+                    animation: shake 0.5s;
+                }
+            } 
+    
+            .close__icon--edit {
+                width: 1.5rem;
+                height: 1.5rem;
+                background: Global.$accept;
+                border-radius: 50%;
+                color: white;
+                padding: 0.3rem;
+                box-shadow: 3px 3px 6px Global.$shadow;
+    
+                &:hover {
+                    cursor: pointer;
+                    animation: shake 0.5s;
+                }
+            } 
         }
 
-        .close__icon {
-            width: 1.5rem;
-            height: 1.5rem;
-            background: linear-gradient(to right, hsl(0, 69%, 60%), hsl(0, 100%, 50%));
-            border-radius: 50%;
-            color: white;
-            padding: 0.3rem;
-            box-shadow: 3px 3px 6px Global.$shadow;
-
-            &:hover {
-                cursor: pointer;
-                animation: shake 0.5s;
-            }
-        }        
+        
+      
     }
 
     .title__container {
         width: 100%;
+
+        .card__category {
+            color: lightgray;
+            font-size: 1.1rem;
+            margin: 0;       
+            margin-bottom: 0.2rem;   
+            margin-top: 1rem; 
+            text-align: left;
+        }
 
         .card__title {
             color: white;
@@ -59,6 +86,7 @@
             color: lightgray;
             font-size: 1rem;
             margin: 0;
+            margin-bottom: 2rem;
             width: 100%;
             text-align: left;
         }
@@ -72,4 +100,12 @@
         width: 100%;
         text-align: right;
     }   
+
+    &:hover {
+        // cursor: pointer;
+        // outline-color: #FF9D00;
+        // outline-style:dashed;  
+        // outline-width: 0.2rem;    
+        // outline-offset: 0.4rem;  
+    }
 }

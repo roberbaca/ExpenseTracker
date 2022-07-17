@@ -1,18 +1,22 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../../components/Card/Card'
-import Modal from '../../components/Modal/Modal'
+import AddExpenseModal from '../../components/Modals/AddExpenseModal'
 import '../../styles/Dashboard.css';
 import '../../styles/Global.css';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { getTotalBalanceAction, getCategoryBalanceAction, showAllExpensesAction, addExpenseAction } from '../../Redux/slices/expenses';
 import { showAllCategoriesAction } from '../../Redux/slices/category';
+import { format, parseISO, set } from 'date-fns'
+
 
 const Dashboard = () => {
 
     const [searchvalue, setSearchValue] = useState('');
     const [dropdownValue, setDropdownValue] = useState('All');
     const [isModalOpen, setModalIsOpen] = useState(false);
+    const [isChecked, setIsChecked] = useState(true);
+    const [isSortedBy, setIsSortedBy] = useState("date");
 
     const dispatch = useDispatch(); 
 
@@ -22,6 +26,8 @@ const Dashboard = () => {
     const categoryBalance  = useSelector(store => store.expenses.categoryBalance); 
     const categories = useSelector(store => store.category.categoriesList);
 
+    let sortedExpenses = [...expenses];
+    
    
 /*
     const expenses = [
@@ -89,26 +95,46 @@ const Dashboard = () => {
     const handleDropdown = (e) => {
         setDropdownValue(e.target.value); 
         dispatch( getCategoryBalanceAction( dropdownValue, token) );     
-        console.log("el id es: " + e.target.value);        
+        console.log("el id es: " + e.target.value); 
+          
     }    
+
+    const handleOnChange = (e) => {
+        setIsChecked(!isChecked);
+        setIsSortedBy(e.target.value);
+        //console.log(e.target.value);       
+    };
+
 
     const addExpense = () => {
         setModalIsOpen(true);        
     }
 
+    /*
+    const editExpense = () => {
+        setEditExpenseModalIsOpen(true);   
+        console.log("clickeando editar");
+    }
+    */
+
+
+ 
+
+
     useEffect(() => {
         if (token) {
             dispatch( showAllExpensesAction(token) );   
-            dispatch( getTotalBalanceAction(token) );              
+            dispatch( getTotalBalanceAction(token) );                                
         }
     }, [token])
 
     useEffect(() => {
-        dispatch( showAllCategoriesAction() );         
+        dispatch( showAllCategoriesAction() );           
     }, [])
 
     useEffect(() => {
-        dispatch( showAllExpensesAction(token) );           
+        dispatch( showAllExpensesAction(token) ); 
+        sortedExpenses = [...expenses];           
     }, [expenses])
 
   return (
@@ -117,39 +143,56 @@ const Dashboard = () => {
         <div className='search__wraper'>
             
             <input type="text" placeholder='Search Expenses' className='searchbar' onChange={handleSearch}/>
-            <select className='select' onChange={handleDropdown}>
-                <option value = "All">All</option>         
-            { categories?.map ( (category, index) => (
-                    <option key = {index} value = {category.id} id={category.id}>{category.title}</option>                     
-                ))}
-            </select>
+            <div className='select__wraper'>
+                <p className='sort__title'>Sort by Category</p>
+                <select className='select' onChange={handleDropdown}>
+                    <option value = "All">All</option>         
+                { categories?.map ( (category, index) => (
+                        <option key = {index} value = {category.id} id={category.id}>{category.title}</option>                     
+                    ))}
+                </select>
+            </div>
+            <div className='sort__wraper'>
+                <p className='sort__title'>Sort by:</p>
+                <div className='sort__checkboxwraper'>
+                    <div className='checkbox__wraper'>
+                        <input type="checkbox" id='amount' value={"amount"} className="sort__checkbox" checked={!isChecked} onChange={handleOnChange}/>
+                        <label htmlFor="amount" className='checkbox__label'>Amount</label>
+                    </div>
+                    <div className='checkbox__wraper'>
+                        <input type="checkbox" id='date' value={"date"} className="sort__checkbox" checked={isChecked} onChange={handleOnChange}/>
+                        <label htmlFor="date" className='checkbox__label'>Date</label>
+                    </div>
+                </div>
+            </div>
+            
 
         </div>
 
-        <div>
+        <div className='dashboard__amountsummary'>
             <p className='dashboard__info'>You've spent $ {totalBalance} in a total of {expenses?.length} expenses</p>
             <p className='dashboard__info'>Category Balance $ {categoryBalance}</p>
         </div>
-        <div className='cards__container'>   
 
-        { expenses?.filter(e => dropdownValue === "All" ?
-            e.title.toUpperCase().includes(searchvalue) : 
-            e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue).map( (e, index) => (
-                <Card key = {index} category={e.categoryId} title={e.title} date={e.date} amount={e.amount}/>))
-        }
-          
+        <div className='cards__container'>   
+            {  isSortedBy === "date"? 
+                sortedExpenses.sort((d1, d2) => new Date(d2.date).getTime() - new Date(d1.date).getTime()).filter(e => dropdownValue === "All" ?
+                    e.title.toUpperCase().includes(searchvalue) : 
+                    e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue). map( (e, index) => (
+                        <Card key = {index} id={e.id} category={ categories[e.categoryId-1].title} title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />)):
+                sortedExpenses.sort((a, b) => parseFloat(b.amount) - parseFloat(a.amount)).filter(e => dropdownValue === "All" ?
+                    e.title.toUpperCase().includes(searchvalue) : 
+                    e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue). map( (e, index) => (
+                        <Card key = {index} id={e.id} category={ categories[e.categoryId-1].title} title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />))
+            }    
         </div>
 
         <div className='add__wraper'>
             <AiOutlinePlus className='add__icon' onClick={addExpense}/>
         </div>
 
-
-
-
         {/* Pop Ups (Modal) */}        
-      <Modal open={isModalOpen} onClose={() => setModalIsOpen(false)}></Modal>
-
+        <AddExpenseModal open={isModalOpen} onClose={() => setModalIsOpen(false)}></AddExpenseModal>       
 
         
     </section>
@@ -158,4 +201,16 @@ const Dashboard = () => {
 
 export default Dashboard
 
-{/* {expenses.filter(e => e.title.toUpperCase().includes(searchvalue)).map( (expense, index) => <Card key = {index} category={expense.category} title={expense.title} date={expense.date} amount={expense.amount}/>)} */}
+
+/*
+ { expenses?.filter(e => dropdownValue === "All" ?
+            e.title.toUpperCase().includes(searchvalue) : 
+            e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue). map( (e, index) => (
+                <Card key = {index} id={e.id} category={ categories[e.categoryId-1].title} title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />))
+        }
+
+*/
+
+   {/* .sort((a, b) => parseFloat(b.amount) - parseFloat(a.amount)) 
+         sort((d1, d2) => new Date(d2.date).getTime() - new Date(d1.date).getTime()).
+         */}
