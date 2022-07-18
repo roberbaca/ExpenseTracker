@@ -1,6 +1,6 @@
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: hsl(248deg, 30%, 95%);
+  background-color: #d0dfeb;
 }
 
 .card__wraper {
@@ -10,7 +10,7 @@ body {
   justify-content: space-between;
   width: 15rem;
   height: 15rem;
-  background: linear-gradient(to right, hsl(246deg, 94%, 67%), hsl(265deg, 94%, 67%));
+  background: linear-gradient(90deg, rgb(24, 51, 75) 0%, rgb(57, 94, 123) 100%);
   border-radius: 1.5rem;
   padding: 1rem;
   margin: 1rem;
@@ -45,7 +45,7 @@ body {
 .card__wraper .close__wraper .card__icons .close__icon--edit {
   width: 1.5rem;
   height: 1.5rem;
-  background: linear-gradient(to right bottom, hsl(150deg, 62%, 65%), hsl(176deg, 68%, 64%));
+  background: linear-gradient(to right bottom, hsl(150deg, 71%, 73%), #86cc6d);
   border-radius: 50%;
   color: white;
   padding: 0.3rem;

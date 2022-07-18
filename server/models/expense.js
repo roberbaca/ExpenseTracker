@@ -59,26 +59,26 @@ const getExpensesByCategory = async (category, user) => {
 // obtenemos gasto total por categoria
 const getTotalAmountByCategory = async (category, user) => {
 
-    let total = 0;
-
+    let subTotal = 0;    
+    
     try {
-        const expenses = await prisma.expense.findMany({           
-              where: {
-                categoryId: category,
-                userId: user  
+        const filteredExpenses = await prisma.expense.findMany({
+            where: {   
+                categoryId: category,    
+                           
               },
               select: {
                 title: true,
                 amount: true,
                 date: true
               },
-        })           
+        });
        
-        for (let i = 0; i < expenses.length; i++) {
-            total += expenses[i].amount;           ;
+        for (let i = 0; i < filteredExpenses.length; i++) {
+            subTotal += filteredExpenses[i].amount;           ;
         }     
-       
-        return (`Total Amount in Category: $ ` + total);
+
+       return (subTotal);
         
     } catch(error) {
         console.log(error);
@@ -126,5 +126,48 @@ const getTotalAmount = async (user) => {
     }
 }
 
+const editExpense = async (id, date, title, amount, categoryId, userId) => {
+    try {
+        const expense = await prisma.expense.update({
+            where: {
+                id: id
+            },
+            data: {
+                date: date,
+                title: title,
+                amount: amount,
+                category: {
+                    connect: {
+                        id: categoryId
+                    }
+                },
+                user: {
+                    connect: {
+                        id: userId
+                    }
+                }
+            }
+        })
+        return expense;
+    } catch(error) {
+        console.log(error);
+        throw new Error(error);
+    }
+}
 
-module.exports = { create, getExpensesByCategory, getTotalAmount, getAllExpenses, getTotalAmountByCategory };
+const deleteExpense = async (id) => {
+    try {
+        const expense = await prisma.expense.delete({
+            where: {
+                id: id
+            }
+        })
+        return expense;
+    } catch(error) {
+        console.log(error);
+        throw new Error(error);
+    }
+}
+
+
+module.exports = { create, getExpensesByCategory, getTotalAmount, getAllExpenses, getTotalAmountByCategory, editExpense, deleteExpense };

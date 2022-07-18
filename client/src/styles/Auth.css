@@ -1,6 +1,6 @@
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: hsl(248deg, 30%, 95%);
+  background-color: #d0dfeb;
 }
 
 .auth__wraper {
@@ -10,7 +10,7 @@ body {
   justify-content: space-between;
   width: 25rem;
   height: 35rem;
-  background: linear-gradient(90deg, hsl(217deg, 100%, 50%) 0%, hsl(186deg, 100%, 69%) 100%);
+  background: linear-gradient(90deg, rgb(24, 51, 75) 0%, rgb(57, 94, 123) 100%);
   border-radius: 1.5rem;
   padding: 1rem;
   margin-bottom: 2rem;
@@ -30,7 +30,7 @@ body {
   border: none;
   padding: 0.5rem;
   padding-left: 1rem;
-  background: hsl(248deg, 30%, 95%);
+  background: #d0dfeb;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
   color: hsl(222deg, 20%, 35%);
   font-size: 1rem;
@@ -38,18 +38,18 @@ body {
   height: 2rem;
 }
 .auth__wraper .auth__input:focus {
-  outline-color: #FF9D00;
+  outline-color: #86cc6d;
   outline-style: dashed;
   outline-width: 0.2rem;
   outline-offset: 0.3rem;
 }
 .auth__wraper .auth__btn {
-  background-color: #00FFED;
+  background: linear-gradient(to right bottom, hsl(150deg, 71%, 73%), #86cc6d);
   border-radius: 2rem;
   border: none;
   padding: 0.5rem;
   margin-top: 2rem;
-  color: #0066FF;
+  color: hsl(222deg, 20%, 35%);
   box-sizing: border-box;
   width: 8rem;
   font-size: 1.5rem;
@@ -69,7 +69,7 @@ body {
   color: hsl(222deg, 20%, 35%);
   font-size: 2.5rem;
   margin: 0.5rem;
-  background-color: hsl(248deg, 30%, 95%);
+  background-color: #d0dfeb;
   padding: 0.5rem;
   border-radius: 100%;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
@@ -86,7 +86,7 @@ body {
   margin-top: 1rem;
 }
 .auth__wraper .sign .sign__title {
-  color: #FF0066;
+  color: #ff473d;
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 1rem;

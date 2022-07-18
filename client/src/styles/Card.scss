@@ -7,7 +7,8 @@
     justify-content: space-between;
     width: 15rem;
     height: 15rem;   
-    background: linear-gradient(to right, hsl(246, 94%, 67%), hsl(265, 94%, 67%));
+    //background: linear-gradient(to right, hsl(246, 94%, 67%), hsl(265, 94%, 67%));
+    background: Global.$main;
     border-radius: 1.5rem;
     padding: 1rem;
     margin: 1rem;      

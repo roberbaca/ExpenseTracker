@@ -94,14 +94,15 @@ export const getTotalBalanceAction = ( token ) => async (dispatch) => {
 export const getCategoryBalanceAction = ( category, token ) => async (dispatch) => {    
     try {
         if (token) {
-            const response = await axiosInstance.get('/expenses/balance-by-category', {category}, {
+            const response = await axiosInstance.get(`/expenses/balance-by-category/${category}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
-                }  
+                },               
+                
             });           
 
             //console.log(response.data);
-            return dispatch(getCategoryBalance());         
+            return dispatch(getCategoryBalance(response.data));         
         }   
 
     } catch (error) {     

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: hsl(248deg, 30%, 95%);
+  background-color: #d0dfeb;
 }
 
 .modal__card {
@@ -9,7 +9,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: hsl(248deg, 30%, 95%);
+  background-color: #d0dfeb;
   z-index: 1000;
   width: 20rem;
   height: 35rem;
@@ -20,12 +20,12 @@ body {
 .modal__card .modal__header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 0.2rem solid hsl(0deg, 0%, 66%);
+  border-bottom: 0.2rem solid #2c4e6b;
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
 .modal__card .modal__header .modal__title {
-  color: hsl(222deg, 20%, 35%);
+  color: #2c4e6b;
   font-size: 2rem;
   font-weight: bold;
   margin: 0;
@@ -66,7 +66,7 @@ body {
   height: 3rem;
 }
 .modal__card .modal__body .select:focus {
-  outline-color: #FF9D00;
+  outline-color: #86cc6d;
   outline-style: dashed;
   outline-width: 0.2rem;
   outline-offset: 0.3rem;
@@ -87,7 +87,7 @@ body {
   height: 2rem;
 }
 .modal__card .modal__body .modal__input:focus {
-  outline-color: #FF9D00;
+  outline-color: #86cc6d;
   outline-style: dashed;
   outline-width: 0.2rem;
   outline-offset: 0.3rem;
@@ -111,7 +111,7 @@ body {
   height: 6rem;
 }
 .modal__card .modal__body .modal__textarea:focus {
-  outline-color: #FF9D00;
+  outline-color: #86cc6d;
   outline-style: dashed;
   outline-width: 0.2rem;
   outline-offset: 0.3rem;
@@ -120,12 +120,12 @@ body {
   color: hsl(0deg, 0%, 66%);
 }
 .modal__card .modal__body .modal__btn {
-  background-color: #00FFED;
+  background: linear-gradient(to right bottom, hsl(150deg, 71%, 73%), #86cc6d);
   border-radius: 2rem;
   border: none;
   padding: 0.5rem;
   margin-top: 2rem;
-  color: #0066FF;
+  color: #3a3a3a;
   box-sizing: border-box;
   width: 8rem;
   font-size: 1.5rem;

@@ -1,6 +1,6 @@
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: hsl(248deg, 30%, 95%);
+  background-color: #d0dfeb;
 }
 
 .dashboard__section {
@@ -160,7 +160,7 @@ body {
   color: white;
   font-size: 3rem;
   margin-right: 2rem;
-  background: linear-gradient(to right bottom, hsl(150deg, 62%, 65%), hsl(176deg, 68%, 64%));
+  background: linear-gradient(to right bottom, hsl(150deg, 71%, 73%), #86cc6d);
   padding: 0.4rem;
   border-radius: 100%;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);

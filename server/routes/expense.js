@@ -12,8 +12,12 @@ router.get("/all", isLogged, expensesController.showAll);
 
 router.get("/search", isLogged, expensesController.searchByCategory);
 
-router.get("/balance-by-category", isLogged, expensesController.getBalanceByCategory);
+router.get("/balance-by-category/:id", isLogged, expensesController.getBalanceByCategory);
 
 router.get("/balance", isLogged, expensesController.getBalance);
+
+router.patch("/edit-expense", isLogged, expensesController.updateExpense);
+
+router.delete("/delete-expense", isLogged, expensesController.deleteExpense);
 
 module.exports = router;

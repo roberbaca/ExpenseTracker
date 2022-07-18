@@ -94,15 +94,14 @@ const Dashboard = () => {
 
     const handleDropdown = (e) => {
         setDropdownValue(e.target.value); 
-        dispatch( getCategoryBalanceAction( dropdownValue, token) );     
-        console.log("el id es: " + e.target.value); 
-          
+        if (dropdownValue !== "All") {
+            dispatch( getCategoryBalanceAction( dropdownValue, token) );     
+        }           
     }    
 
     const handleOnChange = (e) => {
         setIsChecked(!isChecked);
-        setIsSortedBy(e.target.value);
-        //console.log(e.target.value);       
+        setIsSortedBy(e.target.value);              
     };
 
 
@@ -170,8 +169,9 @@ const Dashboard = () => {
         </div>
 
         <div className='dashboard__amountsummary'>
-            <p className='dashboard__info'>You've spent $ {totalBalance} in a total of {expenses?.length} expenses</p>
-            <p className='dashboard__info'>Category Balance $ {categoryBalance}</p>
+            {dropdownValue === "All" && <p className='dashboard__info'>You've spent {totalBalance} in a total of {expenses?.length} expenses</p>}
+            {dropdownValue !== "All" && <p className='dashboard__info'>Amount spent in {categories[dropdownValue -1]?.title}: {categoryBalance}</p>}
+            
         </div>
 
         <div className='cards__container'>   
@@ -179,7 +179,7 @@ const Dashboard = () => {
                 sortedExpenses.sort((d1, d2) => new Date(d2.date).getTime() - new Date(d1.date).getTime()).filter(e => dropdownValue === "All" ?
                     e.title.toUpperCase().includes(searchvalue) : 
                     e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue). map( (e, index) => (
-                        <Card key = {index} id={e.id} category={ categories[e.categoryId-1].title} title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />)):
+                        <Card key = {index} id={e.id} category={ categories[e.categoryId-1]?.title } title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />)):
                 sortedExpenses.sort((a, b) => parseFloat(b.amount) - parseFloat(a.amount)).filter(e => dropdownValue === "All" ?
                     e.title.toUpperCase().includes(searchvalue) : 
                     e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue). map( (e, index) => (

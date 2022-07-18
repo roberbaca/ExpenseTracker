@@ -47,16 +47,17 @@ const searchByCategory = async (req, res) => {
 // Se busca monto total por categoria
 const getBalanceByCategory = async (req, res) => {
     try {
-        const category = req.body.category;
+        const id = Number(req.params.id);
         const user = req.user; 
-        const getBalance = await expense.getTotalAmountByCategory(category, user.id);
-        res.send(getBalance);
+        const categoryBalance = await expense.getTotalAmountByCategory(id, user.id);
+        res.status(200).send("$ " + (Math.round(categoryBalance*100)/100).toFixed(2));
     } catch(error) {
         console.log(error);
         res.statusCode = 500;
         res.send(error.message);
     }
 }
+
 
 
 // mostrar todo el listado de gastos
@@ -77,7 +78,37 @@ const getBalance = async (req, res) => {
     try {    
         const user = req.user;       
         const total = await expense.getTotalAmount(user.id);
-        res.send(total);
+        res.status(200).send("$ " + (Math.round(total*100)/100).toFixed(2));
+    } catch(error) {
+        console.log(error);
+        res.statusCode = 500;
+        res.send(error.message);
+    }
+}
+
+const deleteExpense = async (req, res) => {
+    try {
+        const id = req.body.id;
+        const user = req.user;
+        const expense = await expense.deleteExpense(id, user.id);
+        res.send(expense);
+    } catch(error) {
+        console.log(error);
+        res.statusCode = 500;
+        res.send(error.message);
+    }
+}
+
+const updateExpense = async (req, res) => {
+    try {
+        const id = req.body.id;
+        const date = req.body.date;
+        const title = req.body.title;
+        const amount = req.body.amount;
+        const category = req.body.category;
+        const user = req.user;
+        const expense = await expense.updateExpense(id, date, title, amount, category, user.id);
+        res.send(expense);
     } catch(error) {
         console.log(error);
         res.statusCode = 500;
@@ -86,6 +117,6 @@ const getBalance = async (req, res) => {
 }
 
 
-module.exports = { helloWorld, addExpense, searchByCategory, getBalance, showAll, getBalanceByCategory };
+module.exports = { helloWorld, addExpense, searchByCategory, getBalance, showAll, getBalanceByCategory, deleteExpense, updateExpense };
 
 

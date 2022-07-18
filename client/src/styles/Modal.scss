@@ -16,12 +16,12 @@
     .modal__header {
         display: flex;
         justify-content: space-between;
-        border-bottom: 0.2rem solid Global.$txt-grey;
+        border-bottom: 0.2rem solid Global.$darkblue;
         padding-bottom: 1rem;
         margin-bottom: 2rem;
 
         .modal__title {
-            color: Global.$txt-main;
+            color: Global.$darkblue;
             font-size: 2rem;
             font-weight: bold;
             margin: 0;            
@@ -66,7 +66,7 @@
             height: 3rem;   
 
             &:focus {
-                outline-color: #FF9D00;
+                outline-color: Global.$okey;
                 outline-style:dashed;  
                 outline-width: 0.2rem;    
                 outline-offset: 0.3rem;
@@ -89,7 +89,7 @@
             height: 2rem;   
     
             &:focus {
-              outline-color: #FF9D00;
+              outline-color: Global.$okey;
               outline-style:dashed;  
               outline-width: 0.2rem;    
               outline-offset: 0.3rem;  
@@ -116,7 +116,7 @@
             height: 6rem;   
     
             &:focus {
-              outline-color: #FF9D00;
+              outline-color: Global.$okey;
               outline-style:dashed;  
               outline-width: 0.2rem;    
               outline-offset: 0.3rem;  
@@ -128,12 +128,12 @@
         }  
         
         .modal__btn {
-            background-color: #00FFED;   
+            background: Global.$accept;   
             border-radius: 2rem;
             border: none;        
             padding: 0.5rem;
             margin-top: 2rem;
-            color: #0066FF;
+            color: Global.$title;
             box-sizing: border-box;
             width: 8rem;
             font-size: 1.5rem;

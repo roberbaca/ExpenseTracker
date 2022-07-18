@@ -7,7 +7,8 @@
     justify-content: space-between;
     width: 25rem;
     height: 35rem; 
-    background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    //background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    background: Global.$main;
     border-radius: 1.5rem;
     padding: 1rem;
     margin-bottom: 2rem;    
@@ -37,19 +38,19 @@
     }
 
     .auth__input:focus {      
-        outline-color: #FF9D00;
+        outline-color: Global.$okey;
         outline-style:dashed;  
         outline-width: 0.2rem;    
         outline-offset: 0.3rem;          
     }
 
     .auth__btn {
-        background-color: #00FFED;   
+        background: Global.$accept;   
         border-radius: 2rem;
         border: none;        
         padding: 0.5rem;
         margin-top: 2rem;
-        color: #0066FF;
+        color: Global.$txt-main;
         box-sizing: border-box;
         width: 8rem;
         font-size: 1.5rem;
@@ -94,7 +95,7 @@
         margin-top: 1rem;      
 
         .sign__title {
-            color: #FF0066;
+            color: Global.$error;
             font-size: 1.2rem;
             font-weight: bold;
             margin-top: 1rem;   

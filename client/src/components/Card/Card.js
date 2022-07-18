@@ -77,7 +77,7 @@ const Card = ( {id, category, title, date, amount } ) => {
 
       <EditExpenseModal open={isEditExpenseModalOpen} onClose={() => setEditExpenseModalIsOpen(false)}>
         <div className='modal__body'>
-              <select className='select' onChange={handleChangeCategory} value={category.id}>                 
+              <select className='select' onChange={handleChangeCategory} value={category?.id}>                 
                       <option value="" selected disabled hidden>Select Category</option>
                       { categories.map ( (category, index) => (
                       <option key = {index} value = {category.id}>{category.title}</option>                     
