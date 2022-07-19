@@ -18,6 +18,14 @@ export const expensesSlice = createSlice({
             state.expensesList = action.payload;            
         },
 
+        updateExpense: (state, action) => {
+            state.expensesList = action.payload;            
+        },
+
+        deleteExpense: (state, action) => {
+            state.expensesList = action.payload;            
+        },
+
         getCategoryBalance: (state, action) => {
             state.categoryBalance = action.payload;            
         },
@@ -29,7 +37,7 @@ export const expensesSlice = createSlice({
     }
 });
 
-export const { showAllExpenses, addExpense, getCategoryBalance, getTotalBalance } = expensesSlice.actions;
+export const { showAllExpenses, addExpense, updateExpense, deleteExpense, getCategoryBalance, getTotalBalance } = expensesSlice.actions;
 export default expensesSlice.reducer;
 
 
@@ -46,8 +54,7 @@ export const showAllExpensesAction = ( token ) => async (dispatch) => {
                 }  
             });           
 
-            dispatch(showAllExpenses(response.data));         
-            //console.log(response.data);
+            dispatch(showAllExpenses(response.data));           
         }   
 
     } catch (error) {     
@@ -81,8 +88,7 @@ export const getTotalBalanceAction = ( token ) => async (dispatch) => {
                     Authorization: `Bearer ${token}`
                 }  
             });           
-
-            //console.log(response.data);
+            
             return dispatch(getTotalBalance(response.data));         
         }   
 
@@ -101,7 +107,6 @@ export const getCategoryBalanceAction = ( category, token ) => async (dispatch) 
                 
             });           
 
-            //console.log(response.data);
             return dispatch(getCategoryBalance(response.data));         
         }   
 
@@ -109,6 +114,25 @@ export const getCategoryBalanceAction = ( category, token ) => async (dispatch) 
         console.log(error);
     }
 }
+
+export const deleteExpenseAction = ( id, token ) => async (dispatch) => {    
+    try {
+        if (token) {
+            const response = await axiosInstance.delete(`/expenses/delete/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },               
+                
+            });           
+
+            return dispatch(deleteExpense(response.data));         
+        }   
+
+    } catch (error) {     
+        console.log(error);
+    }
+}
+
 
 
 

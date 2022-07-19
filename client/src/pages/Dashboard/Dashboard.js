@@ -5,7 +5,7 @@ import AddExpenseModal from '../../components/Modals/AddExpenseModal'
 import '../../styles/Dashboard.css';
 import '../../styles/Global.css';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { getTotalBalanceAction, getCategoryBalanceAction, showAllExpensesAction, addExpenseAction } from '../../Redux/slices/expenses';
+import { getTotalBalanceAction, getCategoryBalanceAction, showAllExpensesAction } from '../../Redux/slices/expenses';
 import { showAllCategoriesAction } from '../../Redux/slices/category';
 import { format, parseISO, set } from 'date-fns'
 
@@ -16,7 +16,8 @@ const Dashboard = () => {
     const [dropdownValue, setDropdownValue] = useState('All');
     const [isModalOpen, setModalIsOpen] = useState(false);
     const [isChecked, setIsChecked] = useState(true);
-    const [isSortedBy, setIsSortedBy] = useState("date");
+    const [isSortedBy, setIsSortedBy] = useState("date");   
+    const [sortedExpenses, setSortedExpenses] = useState([]); 
 
     const dispatch = useDispatch(); 
 
@@ -26,7 +27,8 @@ const Dashboard = () => {
     const categoryBalance  = useSelector(store => store.expenses.categoryBalance); 
     const categories = useSelector(store => store.category.categoriesList);
 
-    let sortedExpenses = [...expenses];
+    //let sortedExpenses = [...expenses];    
+  
     
    
 /*
@@ -93,9 +95,10 @@ const Dashboard = () => {
     }
 
     const handleDropdown = (e) => {
-        setDropdownValue(e.target.value); 
-        if (dropdownValue !== "All") {
-            dispatch( getCategoryBalanceAction( dropdownValue, token) );     
+        let categoryId = e.target.value;        
+        setDropdownValue(categoryId); 
+        if (categoryId !== "All") {
+            dispatch( getCategoryBalanceAction( categoryId, token) );                
         }           
     }    
 
@@ -107,34 +110,29 @@ const Dashboard = () => {
 
     const addExpense = () => {
         setModalIsOpen(true);        
-    }
-
-    /*
-    const editExpense = () => {
-        setEditExpenseModalIsOpen(true);   
-        console.log("clickeando editar");
-    }
-    */
+    } 
 
 
- 
-
-
+    
     useEffect(() => {
         if (token) {
             dispatch( showAllExpensesAction(token) );   
-            dispatch( getTotalBalanceAction(token) );                                
+            dispatch( getTotalBalanceAction(token) ); 
+            dispatch( showAllCategoriesAction() );                                
         }
     }, [token])
 
-    useEffect(() => {
-        dispatch( showAllCategoriesAction() );           
-    }, [])
+
 
     useEffect(() => {
-        dispatch( showAllExpensesAction(token) ); 
-        sortedExpenses = [...expenses];           
+        //dispatch( showAllExpensesAction(token) );     
+        let expensesCopy = JSON.parse(JSON.stringify(expenses));        
+        setSortedExpenses(expensesCopy)                
+        console.log("hola");
     }, [expenses])
+
+
+
 
   return (
     <section className='dashboard__section'>       

@@ -86,12 +86,13 @@ const getBalance = async (req, res) => {
     }
 }
 
+// borra un gasto
 const deleteExpense = async (req, res) => {
     try {
-        const id = req.body.id;
+        const id = Number(req.params.id);
         const user = req.user;
-        const expense = await expense.deleteExpense(id, user.id);
-        res.send(expense);
+        const deletedExpense = await expense.deleteExpense(id, user.id);
+        res.send(deletedExpense);
     } catch(error) {
         console.log(error);
         res.statusCode = 500;
@@ -99,6 +100,7 @@ const deleteExpense = async (req, res) => {
     }
 }
 
+// actualiza un gasto
 const updateExpense = async (req, res) => {
     try {
         const id = req.body.id;

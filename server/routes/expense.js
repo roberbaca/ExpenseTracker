@@ -16,8 +16,8 @@ router.get("/balance-by-category/:id", isLogged, expensesController.getBalanceBy
 
 router.get("/balance", isLogged, expensesController.getBalance);
 
-router.patch("/edit-expense", isLogged, expensesController.updateExpense);
+router.patch("/edit", isLogged, expensesController.updateExpense);
 
-router.delete("/delete-expense", isLogged, expensesController.deleteExpense);
+router.delete("/delete/:id", isLogged, expensesController.deleteExpense);
 
 module.exports = router;

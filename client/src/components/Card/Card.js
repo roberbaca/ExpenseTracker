@@ -6,6 +6,7 @@ import '../../styles/Global.css';
 import { AiOutlineClose } from 'react-icons/ai';
 import { FiEdit } from 'react-icons/fi';
 import { format, parseISO } from 'date-fns'
+import { deleteExpenseAction, showAllExpensesAction } from '../../Redux/slices/expenses';
 
 
 
@@ -13,14 +14,17 @@ const Card = ( {id, category, title, date, amount } ) => {
 
   const [isEditExpenseModalOpen, setEditExpenseModalIsOpen] = useState(false);
   const categories = useSelector(store => store.category.categoriesList);
+  const token  = useSelector(store => store.auth.token); 
   //const [title, setTitle] = useState("");
   //const [amount, setAmount] = useState(""); 
   //const [categoryId, setCategoryId] = useState(-1); 
+  const dispatch = useDispatch(); 
 
   const deleteExpense = () => {
     console.log("delete expense number " + id);
-    
-  }
+    dispatch( deleteExpenseAction( id, token) );  
+    dispatch( showAllExpensesAction(token) );      
+}
 
   const editExpense = () => {
     console.log("delete expense number " + id);    

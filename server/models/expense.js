@@ -31,7 +31,7 @@ const create = async (date, title, amount, categoryId, userId) => {
     }
 }
 
-// obtenemos todos los gastos por categoria para un usuario determinado
+// obtenemos todos los gastos por categoria
 const getExpensesByCategory = async (category, user) => { 
 
     try {
@@ -56,7 +56,7 @@ const getExpensesByCategory = async (category, user) => {
 }
 
 
-// obtenemos gasto total por categoria
+// obtenemos monto por categoria
 const getTotalAmountByCategory = async (category, user) => {
 
     let subTotal = 0;    
@@ -64,7 +64,8 @@ const getTotalAmountByCategory = async (category, user) => {
     try {
         const filteredExpenses = await prisma.expense.findMany({
             where: {   
-                categoryId: category,    
+                categoryId: category,   
+                userId: user       // verificar si esta bien
                            
               },
               select: {
@@ -86,7 +87,7 @@ const getTotalAmountByCategory = async (category, user) => {
     }
 }
 
-// obtenemos el listado completo
+// obtenemos el listado completo de gastos
 const getAllExpenses = async (user) => {
     try {
         const allExpenses = await prisma.expense.findMany({
@@ -126,6 +127,7 @@ const getTotalAmount = async (user) => {
     }
 }
 
+// para actualizar un gasto
 const editExpense = async (id, date, title, amount, categoryId, userId) => {
     try {
         const expense = await prisma.expense.update({
@@ -155,11 +157,12 @@ const editExpense = async (id, date, title, amount, categoryId, userId) => {
     }
 }
 
+// para eliminar un gasto
 const deleteExpense = async (id) => {
     try {
         const expense = await prisma.expense.delete({
             where: {
-                id: id
+                id: id                 
             }
         })
         return expense;

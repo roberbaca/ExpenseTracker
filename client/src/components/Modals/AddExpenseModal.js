@@ -58,7 +58,8 @@ export default function AddExpenseModal({ open, children, onClose }) {
           <AiOutlineClose className='close__icon' onClick={onClose}/>
         </div>
         <div className='modal__body'>
-            <select className='select' onChange={handleChangeCategory}>                 
+            <select className='select' defaultValue={"Default"} onChange={handleChangeCategory}>    
+                    <option value={"Default"} disabled>Select Category</option>             
                     { categories.map ( (category, index) => (
                     <option key = {index} value = {category.id}>{category.title}</option>                     
                 ))}
