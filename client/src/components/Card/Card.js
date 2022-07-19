@@ -9,21 +9,18 @@ import { format, parseISO } from 'date-fns'
 import { deleteExpenseAction, showAllExpensesAction } from '../../Redux/slices/expenses';
 
 
-
 const Card = ( {id, category, title, date, amount } ) => {
 
   const [isEditExpenseModalOpen, setEditExpenseModalIsOpen] = useState(false);
   const categories = useSelector(store => store.category.categoriesList);
   const token  = useSelector(store => store.auth.token); 
-  //const [title, setTitle] = useState("");
-  //const [amount, setAmount] = useState(""); 
-  //const [categoryId, setCategoryId] = useState(-1); 
+
   const dispatch = useDispatch(); 
 
-  const deleteExpense = () => {
+  const deleteExpense = () => {    
     console.log("delete expense number " + id);
-    dispatch( deleteExpenseAction( id, token) );  
-    dispatch( showAllExpensesAction(token) );      
+    dispatch( deleteExpenseAction( id, token) );      
+    //dispatch( showAllExpensesAction(token) );      
 }
 
   const editExpense = () => {
@@ -77,12 +74,10 @@ const Card = ( {id, category, title, date, amount } ) => {
       <p className='card__amount'>$ {amount}</p>
 
 
-
-
       <EditExpenseModal open={isEditExpenseModalOpen} onClose={() => setEditExpenseModalIsOpen(false)}>
         <div className='modal__body'>
               <select className='select' onChange={handleChangeCategory} value={category?.id}>                 
-                      <option value="" selected disabled hidden>Select Category</option>
+                      <option selected disabled hidden>Select Category</option>
                       { categories.map ( (category, index) => (
                       <option key = {index} value = {category.id}>{category.title}</option>                     
                   ))}

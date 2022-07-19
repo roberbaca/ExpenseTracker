@@ -7,31 +7,51 @@ export const expensesSlice = createSlice({
     initialState: {
         expensesList: [],
         totalBalance: 0,
-        categoryBalance: 0,       
+        categoryBalance: 0,  
+
     },
     reducers: {
         showAllExpenses: (state, action) => {
-            state.expensesList = action.payload;            
+            //state.expensesList = action.payload;
+            state.expensesList = action.payload.map(expense => {
+                return {
+                    ...expense,
+                    //date: new Date(expense.date)
+                }
+            }
+            );
+
         },
 
         addExpense: (state, action) => {
-            state.expensesList = action.payload;            
+            //state.expensesList = action.payload;            
+            state.expensesList.push(action.payload);            
         },
 
         updateExpense: (state, action) => {
-            state.expensesList = action.payload;            
+            //state.expensesList = action.payload;            
+            state.expensesList = state.expensesList.map(expense => {
+                if (expense._id === action.payload._id) {
+                    return action.payload;
+                }
+                return expense;
+            });
         },
 
-        deleteExpense: (state, action) => {
-            state.expensesList = action.payload;            
+        deleteExpense: (state, action) => {                      
+            //state.expensesList = state.expensesList.filter(expense => expense.id !== action.payload);                    
+            
+            const foundIndex = state.expensesList.findIndex( expense => expense.id === action.payload);
+            state.expensesList.splice(foundIndex, 1);
         },
 
         getCategoryBalance: (state, action) => {
             state.categoryBalance = action.payload;            
+
         },
 
         getTotalBalance: (state, action) => {
-            state.totalBalance = action.payload;            
+            state.totalBalance = action.payload;           
         },
 
     }
@@ -72,7 +92,7 @@ export const addExpenseAction = ( token, title, amount, category ) => async (dis
                
             });
             
-            dispatch(addExpense());         
+            dispatch(addExpense(response.data));         
         }   
 
     } catch (error) {     
@@ -125,7 +145,7 @@ export const deleteExpenseAction = ( id, token ) => async (dispatch) => {
                 
             });           
 
-            return dispatch(deleteExpense(response.data));         
+            return dispatch(deleteExpense());         
         }   
 
     } catch (error) {     

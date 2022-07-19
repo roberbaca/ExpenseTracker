@@ -7,7 +7,7 @@ import '../../styles/Global.css';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { getTotalBalanceAction, getCategoryBalanceAction, showAllExpensesAction } from '../../Redux/slices/expenses';
 import { showAllCategoriesAction } from '../../Redux/slices/category';
-import { format, parseISO, set } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 
 
 const Dashboard = () => {
@@ -27,7 +27,7 @@ const Dashboard = () => {
     const categoryBalance  = useSelector(store => store.expenses.categoryBalance); 
     const categories = useSelector(store => store.category.categoriesList);
 
-    //let sortedExpenses = [...expenses];    
+   
   
     
    
@@ -95,7 +95,7 @@ const Dashboard = () => {
     }
 
     const handleDropdown = (e) => {
-        let categoryId = e.target.value;        
+        let categoryId = e.target.value;            
         setDropdownValue(categoryId); 
         if (categoryId !== "All") {
             dispatch( getCategoryBalanceAction( categoryId, token) );                
@@ -112,8 +112,6 @@ const Dashboard = () => {
         setModalIsOpen(true);        
     } 
 
-
-    
     useEffect(() => {
         if (token) {
             dispatch( showAllExpensesAction(token) );   
@@ -121,16 +119,11 @@ const Dashboard = () => {
             dispatch( showAllCategoriesAction() );                                
         }
     }, [token])
-
-
+    
 
     useEffect(() => {
-        //dispatch( showAllExpensesAction(token) );     
-        let expensesCopy = JSON.parse(JSON.stringify(expenses));        
-        setSortedExpenses(expensesCopy)                
-        console.log("hola");
+        setSortedExpenses([...expenses]);
     }, [expenses])
-
 
 
 
@@ -161,26 +154,23 @@ const Dashboard = () => {
                         <label htmlFor="date" className='checkbox__label'>Date</label>
                     </div>
                 </div>
-            </div>
-            
-
+            </div>            
         </div>
 
         <div className='dashboard__amountsummary'>
             {dropdownValue === "All" && <p className='dashboard__info'>You've spent {totalBalance} in a total of {expenses?.length} expenses</p>}
-            {dropdownValue !== "All" && <p className='dashboard__info'>Amount spent in {categories[dropdownValue -1]?.title}: {categoryBalance}</p>}
-            
+            {dropdownValue !== "All" && <p className='dashboard__info'>Amount spent in {categories[dropdownValue -1]?.title}: {categoryBalance}</p>}            
         </div>
 
         <div className='cards__container'>   
-            {  isSortedBy === "date"? 
-                sortedExpenses.sort((d1, d2) => new Date(d2.date).getTime() - new Date(d1.date).getTime()).filter(e => dropdownValue === "All" ?
+            {  isSortedBy === "date" ? 
+                [...expenses].sort((d1, d2) => new Date(d2.date).getTime() - new Date(d1.date).getTime()).filter(e => dropdownValue === "All" ?
                     e.title.toUpperCase().includes(searchvalue) : 
-                    e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue). map( (e, index) => (
+                    e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue).map( (e, index) => (
                         <Card key = {index} id={e.id} category={ categories[e.categoryId-1]?.title } title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />)):
-                sortedExpenses.sort((a, b) => parseFloat(b.amount) - parseFloat(a.amount)).filter(e => dropdownValue === "All" ?
+                 [...expenses].sort((a, b) => parseFloat(b.amount) - parseFloat(a.amount)).filter(e => dropdownValue === "All" ?
                     e.title.toUpperCase().includes(searchvalue) : 
-                    e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue). map( (e, index) => (
+                    e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue).map( (e, index) => (
                         <Card key = {index} id={e.id} category={ categories[e.categoryId-1].title} title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />))
             }    
         </div>
@@ -190,8 +180,7 @@ const Dashboard = () => {
         </div>
 
         {/* Pop Ups (Modal) */}        
-        <AddExpenseModal open={isModalOpen} onClose={() => setModalIsOpen(false)}></AddExpenseModal>       
-
+        <AddExpenseModal open={isModalOpen} onClose={() => setModalIsOpen(false)}></AddExpenseModal>      
         
     </section>
   )
@@ -209,6 +198,3 @@ export default Dashboard
 
 */
 
-   {/* .sort((a, b) => parseFloat(b.amount) - parseFloat(a.amount)) 
-         sort((d1, d2) => new Date(d2.date).getTime() - new Date(d1.date).getTime()).
-         */}

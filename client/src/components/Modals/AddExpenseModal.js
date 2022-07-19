@@ -28,8 +28,9 @@ export default function AddExpenseModal({ open, children, onClose }) {
     const dispatch = useDispatch(); 
 
     const createExpense = () => {
-      dispatch( addExpenseAction(token, title, amount, categoryId ) );
-      dispatch( showAllExpensesAction(token) );   
+      dispatch( addExpenseAction(token, title, amount, categoryId ) );  
+      setAmount(0);    
+      setTitle("");
       onClose();
     }
 
@@ -42,6 +43,7 @@ export default function AddExpenseModal({ open, children, onClose }) {
     }
 
     const handleChangeAmount = (e) => {     
+      //setAmount(+e.target.value);
       setAmount(+e.target.value);
     }
 
