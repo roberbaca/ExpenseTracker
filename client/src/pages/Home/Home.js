@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { getUserInfoAction, loginAction, registerAction } from '../../Redux/slices/auth';
 import { FaGithubAlt, FaGoogle, FaFacebook, FaUser, FaLock } from 'react-icons/fa';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/Home.css';
@@ -20,6 +21,7 @@ const Home = () => {
     const [password, setPassword] = useState(""); 
     const [confirmedPassword, setConfirmedPassword] = useState(""); 
     const [name, setName] = useState(""); 
+    const [isVisible, setIsVisible] = useState(false);
 
     const navigate = useNavigate(); 
     const dispatch = useDispatch(); 
@@ -78,7 +80,11 @@ const Home = () => {
             <div className='auth__wraper'>
             <h2 className='auth__title'>Login</h2>
             <input className='auth__input' type="text" placeholder='Email' value={email} onChange={handleChangeEmail}/>
-            <input className='auth__input' type="password" placeholder='Password' value={password} onChange={handleChangePassword}/>
+            <div>
+                <input className='auth__input' type="password" placeholder='Password' value={password} onChange={handleChangePassword}/>
+                {!isVisible && <AiOutlineEyeInvisible/>}
+                {isVisible && <AiOutlineEye/>}
+            </div>
             <button className='auth__btn' type='submit' onClick={onLogin}>Sign In</button>
             <p className='logwith'>Or login with:</p>
             <div className='social__wraper'>

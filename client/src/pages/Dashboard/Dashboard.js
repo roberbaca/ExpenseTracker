@@ -13,7 +13,7 @@ import { format, parseISO } from 'date-fns'
 const Dashboard = () => {
 
     const [searchvalue, setSearchValue] = useState('');
-    const [dropdownValue, setDropdownValue] = useState('All');
+    const [dropdownValue, setDropdownValue] = useState(1);
     const [isModalOpen, setModalIsOpen] = useState(false);
     const [isChecked, setIsChecked] = useState(true);
     const [isSortedBy, setIsSortedBy] = useState("date");   
@@ -27,75 +27,12 @@ const Dashboard = () => {
     const categoryBalance  = useSelector(store => store.expenses.categoryBalance); 
     const categories = useSelector(store => store.category.categoriesList);
 
-   
-  
-    
-   
-/*
-    const expenses = [
-        {   
-            category: 'Food',
-            title: 'McDonalds',
-            date: '2020-01-01',
-            amount: '100'
-        },
-        {
-            category: 'Food',
-            title: 'Burger King',
-            date: '2020-01-01',
-            amount: '125'
-        },
-        {
-            category: 'Food',
-            title: 'Pizza Hut',
-            date: '2020-01-01',
-            amount: '150'
-        },
-        {   
-            category: 'Food',
-            title: 'KFC',
-            date: '2020-01-01',
-            amount: '200'
-        },
-        {   
-            category: 'Entertainment',
-            title: 'Netflix',
-            date: '2020-01-01',
-            amount: '100'           
-        },
-        {
-            category: 'Entertainment',
-            title: 'Star Plus',
-            date: '2020-01-01',
-            amount: '125'
-        },
-        {
-            category: 'Entertainment',
-            title: 'HBO Max',
-            date: '2020-01-01',
-            amount: '150'
-        },
-        {
-            category: 'Entertainment',
-            title: 'Disney Plus',
-            date: '2020-01-01',
-            amount: '200'
-        },
-        {
-            category: 'Fuel',
-            title: 'Shell',
-            date: '2020-01-01',
-            amount: '100'
-        }
-    ];
-*/
-
     const handleSearch = (e) => {
         setSearchValue(e.target.value.toUpperCase());
     }
 
     const handleDropdown = (e) => {
-        let categoryId = e.target.value;            
+        let categoryId = e.target.value;           
         setDropdownValue(categoryId); 
         if (categoryId !== "All") {
             dispatch( getCategoryBalanceAction( categoryId, token) );                
@@ -121,9 +58,13 @@ const Dashboard = () => {
     }, [token])
     
 
-    useEffect(() => {
+    useEffect(() => {        
         setSortedExpenses([...expenses]);
+        console.log("hola");
+        console.log(expenses)
+        console.log("categories: ", categories)
     }, [expenses])
+
 
 
 
@@ -164,14 +105,14 @@ const Dashboard = () => {
 
         <div className='cards__container'>   
             {  isSortedBy === "date" ? 
-                [...expenses].sort((d1, d2) => new Date(d2.date).getTime() - new Date(d1.date).getTime()).filter(e => dropdownValue === "All" ?
+                sortedExpenses.sort((d1, d2) => new Date(d2.date).getTime() - new Date(d1.date).getTime()).filter(e => dropdownValue === "All" ?
                     e.title.toUpperCase().includes(searchvalue) : 
                     e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue).map( (e, index) => (
-                        <Card key = {index} id={e.id} category={ categories[e.categoryId-1]?.title } title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />)):
-                 [...expenses].sort((a, b) => parseFloat(b.amount) - parseFloat(a.amount)).filter(e => dropdownValue === "All" ?
+                        <Card key = {index} id={e.id} category={ categories[e.categoryId - 1]?.title } title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />)):
+                 sortedExpenses.sort((a, b) => parseFloat(b.amount) - parseFloat(a.amount)).filter(e => dropdownValue === "All" ?
                     e.title.toUpperCase().includes(searchvalue) : 
                     e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue).map( (e, index) => (
-                        <Card key = {index} id={e.id} category={ categories[e.categoryId-1].title} title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />))
+                        <Card key = {index} id={e.id} category={ categories[e.categoryId - 1]?.title} title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />))
             }    
         </div>
 

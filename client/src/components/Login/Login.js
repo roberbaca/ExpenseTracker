@@ -2,6 +2,7 @@ import React from 'react'
 import '../../styles/Auth.css';
 import '../../styles/Global.css';
 import { FaGithubAlt, FaGoogle, FaFacebook, FaUser } from 'react-icons/fa';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 const Login = () => {
   return (
@@ -9,7 +10,10 @@ const Login = () => {
         <div className='auth__wraper'>
           <h2 className='auth__title'>Login</h2>
           <input className='auth__input' type="text" placeholder='Email'/>
-          <input className='auth__input' type="text" placeholder='Password' />
+          <div>
+            <input className='auth__input' type="text" placeholder='Password' />
+            <AiOutlineEyeInvisible/>
+          </div>
           <button className='auth__btn'>Sign In</button>
           <p className='logwith'>Or login with:</p>
           <div className='social__wraper'>

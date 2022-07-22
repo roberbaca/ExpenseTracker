@@ -145,7 +145,7 @@ export const deleteExpenseAction = ( id, token ) => async (dispatch) => {
                 
             });           
 
-            return dispatch(deleteExpense());         
+            return dispatch(deleteExpense(id));       
         }   
 
     } catch (error) {     

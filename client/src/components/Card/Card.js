@@ -14,13 +14,14 @@ const Card = ( {id, category, title, date, amount } ) => {
   const [isEditExpenseModalOpen, setEditExpenseModalIsOpen] = useState(false);
   const categories = useSelector(store => store.category.categoriesList);
   const token  = useSelector(store => store.auth.token); 
+  const expenses  = useSelector(store => store.expenses.expensesList); 
 
   const dispatch = useDispatch(); 
 
   const deleteExpense = () => {    
     console.log("delete expense number " + id);
     dispatch( deleteExpenseAction( id, token) );      
-    //dispatch( showAllExpensesAction(token) );      
+    dispatch( showAllExpensesAction(token) );      
 }
 
   const editExpense = () => {
