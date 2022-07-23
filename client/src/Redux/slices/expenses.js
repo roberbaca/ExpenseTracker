@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axiosInstance from "../../utils/axiosInstance";
+import { toast } from 'react-toastify';
 
 // REDUCERS
 export const expensesSlice = createSlice({
@@ -25,7 +26,7 @@ export const expensesSlice = createSlice({
 
         addExpense: (state, action) => {
             //state.expensesList = action.payload;            
-            state.expensesList.push(action.payload);            
+            state.expensesList.push(action.payload);                               
         },
 
         updateExpense: (state, action) => {
@@ -34,7 +35,9 @@ export const expensesSlice = createSlice({
                 if (expense._id === action.payload._id) {
                     return action.payload;
                 }
+               
                 return expense;
+                
             });
         },
 
@@ -42,7 +45,7 @@ export const expensesSlice = createSlice({
             //state.expensesList = state.expensesList.filter(expense => expense.id !== action.payload);                    
             
             const foundIndex = state.expensesList.findIndex( expense => expense.id === action.payload);
-            state.expensesList.splice(foundIndex, 1);
+            state.expensesList.splice(foundIndex, 1);            
         },
 
         getCategoryBalance: (state, action) => {
@@ -92,7 +95,9 @@ export const addExpenseAction = ( token, title, amount, category ) => async (dis
                
             });
             
-            dispatch(addExpense(response.data));         
+            dispatch(addExpense(response.data));      
+            const notify = () => toast("✔️ New expense added");
+            notify();     
         }   
 
     } catch (error) {     
@@ -144,14 +149,39 @@ export const deleteExpenseAction = ( id, token ) => async (dispatch) => {
                 },               
                 
             });           
+            
+            const notify = () => toast("✔️ Expense deleted");
+            notify();
+            return dispatch(deleteExpense(id));   
 
-            return dispatch(deleteExpense(id));       
         }   
 
     } catch (error) {     
         console.log(error);
     }
 }
+
+export const updateExpenseAction = ( id, title, amount, category, token ) => async (dispatch) => {
+    try {
+        if (token) {
+            const response = await axiosInstance.put(`/expenses/update/${id}`, { title, amount, category }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },               
+                
+            });           
+            
+            const notify = () => toast("✔️ Expense updated");
+            notify();
+            return dispatch(updateExpense(response.data));   
+
+        }   
+
+    } catch (error) {     
+        console.log(error);
+    }
+}
+
 
 
 

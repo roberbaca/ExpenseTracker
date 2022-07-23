@@ -43,6 +43,39 @@ body {
   outline-width: 0.2rem;
   outline-offset: 0.3rem;
 }
+.auth__wraper .password__input {
+  width: 80%;
+  margin: 0.5rem 0;
+  border-radius: 2rem;
+  border: none;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  background: #d0dfeb;
+  box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
+  color: hsl(222deg, 20%, 35%);
+  font-size: 1rem;
+  font-weight: 300;
+  height: 2rem;
+}
+.auth__wraper .password__input:focus {
+  outline-color: #86cc6d;
+  outline-style: dashed;
+  outline-width: 0.2rem;
+  outline-offset: 0.3rem;
+}
+.auth__wraper .eyeicon {
+  float: right;
+  left: 35%;
+  bottom: 7%;
+  position: relative;
+  z-index: 2;
+  color: hsl(222deg, 20%, 35%);
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+.auth__wraper .eyeicon:hover {
+  cursor: pointer;
+}
 .auth__wraper .auth__btn {
   background: linear-gradient(to right bottom, hsl(150deg, 71%, 73%), #86cc6d);
   border-radius: 2rem;

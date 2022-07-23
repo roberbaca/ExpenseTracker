@@ -10,7 +10,7 @@ import '../../styles/Home.css';
 import '../../styles/Auth.css';
 import '../../styles/Global.css';
 
-//import Login from '../../components/Login/Login';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 //import Register from '../../components/Register/Register';
 
 
@@ -22,12 +22,19 @@ const Home = () => {
     const [confirmedPassword, setConfirmedPassword] = useState(""); 
     const [name, setName] = useState(""); 
     const [isVisible, setIsVisible] = useState(false);
+    const [passwordType, setPasswordType] = useState("password");
+    //const [loaded, setLoaded] = useState(false);
 
     const navigate = useNavigate(); 
     const dispatch = useDispatch(); 
 
     const token  = useSelector(store => store.auth.token); 
     const userInfo  = useSelector(store => store.auth.userInfo.name);         
+
+    const togglePassword = () => {
+        setIsVisible(!isVisible);
+        setPasswordType(isVisible ? "password" : "text");
+    }
 
     const handleLogin = () => {
         setIsLogin(true);
@@ -70,21 +77,23 @@ const Home = () => {
     useEffect(() => {
         if (token) {
             dispatch( getUserInfoAction(token) );              
-            navigate("/user/dashboard");
+            navigate("/user/dashboard");            
         } 
     }, [token]) 
 
   return (
     <section className='home'>
+
+        {/* <LoadingSpinner/> */}
+
+
         {isLogin && <div className='auth'>       
             <div className='auth__wraper'>
             <h2 className='auth__title'>Login</h2>
             <input className='auth__input' type="text" placeholder='Email' value={email} onChange={handleChangeEmail}/>
-            <div>
-                <input className='auth__input' type="password" placeholder='Password' value={password} onChange={handleChangePassword}/>
-                {!isVisible && <AiOutlineEyeInvisible/>}
-                {isVisible && <AiOutlineEye/>}
-            </div>
+            <input   className='password__input' type={passwordType} placeholder='Password' value={password} onChange={handleChangePassword}/>
+            {!isVisible && <AiOutlineEyeInvisible className='eyeicon' onClick={togglePassword} />}
+            {isVisible && <AiOutlineEye className='eyeicon' onClick={togglePassword}/>}            
             <button className='auth__btn' type='submit' onClick={onLogin}>Sign In</button>
             <p className='logwith'>Or login with:</p>
             <div className='social__wraper'>
@@ -115,7 +124,7 @@ const Home = () => {
             position="top-right"
             autoClose={2000}
             hideProgressBar
-            newestOnTop={false}
+            newestOnTop={true}
             closeOnClick
             rtl={false}
             pauseOnFocusLoss

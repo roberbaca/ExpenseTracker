@@ -13,7 +13,7 @@ import { format, parseISO } from 'date-fns'
 const Dashboard = () => {
 
     const [searchvalue, setSearchValue] = useState('');
-    const [dropdownValue, setDropdownValue] = useState(1);
+    const [dropdownValue, setDropdownValue] = useState("All");
     const [isModalOpen, setModalIsOpen] = useState(false);
     const [isChecked, setIsChecked] = useState(true);
     const [isSortedBy, setIsSortedBy] = useState("date");   

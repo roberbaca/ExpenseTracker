@@ -35,6 +35,8 @@ export default authSlice.reducer;
 
 // ACTIONS
 export const loginAction = ( email, password ) => async (dispatch) => {    
+    const waitingNotify = () => toast("🕔 Please wait while we check your credentials...");
+    waitingNotify(); 
     try {
         const response = await axiosInstance.post('/auth/login', { email, password });  // llamada al back y obtenemos el token       
         const token = response.data.accessToken;       
