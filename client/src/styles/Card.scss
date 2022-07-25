@@ -14,7 +14,7 @@
     margin: 1rem;      
     box-shadow: 3px 3px 6px Global.$shadow;
     
-    .close__wraper {
+    .icons__wraper {
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -27,7 +27,7 @@
             align-items: center;
             width: 100%;
 
-            .close__icon--delete {
+            .card__icon--delete {
                 width: 1.5rem;
                 height: 1.5rem;
                 background: linear-gradient(to right, hsl(0, 69%, 60%), hsl(0, 100%, 50%));
@@ -42,7 +42,7 @@
                 }
             } 
     
-            .close__icon--edit {
+            .card__icon--edit {
                 width: 1.5rem;
                 height: 1.5rem;
                 background: Global.$accept;

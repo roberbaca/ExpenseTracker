@@ -23,6 +23,7 @@ const Dashboard = () => {
 
     const token  = useSelector(store => store.auth.token); 
     const expenses  = useSelector(store => store.expenses.expensesList); 
+    //const { expenses } = useSelector(store => store.expenses.expensesList);
     const totalBalance  = useSelector(store => store.expenses.totalBalance); 
     const categoryBalance  = useSelector(store => store.expenses.categoryBalance); 
     const categories = useSelector(store => store.category.categoriesList);
@@ -59,11 +60,13 @@ const Dashboard = () => {
     
 
     useEffect(() => {        
-        setSortedExpenses([...expenses]);
-        console.log("hola");
-        console.log(expenses)
-        console.log("categories: ", categories)
-    }, [expenses])
+        setSortedExpenses([...expenses]);  
+        dispatch( getTotalBalanceAction(token) ); 
+        handleDropdown({target: {value: dropdownValue}});  
+        dispatch( showAllExpensesAction(token) );      
+        console.log("new expenses: ", expenses)
+        //console.log("categories: ", categories)
+    }, [JSON.stringify(expenses)])
 
 
 
@@ -105,11 +108,11 @@ const Dashboard = () => {
 
         <div className='cards__container'>   
             {  isSortedBy === "date" ? 
-                sortedExpenses.sort((d1, d2) => new Date(d2.date).getTime() - new Date(d1.date).getTime()).filter(e => dropdownValue === "All" ?
+                [...expenses].sort((d1, d2) => new Date(d2.date).getTime() - new Date(d1.date).getTime()).filter(e => dropdownValue === "All" ?
                     e.title.toUpperCase().includes(searchvalue) : 
                     e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue).map( (e, index) => (
                         <Card key = {index} id={e.id} category={ categories[e.categoryId - 1]?.title } title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />)):
-                 sortedExpenses.sort((a, b) => parseFloat(b.amount) - parseFloat(a.amount)).filter(e => dropdownValue === "All" ?
+                [...expenses].sort((a, b) => parseFloat(b.amount) - parseFloat(a.amount)).filter(e => dropdownValue === "All" ?
                     e.title.toUpperCase().includes(searchvalue) : 
                     e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue).map( (e, index) => (
                         <Card key = {index} id={e.id} category={ categories[e.categoryId - 1]?.title} title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />))

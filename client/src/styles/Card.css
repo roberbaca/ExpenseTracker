@@ -16,20 +16,20 @@ body {
   margin: 1rem;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
 }
-.card__wraper .close__wraper {
+.card__wraper .icons__wraper {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.card__wraper .close__wraper .card__icons {
+.card__wraper .icons__wraper .card__icons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
-.card__wraper .close__wraper .card__icons .close__icon--delete {
+.card__wraper .icons__wraper .card__icons .card__icon--delete {
   width: 1.5rem;
   height: 1.5rem;
   background: linear-gradient(to right, hsl(0deg, 69%, 60%), hsl(0deg, 100%, 50%));
@@ -38,11 +38,11 @@ body {
   padding: 0.3rem;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
 }
-.card__wraper .close__wraper .card__icons .close__icon--delete:hover {
+.card__wraper .icons__wraper .card__icons .card__icon--delete:hover {
   cursor: pointer;
   animation: shake 0.5s;
 }
-.card__wraper .close__wraper .card__icons .close__icon--edit {
+.card__wraper .icons__wraper .card__icons .card__icon--edit {
   width: 1.5rem;
   height: 1.5rem;
   background: linear-gradient(to right bottom, hsl(150deg, 71%, 73%), #86cc6d);
@@ -51,7 +51,7 @@ body {
   padding: 0.3rem;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
 }
-.card__wraper .close__wraper .card__icons .close__icon--edit:hover {
+.card__wraper .icons__wraper .card__icons .card__icon--edit:hover {
   cursor: pointer;
   animation: shake 0.5s;
 }

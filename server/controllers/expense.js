@@ -21,7 +21,7 @@ const addExpense = async (req, res) => {
         const amount = req.body.amount;
         const category = req.body.category;
         const user = req.user;             
-        const newExpense = await expense.create( date, title, amount, category, user.id );
+        const newExpense = await expense.create( date,title, amount, category, user.id );
         res.send(newExpense);
     } catch(error) {
         console.log(error);
@@ -103,14 +103,15 @@ const deleteExpense = async (req, res) => {
 // actualiza un gasto
 const updateExpense = async (req, res) => {
     try {
-        const id = req.body.id;
+        const id = Number(req.params.id);
         const date = req.body.date;
         const title = req.body.title;
         const amount = req.body.amount;
         const category = req.body.category;
         const user = req.user;
-        const expense = await expense.updateExpense(id, date, title, amount, category, user.id);
-        res.send(expense);
+
+        const updatedExpense = await expense.editExpense(id, title, amount, category, date, user.id);
+        res.send(updatedExpense);
     } catch(error) {
         console.log(error);
         res.statusCode = 500;

@@ -16,7 +16,7 @@ router.get("/balance-by-category/:id", isLogged, expensesController.getBalanceBy
 
 router.get("/balance", isLogged, expensesController.getBalance);
 
-router.patch("/edit", isLogged, expensesController.updateExpense);
+router.patch("/edit/:id", isLogged, expensesController.updateExpense);
 
 router.delete("/delete/:id", isLogged, expensesController.deleteExpense);
 

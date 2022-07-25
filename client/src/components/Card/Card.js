@@ -1,12 +1,13 @@
 import React, {useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import EditExpenseModal from '../../components/Modals/EditExpenseModal';
 import '../../styles/Card.css';
 import '../../styles/Global.css';
 import { AiOutlineClose } from 'react-icons/ai';
 import { FiEdit } from 'react-icons/fi';
 import { format, parseISO } from 'date-fns'
-import { deleteExpenseAction, showAllExpensesAction } from '../../Redux/slices/expenses';
+import { deleteExpenseAction, showAllExpensesAction, updateExpenseAction } from '../../Redux/slices/expenses';
 
 
 const Card = ( {id, category, title, date, amount } ) => {
@@ -14,57 +15,53 @@ const Card = ( {id, category, title, date, amount } ) => {
   const [isEditExpenseModalOpen, setEditExpenseModalIsOpen] = useState(false);
   const categories = useSelector(store => store.category.categoriesList);
   const token  = useSelector(store => store.auth.token); 
-  const expenses  = useSelector(store => store.expenses.expensesList); 
+  //const expenses  = useSelector(store => store.expenses.expensesList); 
 
+  const [newTitle, setNewTitle] = useState(title);
+  const [newAmount, setNewAmount] = useState(amount);
+  const [newCategory, setNewCategory] = useState(category);
+  const [newDate, setNewDate] = useState(date);
+
+  const navigate = useNavigate(); 
   const dispatch = useDispatch(); 
 
   const deleteExpense = () => {    
     console.log("delete expense number " + id);
     dispatch( deleteExpenseAction( id, token) );      
-    dispatch( showAllExpensesAction(token) );      
+    //dispatch( showAllExpensesAction(token) );      
 }
 
   const editExpense = () => {
-    console.log("delete expense number " + id);    
-    setEditExpenseModalIsOpen(true);         
+    console.log("edit expense number " + id);      
+    setEditExpenseModalIsOpen(true);    
+    dispatch( updateExpenseAction(id, newTitle, newAmount, newCategory, token) );  
+    //dispatch( showAllExpensesAction(token) );    
+    setEditExpenseModalIsOpen(false);
   }
 
   const handleChangeCategory = (e) => {
-    //setCategoryId(parseInt(e.target.value));    
-    
+    setNewCategory(parseInt(e.target.value));    
   }
 
   const handleChangeTitle = (e) => {
-    //setTitle(e.target.value);    
+    setNewTitle(e.target.value);  
   }
 
   const handleChangeAmount = (e) => {     
-    //setAmount(+e.target.value);
+    setNewAmount(+e.target.value);
   }
 
   const handleChangeDate = (e) => {     
-    //setAmount(+e.target.value);
-  }
-
-  /*
-  const editExpense = () => {
-    //dispatch( addExpenseAction(token, title, amount, categoryId ) );
-    dispatch( showAllExpensesAction(token) );   
-    onClose();
-  }
-  */
-
-  const submitEdition = () => {
-
+    setNewDate(e.target.value);  
   }
 
 
   return (
     <div className='card__wraper'>
-      <div className='close__wraper'>
+      <div className='icons__wraper'>
         <div className='card__icons'>
-          <FiEdit className='close__icon--edit' onClick={editExpense}/>
-          <AiOutlineClose className='close__icon--delete' onClick={deleteExpense}/>
+          <FiEdit className='card__icon--edit' onClick={() => setEditExpenseModalIsOpen(true)}/>
+          <AiOutlineClose className='card__icon--delete' onClick={deleteExpense}/>
         </div>        
       </div>
       <div className='title__container'>
@@ -87,13 +84,11 @@ const Card = ( {id, category, title, date, amount } ) => {
               <input className='modal__input' type="number" placeholder='Amount' defaultValue={amount} onChange={handleChangeAmount}/>
               <input className='modal__input' type="date" placeholder='Date' defaultValue={ format(parseISO(date), 'yyyy-MM-dd') } onChange={handleChangeDate} />
               <textarea className='modal__textarea' type="text" placeholder='Description (optional)' />
-              <button className='modal__btn' type='submit' onClick={submitEdition}>Submit</button>   
+              <button className='modal__btn' type='button' onClick={editExpense}>Submit</button>   
           </div>
       </EditExpenseModal>
     </div>
   )
-
-
 }
 
 

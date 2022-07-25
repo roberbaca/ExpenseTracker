@@ -9,41 +9,46 @@ export const expensesSlice = createSlice({
         expensesList: [],
         totalBalance: 0,
         categoryBalance: 0,  
-
+        loading: false,
+        error: "",
+        status: "",
     },
     reducers: {
-        showAllExpenses: (state, action) => {
-            //state.expensesList = action.payload;
+        showAllExpenses: (state, action) => {            
             state.expensesList = action.payload.map(expense => {
                 return {
-                    ...expense,
-                    //date: new Date(expense.date)
+                    ...expense,                    
                 }
             }
             );
 
         },
 
-        addExpense: (state, action) => {
-            //state.expensesList = action.payload;            
+        addExpense: (state, action) => {            
             state.expensesList.push(action.payload);                               
         },
 
-        updateExpense: (state, action) => {
-            //state.expensesList = action.payload;            
-            state.expensesList = state.expensesList.map(expense => {
-                if (expense._id === action.payload._id) {
-                    return action.payload;
-                }
-               
-                return expense;
-                
-            });
+        updateExpense: (state, action) => {                    
+            //const foundIndex = state.expensesList.findIndex( expense => expense.id === action.payload);
+            //state.expensesList[foundIndex] = action.payload;   
+            
+            //expensesList: state.expensesList = state.expensesList.map((expense) =>
+            //expense.id === action.payload ? action.payload : expense );
+            return {
+                ...state,
+                expensesList: state.expensesList.map((expense) => {
+                    if (expense.id === action.payload.id) {
+                        return action.payload;
+                    } else {
+                        return expense;
+                    }
+                })
+            }
+            
+            
         },
 
-        deleteExpense: (state, action) => {                      
-            //state.expensesList = state.expensesList.filter(expense => expense.id !== action.payload);                    
-            
+        deleteExpense: (state, action) => {                                 
             const foundIndex = state.expensesList.findIndex( expense => expense.id === action.payload);
             state.expensesList.splice(foundIndex, 1);            
         },
@@ -62,9 +67,6 @@ export const expensesSlice = createSlice({
 
 export const { showAllExpenses, addExpense, updateExpense, deleteExpense, getCategoryBalance, getTotalBalance } = expensesSlice.actions;
 export default expensesSlice.reducer;
-
-
-
 
 
 // ACTIONS
@@ -161,20 +163,18 @@ export const deleteExpenseAction = ( id, token ) => async (dispatch) => {
     }
 }
 
-export const updateExpenseAction = ( id, title, amount, category, token ) => async (dispatch) => {
+export const updateExpenseAction = ( id, title, amount, category, token ) => async (dispatch) => {    
     try {
         if (token) {
-            const response = await axiosInstance.put(`/expenses/update/${id}`, { title, amount, category }, {
+            const response = await axiosInstance.patch(`/expenses/edit/${id}`, { title, amount, category }, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 },               
                 
-            });           
-            
+            });                       
             const notify = () => toast("✔️ Expense updated");
             notify();
-            return dispatch(updateExpense(response.data));   
-
+            return dispatch(updateExpense(response.data));
         }   
 
     } catch (error) {     
