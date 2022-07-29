@@ -8,10 +8,7 @@ export const expensesSlice = createSlice({
     initialState: {
         expensesList: [],
         totalBalance: 0,
-        categoryBalance: 0,  
-        loading: false,
-        error: "",
-        status: "",
+        categoryBalance: 0,         
     },
     reducers: {
         showAllExpenses: (state, action) => {            
@@ -21,19 +18,13 @@ export const expensesSlice = createSlice({
                 }
             }
             );
-
         },
 
         addExpense: (state, action) => {            
             state.expensesList.push(action.payload);                               
         },
 
-        updateExpense: (state, action) => {                    
-            //const foundIndex = state.expensesList.findIndex( expense => expense.id === action.payload);
-            //state.expensesList[foundIndex] = action.payload;   
-            
-            //expensesList: state.expensesList = state.expensesList.map((expense) =>
-            //expense.id === action.payload ? action.payload : expense );
+        updateExpense: (state, action) => {                        
             return {
                 ...state,
                 expensesList: state.expensesList.map((expense) => {
@@ -43,9 +34,7 @@ export const expensesSlice = createSlice({
                         return expense;
                     }
                 })
-            }
-            
-            
+            }           
         },
 
         deleteExpense: (state, action) => {                                 
@@ -87,10 +76,10 @@ export const showAllExpensesAction = ( token ) => async (dispatch) => {
     }
 }
 
-export const addExpenseAction = ( token, title, amount, category ) => async (dispatch) => {    
+export const addExpenseAction = ( token, date, title, amount, category ) => async (dispatch) => {    
     try {
         if (token) {
-            const response = await axiosInstance.post('/expenses/add',  { title, amount, category }, {
+            const response = await axiosInstance.post('/expenses/add',  { date, title, amount, category }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -104,6 +93,8 @@ export const addExpenseAction = ( token, title, amount, category ) => async (dis
 
     } catch (error) {     
         console.log(error);
+        const notify = () => toast("❌ Error adding expense");
+        notify();    
     }
 }
 
@@ -163,10 +154,10 @@ export const deleteExpenseAction = ( id, token ) => async (dispatch) => {
     }
 }
 
-export const updateExpenseAction = ( id, title, amount, category, token ) => async (dispatch) => {    
+export const updateExpenseAction = ( id, date, title, amount, category, token ) => async (dispatch) => {    
     try {
         if (token) {
-            const response = await axiosInstance.patch(`/expenses/edit/${id}`, { title, amount, category }, {
+            const response = await axiosInstance.patch(`/expenses/edit/${id}`, { date, title, amount, category }, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 },               
@@ -179,6 +170,8 @@ export const updateExpenseAction = ( id, title, amount, category, token ) => asy
 
     } catch (error) {     
         console.log(error);
+        const notify = () => toast("❌ Error updating expense");
+        notify();    
     }
 }
 

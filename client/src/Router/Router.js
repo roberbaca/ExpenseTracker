@@ -7,14 +7,16 @@ import { useSelector } from 'react-redux';
 
 const Router = () => {
 
-    const token  = useSelector(store => store.auth.token);      
+    const token  = useSelector(store => store.auth.token);   
+    const role  = useSelector(store => store.auth.role);       
 
     return (
         <div>
             <BrowserRouter>                
                 <Header/> 
                 <Routes> 
-                  { token ? PATHS.private.map( (r,index) => <Route {...r} key = {index}/>) : PATHS.noLoggedIn.map( (r,index) => <Route {...r} key = {index}/> )}                
+                  { token && role !== "admin" ? PATHS.private.map( (r,index) => <Route {...r} key = {index}/>) : PATHS.noLoggedIn.map( (r,index) => <Route {...r} key = {index}/> )}                
+                  { token && role === "admin" ? PATHS.admin.map( (r,index) => <Route {...r} key = {index}/>) : PATHS.noLoggedIn.map( (r,index) => <Route {...r} key = {index}/> )}                
                 </Routes>
                 <Footer/>  
             </BrowserRouter>

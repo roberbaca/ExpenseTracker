@@ -1,5 +1,6 @@
 import Home from "../pages/Home/Home"
 import Dashboard from "../pages/Dashboard/Dashboard"
+import Admin from "../pages/Admin/Admin"
 
 export const PATHS = {
     
@@ -8,6 +9,11 @@ export const PATHS = {
         {
             path: '/user/dashboard',            
             element: <Dashboard/>
+        },
+
+        {
+            path: '/admin/dashboard',            
+            element: <Admin/>
         },
         
         {
@@ -37,4 +43,24 @@ export const PATHS = {
         }, 
         
     ],    
+
+    // rutas a las que puede acceder con credenciales de administrador
+    admin: [
+        {
+            path: '/admin/dashboard',            
+            element: <Admin/>
+        },
+        
+        {
+            path: '/home',            
+            element: <Home/>
+        },  
+        
+        {
+            path: '*',            
+            element: <Home/>
+        }, 
+     
+    ],
+
 }

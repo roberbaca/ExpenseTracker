@@ -128,26 +128,26 @@ const getTotalAmount = async (user) => {
 }
 
 // para actualizar un gasto
-const editExpense = async (id, title, amount, categoryId, date, userId ) => {
+const editExpense = async (id, date, title, amount, categoryId, userId ) => {
     try {
         const expense = await prisma.expense.update({
             where: {
                 id: id
             },
-            data: {                
+            data: {     
+                date: date,               
                 title: title,
                 amount: amount,
                 category: {
                     connect: {
                         id: categoryId
                     }
-                },     
-                date: date,          
+                },
                 user: {
                     connect: {
                         id: userId
                     }
-                }
+                }                       
             }
         })
         return expense;

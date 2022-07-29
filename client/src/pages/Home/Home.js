@@ -10,7 +10,7 @@ import '../../styles/Home.css';
 import '../../styles/Auth.css';
 import '../../styles/Global.css';
 
-import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
+//import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 //import Register from '../../components/Register/Register';
 
 
@@ -23,12 +23,12 @@ const Home = () => {
     const [name, setName] = useState(""); 
     const [isVisible, setIsVisible] = useState(false);
     const [passwordType, setPasswordType] = useState("password");
-    //const [loaded, setLoaded] = useState(false);
 
     const navigate = useNavigate(); 
     const dispatch = useDispatch(); 
 
     const token  = useSelector(store => store.auth.token); 
+    const role  = useSelector(store => store.auth.userInfo.role); 
     const userInfo  = useSelector(store => store.auth.userInfo.name);         
 
     const togglePassword = () => {
@@ -74,11 +74,21 @@ const Home = () => {
         }
     }
 
+    // REVISAR
     useEffect(() => {
-        if (token) {
+        if (token) { 
             dispatch( getUserInfoAction(token) );              
-            navigate("/user/dashboard");            
+            navigate("/user/dashboard");                  
         } 
+/*
+        if (token && role === "admin") {
+            dispatch( getUserInfoAction(token) );     
+            navigate("/admin/dashboard");
+        }
+        */
+
+
+        
     }, [token]) 
 
   return (

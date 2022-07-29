@@ -15,8 +15,8 @@ const helloWorld = async (req, res) => {
 
 // Se agrega un nuevo gasto
 const addExpense = async (req, res) => {
-    try {        
-        const date = req.body.date;
+    try {       
+        const date = new Date(req.body.date);        
         const title = req.body.title;
         const amount = req.body.amount;
         const category = req.body.category;
@@ -104,13 +104,13 @@ const deleteExpense = async (req, res) => {
 const updateExpense = async (req, res) => {
     try {
         const id = Number(req.params.id);
-        const date = req.body.date;
+        const date = new Date(req.body.date);        
         const title = req.body.title;
         const amount = req.body.amount;
         const category = req.body.category;
-        const user = req.user;
+        const user = req.user; 
 
-        const updatedExpense = await expense.editExpense(id, title, amount, category, date, user.id);
+        const updatedExpense = await expense.editExpense(id, date, title, amount, category, user.id);
         res.send(updatedExpense);
     } catch(error) {
         console.log(error);

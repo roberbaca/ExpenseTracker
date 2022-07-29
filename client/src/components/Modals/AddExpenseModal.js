@@ -5,6 +5,7 @@ import '../../styles/Global.css';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { addExpenseAction, showAllExpensesAction } from '../../Redux/slices/expenses';
+import moment from 'moment';
 
 const OVERLAY_STYLES = {
   position: 'fixed',
@@ -20,7 +21,8 @@ const OVERLAY_STYLES = {
 export default function AddExpenseModal({ open, children, onClose }) {
  
     const [title, setTitle] = useState("");
-    const [amount, setAmount] = useState(""); 
+    const [amount, setAmount] = useState("");     
+    const [newDate, setNewDate] = useState("");
     const [categoryId, setCategoryId] = useState(-1); 
     const categories = useSelector(store => store.category.categoriesList);
     const token  = useSelector(store => store.auth.token);     
@@ -28,7 +30,7 @@ export default function AddExpenseModal({ open, children, onClose }) {
     const dispatch = useDispatch(); 
 
     const createExpense = () => {
-      dispatch( addExpenseAction(token, title, amount, categoryId ) );  
+      dispatch( addExpenseAction(token, newDate, title, amount, categoryId ) );  
       setAmount(0);    
       setTitle("");
       onClose();
@@ -43,9 +45,14 @@ export default function AddExpenseModal({ open, children, onClose }) {
     }
 
     const handleChangeAmount = (e) => {     
-      //setAmount(+e.target.value);
       setAmount(+e.target.value);
     }
+
+  const handleChangeDate = (e) => {    
+    let myDate = moment.utc(e.target.value).format('YYYY-MM-DD');
+    console.log(myDate);
+    setNewDate(myDate);
+  }
 
 
 
@@ -66,9 +73,9 @@ export default function AddExpenseModal({ open, children, onClose }) {
                     <option key = {index} value = {category.id}>{category.title}</option>                     
                 ))}
             </select>
-            <input className='modal__input' type="text" placeholder='Title' value={title} onChange={handleChangeTitle}/>
-            <input className='modal__input' type="number" placeholder='Amount' value={amount} onInput={handleChangeAmount}/>
-            <input className='modal__input' type="date" placeholder='Date' />
+            <input className='modal__input' type="text" placeholder='Title' value={title} onChange={handleChangeTitle} required/>
+            <input className='modal__input' type="number" placeholder='Amount' value={amount} onInput={handleChangeAmount} required/>
+            <input className='modal__input' type="date" placeholder='Date' onChange={handleChangeDate} required />
             <textarea className='modal__textarea' type="text" placeholder='Description (optional)' />
             <button className='modal__btn' type='submit' onClick={createExpense}>Submit</button>   
         </div>
