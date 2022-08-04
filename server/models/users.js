@@ -46,6 +46,34 @@ const findUserInfo = async (userId) => {
   }
 }
 
-module.exports = { createUser, findUserByEmail, findUserInfo }
+
+const getAllUsers = async () => {
+  try {
+      const allUsers = await prisma.user.findMany();
+      return allUsers;
+
+  } catch (error) {
+      throw new Error("Error finding users");
+  }
+}
+
+// para eliminar un usuario
+const deleteUserById = async (id) => {
+  try {
+      const deletedUser = await prisma.user.delete({
+          where: {
+              id: id                 
+          }
+      })
+      return deletedUser;
+  } catch(error) {
+      console.log(error);
+      throw new Error(error);
+  }
+}
+
+
+
+module.exports = { createUser, findUserByEmail, findUserInfo, getAllUsers, deleteUserById }
 
 

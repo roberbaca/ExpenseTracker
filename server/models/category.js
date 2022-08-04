@@ -28,4 +28,38 @@ const findAll = async () => {
   }
 };
 
-module.exports = { create, findAll };
+// para eliminar una categoria
+const deleteCategoryById = async (id) => {
+  try {
+      const deletedCategory = await prisma.category.delete({
+          where: {
+              id: id                 
+          }
+      })
+      return deletedCategory;
+  } catch(error) {
+      console.log(error);
+      throw new Error(error);
+  }
+}
+
+// para actualizar una categoria
+const editCategory = async (id, title ) => {
+  try {
+      const category = await prisma.category.update({
+          where: {
+              id: id
+          },
+          data: {                            
+              title: title,           
+          }
+      })
+      return category;
+  } catch(error) {
+      console.log(error);
+      throw new Error(error);
+  }
+}
+
+
+module.exports = { create, findAll, deleteCategoryById, editCategory };

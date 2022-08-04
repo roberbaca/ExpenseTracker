@@ -92,7 +92,35 @@ const validPassword = (password) => {
     return password;
 }
 
-module.exports = { loginUser, registerUser, getUserInfo }
+
+// muestra todas los usuarios
+const findAllUsers = async (req, res) => {
+    try {
+      const allUsers = await users.getAllUsers();
+      res.send(allUsers);
+  
+    } catch (error) {
+      res.statusCode = 500;
+      res.send(error);
+    }
+};
+
+// borra un usuario
+const deleteUser = async (req, res) => {
+    try {
+        const id = Number(req.params.id);        
+        const deletedUser = await users.deleteUserById(id);
+        res.send(deletedUser);
+    } catch(error) {
+        console.log(error);
+        res.statusCode = 500;
+        res.send(error.message);
+    }
+}
+
+  
+
+module.exports = { loginUser, registerUser, getUserInfo, findAllUsers, deleteUser }
 
 
 
