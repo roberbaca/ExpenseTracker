@@ -6,9 +6,9 @@ import { toast } from 'react-toastify';
 export const authSlice = createSlice({
     name: "auth",
     initialState: {
-        token: null,
+        token: null,      
         userInfo: {},
-        message: null,        
+        // message: null,        
     },
     reducers: {
         login: (state, action) => {
@@ -16,11 +16,12 @@ export const authSlice = createSlice({
         },
 
         logout: (state, action) => {
-            state.token = action.payload;;        
+            state.token = null;
+            state.userInfo = {};
         },
 
         getUserInfo: (state, action) => {
-            state.userInfo = action.payload;;        
+            state.userInfo = action.payload;        
         },
 
         register: (state, action) => {
@@ -59,7 +60,7 @@ export const logoutAction = ( ) => async (dispatch) => {
 export const getUserInfoAction = (token)  => async (dispatch) => {    
     try {
         if (token) {
-            const response = await axiosInstance.get('/auth//user/me', {
+            const response = await axiosInstance.get('/auth/user/me', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }  
@@ -70,12 +71,13 @@ export const getUserInfoAction = (token)  => async (dispatch) => {
                 email: response.data.email,
                 role: response.data.role,
                 id: response.data.userId
-            }
+            }        
 
-            dispatch(getUserInfo(userInfo));   
+            //dispatch(getUserInfo(userInfo));    
+            dispatch(getUserInfo(response.data));    
+            console.log(response.data);
             const notify = () => toast("👋 Welcome " + userInfo.name + " !" );
-            notify();           
-            console.log(userInfo);
+            notify();     
         }      
 
     } catch (error) {

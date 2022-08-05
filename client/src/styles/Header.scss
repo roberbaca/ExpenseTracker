@@ -1,8 +1,7 @@
 @use "./Global.scss";
 
+
 .header__wraper {
-    //background-color: Global.$secondary;
-    //background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
     background: Global.$main;
     box-shadow: 3px 3px 6px Global.$shadow;
     display: flex;
@@ -71,3 +70,154 @@
     }
 }
 
+
+
+
+
+/* ----------------
+    Media Queries
+------------------*/
+
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+@media (min-width: 1440px) { 
+   
+    
+}
+
+
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+@media (max-width: 1440px) { 
+    
+    .header__wraper {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem; 
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        .header__logo {
+            
+            .header__title {           
+                font-size: 3rem;
+           }
+
+            .sitelogo {
+                width: 3rem;
+                margin-left: 2rem;
+                margin-right: 2rem;
+            }
+        }
+        
+        .header__authwraper {            
+            .icon__wraper {
+                margin-left: 2rem;
+                .auth__icon {      
+                    font-size: 2rem;        
+                    padding: 1rem;
+                }
+                .auth__title {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    
+}
+
+
+/* Pantallas grandes (desktops de menos de 1200px) */
+@media (max-width: 1200px) { 
+     
+}
+
+
+/* Pantallas medianas (tablets de menos de 992px) */
+@media (max-width: 992px) { 
+
+}
+
+
+/* Pantallas pequeñas (móviles en landscape de menos de 768px) */
+@media (max-width: 768px) { 
+ 
+  
+}
+
+
+/* Pantallas muy pequeñas (móviles en portrait de menos de 576px) */
+@media (max-width: 576px) { 
+         
+    .header__wraper {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem; 
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        .header__logo {
+            
+            .header__title {           
+                font-size: 2.3rem;
+           }
+
+            .sitelogo {
+                width: 3rem;
+                margin-left: 0;
+                margin-right: 1rem;
+            }
+        }
+        
+        .header__authwraper {            
+            .icon__wraper {
+                margin-left: 2rem;
+                .auth__icon {      
+                    font-size: 2rem;        
+                    padding: 1rem;
+                }
+                .auth__title {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+   
+}
+
+@media (max-width: 375px) { 
+
+    .header__wraper {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem; 
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        .header__logo {
+            
+            .header__title {           
+                font-size: 2rem;
+           }
+
+            .sitelogo {
+                width: 3rem;
+                margin-left: 0;
+                margin-right: 1rem;
+            }
+        }
+        
+        .header__authwraper {            
+            .icon__wraper {
+                margin-left: 2rem;
+                .auth__icon {      
+                    font-size: 2rem;        
+                    padding: 1rem;
+                }
+                .auth__title {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+}

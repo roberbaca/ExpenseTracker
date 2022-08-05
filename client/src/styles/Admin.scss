@@ -1,0 +1,301 @@
+@use "./Global.scss";
+
+.admin__dashboard {
+    display: flex;
+    flex-direction: row;  
+
+    .dashboard__menu {  
+      display: block;
+      width: 15%;
+      height: 40rem;
+      margin: 1rem;
+      margin-right: 3rem;
+      background-color: Global.$darkblue;
+      padding: 1rem;
+      border-radius: 1rem;             
+      box-shadow: 3px 3px 6px Global.$shadow;
+
+      .dashboard__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 0.2rem solid Global.$subtitle;
+        margin-bottom: 2rem;
+
+        .dashboard__title {
+          color: Global.$subtitle;
+          font-size: 2rem;
+        }
+  
+        .dashboard__icon {
+          font-size: 6rem;
+          color: Global.$subtitle;        
+        }
+      }
+
+      .checkbox__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        
+        .checkbox__wraper {
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            height: 3rem;   
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            .checkbox__label {
+              display: flex;
+              justify-content: center;
+              align-items: center;   
+              color: white;
+              margin-left: 0.5rem;   
+              font-size: 1.2rem;
+            }
+    
+            .checkbox {            
+                appearance: none;        
+                font: inherit;
+                display: grid;
+                place-content: center;
+                width: 2rem;
+                height: 2rem;        
+                border-radius: 20%;
+                border: none;          
+                background: white;        
+                box-shadow: 3px 3px 6px Global.$shadow;
+                color: Global.$txt-main;  
+                margin: 0;      
+                margin-right: 0.5rem;
+                margin-left: 0.5rem;
+                cursor: pointer;
+      
+                &::before {
+                  content: "";
+                  width: 1.5rem;
+                  height: 1.5rem;
+                  border-radius: 20%;
+                  border: none;
+                  transform: scale(0);
+                  transition: 120ms transform ease-in-out;
+                  box-shadow: inset 1.5rem 1.5rem hsl(150, 62%, 65%);
+                  background-color: CanvasText;
+                  transform-origin: bottom left;
+                  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+                }
+      
+                &:checked {
+                  &::before {
+                    transform: scale(1);
+                  }
+                } 
+            }
+          }  
+      }
+    }    
+          
+    .users__dashboard {
+      margin: 1rem;
+      width: 85%;      
+    
+      .table__wraper {        
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;          
+    
+        .table__content {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;            
+
+            .userdata__card {
+                display: flex;
+                flex-direction: column;               
+                margin: 1rem;
+                padding: 1rem;
+                box-shadow: 3px 3px 6px Global.$shadow;
+                background: Global.$main;
+                border-radius: 1rem;    
+                width: 15rem;
+                height: 8rem;
+    
+                .userdata__header {
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 2rem;
+
+
+                  .userdata__id {
+                    margin: 0;                                        
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: white
+                  }
+
+                  .role__admin {
+                    margin: 0;                                        
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: Global.$okey;
+                    text-transform: uppercase;
+                  }
+
+                  .role__user {
+                    margin: 0;                   
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: Global.$lightblue;
+                    text-transform: uppercase;
+                  }
+                }
+
+                .userdata {
+                    margin: 0;                   
+                    color: Global.$subtitle;
+                    font-size: 1rem;
+                    margin-bottom: 1rem;
+                }                              
+              }
+        }
+      }
+    }
+
+    .category__dashboard {
+        width: 85%;
+        margin: 1rem;
+
+      .table__wraper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;  
+
+        .table__content {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;            
+
+          .category__card {
+            display: flex;
+            flex-direction: row;               
+            justify-content: space-between;              
+            align-items: center;
+            padding: 1rem;
+            margin: 1rem;
+            box-shadow: 3px 3px 6px Global.$shadow;
+            background: Global.$main;
+            border-radius: 1rem;    
+            width: 16rem;
+            height: 2rem;
+      
+              .category__id {
+                margin: 0;                                        
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: white
+              }
+      
+              .category__title {
+                margin: 0;                                        
+                font-size: 1.5rem;                
+                color: Global.$subtitle;
+              }
+      
+              .delete__icon {
+                font-size: 1.3rem;
+                width: 3rem;
+                color: Global.$error;
+      
+                &:hover {
+                    cursor: pointer;                    
+                    animation: shake 0.5s;
+                }
+            }               
+             
+        }
+        }
+      }
+    
+    
+  }
+    
+}
+
+
+
+.search__wraper { 
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  .searchbar {
+      width: 30%;
+      margin: 0;
+      margin-right: 2rem;
+      border-radius: 2rem;
+      border: none;
+      padding: 0.5rem;
+      padding-left: 1rem;
+      background: white;        
+      box-shadow: 3px 3px 6px Global.$shadow;
+      color: Global.$txt-main;        
+      font-size: 1rem;
+      font-weight: 300;
+      height: 2rem;   
+
+      &:focus {
+        outline-color: Global.$okey;
+        outline-style:dashed;  
+        outline-width: 0.2rem;    
+        outline-offset: 0.3rem;   
+      }
+
+      &::placeholder {
+          color: Global.$txt-grey;
+      }
+  } 
+
+  .sort__title {
+    color: Global.$txt-grey;
+    font-size: 1rem;
+    margin-top: 0;
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .select__wraper {
+    display: flex;
+    flex-direction: column;
+    width: 10%;     
+
+    .select {
+        width: 100%;
+        margin: 0;
+        border-radius: 2rem;
+        border: none;
+        padding: 0.5rem;
+        padding-left: 1rem;     
+        background: white;        
+        box-shadow: 3px 3px 6px Global.$shadow;
+        color: Global.$txt-main;        
+        font-size: 1rem;
+        font-weight: 300;
+        height: 3rem;   
+    }
+
+    .select:focus {
+      outline-color: Global.$okey;
+      outline-style:dashed;  
+      outline-width: 0.2rem;    
+      outline-offset: 0.3rem; 
+    }    
+  }      
+}

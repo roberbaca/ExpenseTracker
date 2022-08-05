@@ -10,24 +10,22 @@ import { format, parseISO } from 'date-fns'
 import { deleteExpenseAction, updateExpenseAction } from '../../Redux/slices/expenses';
 import moment from 'moment';
 
-
 const Card = ( {id, category, title, date, amount } ) => {
 
-  const [isEditExpenseModalOpen, setEditExpenseModalIsOpen] = useState(false);
   const categories = useSelector(store => store.category.categoriesList);
   const token  = useSelector(store => store.auth.token); 
-
+  
+  const [isEditExpenseModalOpen, setEditExpenseModalIsOpen] = useState(false);
   const [newTitle, setNewTitle] = useState(title);
   const [newAmount, setNewAmount] = useState(amount);
   const [newCategory, setNewCategory] = useState(category);
   const [newDate, setNewDate] = useState(date);
 
-  // const navigate = useNavigate(); 
   const dispatch = useDispatch(); 
 
   const deleteExpense = () => {        
     dispatch( deleteExpenseAction( id, token) );         
-}
+  }
 
   const editExpense = () => {    
     setEditExpenseModalIsOpen(true);    
@@ -65,7 +63,6 @@ const Card = ( {id, category, title, date, amount } ) => {
       <div className='title__container'>
           <h2 className='card__category'>{category}</h2>
           <h1 className='card__title'>{title}</h1>
-          {/* <p className='card__date'>{ moment.utc(date.toLocaleString()).format('DD/MM/YY') }</p>           */}
           <p className='card__date'>{ moment(date).add(1, 'd').format("DD/MM/YY") }</p>          
       </div>
       <p className='card__amount'>$ {amount}</p>
@@ -82,13 +79,12 @@ const Card = ( {id, category, title, date, amount } ) => {
               <input className='modal__input' type="text" placeholder='Title' defaultValue={title} onChange={handleChangeTitle} required/>
               <input className='modal__input' type="number" placeholder='Amount' defaultValue={amount} onChange={handleChangeAmount} required/>
               <input className='modal__input' type="date" placeholder='Date' defaultValue={ format(parseISO(date), 'yyyy-MM-dd') } onChange={handleChangeDate} required/>
-              <textarea className='modal__textarea' type="text" placeholder='Description (optional)' />
+              {/* <textarea className='modal__textarea' type="text" placeholder='Description (optional)' /> */}
               <button className='modal__btn' type='button' onClick={editExpense}>Submit</button>   
           </div>
       </EditExpenseModal>
     </div>
   )
 }
-
 
 export default Card

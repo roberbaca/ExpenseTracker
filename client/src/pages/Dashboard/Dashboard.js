@@ -23,7 +23,6 @@ const Dashboard = () => {
 
     const token  = useSelector(store => store.auth.token); 
     const expenses  = useSelector(store => store.expenses.expensesList); 
-    //const { expenses } = useSelector(store => store.expenses.expensesList);
     const totalBalance  = useSelector(store => store.expenses.totalBalance); 
     const categoryBalance  = useSelector(store => store.expenses.categoryBalance); 
     const categories = useSelector(store => store.category.categoriesList);
@@ -64,18 +63,14 @@ const Dashboard = () => {
         dispatch( getTotalBalanceAction(token) ); 
         handleDropdown({target: {value: dropdownValue}});  
         dispatch( showAllExpensesAction(token) );      
-        console.log("new expenses: ", expenses)
-        //console.log("categories: ", categories)
+        //console.log("new expenses: ", expenses)
     }, [JSON.stringify(expenses)])
-
-
 
 
   return (
     <section className='dashboard__section'>       
     
-        <div className='search__wraper'>
-            
+        <div className='search__wraper'>            
             <input type="text" placeholder='Search Expenses' className='searchbar' onChange={handleSearch}/>
             <div className='select__wraper'>
                 <p className='sort__title'>Sort by Category</p>
@@ -132,13 +127,4 @@ const Dashboard = () => {
 
 export default Dashboard
 
-
-/*
- { expenses?.filter(e => dropdownValue === "All" ?
-            e.title.toUpperCase().includes(searchvalue) : 
-            e.title.toUpperCase().includes(searchvalue) && e.categoryId == dropdownValue). map( (e, index) => (
-                <Card key = {index} id={e.id} category={ categories[e.categoryId-1].title} title={e.title} date={ format(parseISO(e.date), 'yyyy-MM-dd') } amount={e.amount} />))
-        }
-
-*/
 

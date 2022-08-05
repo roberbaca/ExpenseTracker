@@ -11,7 +11,7 @@ footer {
     bottom:0;
     width:100%;
     height: 2rem;
-    border-top: 0.5rem solid Global.$darkblue;
+    // border-top: 0.5rem solid Global.$darkblue;
 
     .footer__logo {
         width: 2.5rem;
@@ -94,4 +94,118 @@ footer {
     100% {
       transform: translate(1px, -2px) rotate(-1deg);
     }
+}
+
+
+
+
+/* ----------------
+    Media Queries
+------------------*/
+
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+@media (min-width: 1440px) { 
+   
+    
+}
+
+
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+@media (max-width: 1440px) { 
+
+    footer {       
+      padding-top: 0.8rem;
+      padding-bottom: 0.8rem;    
+      height: 1.5rem;
+
+      .footer__logo {
+        width: 1.5rem;  
+      }   
+
+      .footer__iconcontainer {         
+        .footer__socialicon {    
+          font-size: 1rem;
+          margin-left:1rem;
+          padding: 0.4rem;
+        }     
+      }
+  } 
+  
+}
+
+
+/* Pantallas grandes (desktops de menos de 1200px) */
+@media (max-width: 1200px) { 
+     
+}
+
+
+/* Pantallas medianas (tablets de menos de 992px) */
+@media (max-width: 992px) { 
+
+}
+
+
+/* Pantallas pequeñas (móviles en landscape de menos de 768px) */
+@media (max-width: 768px) { 
+ 
+  
+}
+
+
+/* Pantallas muy pequeñas (móviles en portrait de menos de 576px) */
+@media (max-width: 576px) { 
+    
+  footer {   
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;  
+    height: 2rem;
+    .footer__logo {
+        width: 1.5rem;
+        margin-left: 1rem;     
+    }
+
+    .footer__iconcontainer { 
+        margin-right: 0.5rem;     
+        
+        .footer__socialicon {            
+            font-size: 1rem;
+            margin-left:0.3rem;         
+            padding: 0.4rem;         
+        }  
+    }
+
+    .footer__copy {
+        font-size: 1.1rem;
+    }
+  }
+   
+}
+
+@media (max-width: 375px) { 
+     
+  footer {   
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;  
+    height: 2rem;
+    .footer__logo {
+        width: 1.5rem;
+        margin-left: 1rem;     
+    }
+
+    .footer__iconcontainer { 
+        margin-right: 0.5rem;     
+        
+        .footer__socialicon {            
+            font-size: 1rem;
+            margin-left:0.3rem;         
+            padding: 0.4rem;         
+        }  
+    }
+
+    .footer__copy {
+        font-size: 0.9rem;
+    }
+  }
+  
 }

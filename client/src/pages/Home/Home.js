@@ -29,7 +29,7 @@ const Home = () => {
 
     const token  = useSelector(store => store.auth.token); 
     const role  = useSelector(store => store.auth.userInfo.role); 
-    const userInfo  = useSelector(store => store.auth.userInfo.name);         
+    const userInfo  = useSelector(store => store.auth.userInfo);         
 
     const togglePassword = () => {
         setIsVisible(!isVisible);
@@ -37,7 +37,7 @@ const Home = () => {
     }
 
     const handleLogin = () => {
-        setIsLogin(true);
+        setIsLogin(true);          
     }
 
     const handleRegister = () => {
@@ -63,7 +63,7 @@ const Home = () => {
     const passwordNotify = () => toast("❌ Password and confirmation do not match.");
 
     const onLogin = () => {
-        dispatch( loginAction(email, password) );       
+        dispatch( loginAction(email, password) );                    
     }
 
     const onRegister = () => {
@@ -76,26 +76,29 @@ const Home = () => {
 
     // REVISAR
     useEffect(() => {
-        if (token) { 
-            dispatch( getUserInfoAction(token) );              
-            navigate("/user/dashboard");                  
-        } 
-/*
-        if (token && role === "admin") {
-            dispatch( getUserInfoAction(token) );     
-            navigate("/admin/dashboard");
-        }
-        */
-
-
-        
+        if (token) {
+            dispatch( getUserInfoAction(token) );   
+                                               
+        }        
     }, [token]) 
+
+    useEffect(() => {             
+
+        console.log("rol", role); 
+        if ( userInfo.role == "admin") {                       
+            navigate("/admin/dashboard");    
+        } else if ( userInfo.role == "") {                        
+            navigate("/user/dashboard");    
+        }         
+        
+              
+    }, [userInfo]) 
+
 
   return (
     <section className='home'>
 
         {/* <LoadingSpinner/> */}
-
 
         {isLogin && <div className='auth'>       
             <div className='auth__wraper'>
@@ -122,8 +125,17 @@ const Home = () => {
                 <h2 className='auth__title'>Sign Up</h2>
                 <input className='auth__input' type="text" placeholder='Enter username' value={name} onChange={handleChangeName}/>
                 <input className='auth__input' type="text" placeholder='Enter email' value={email} onChange={handleChangeEmail}/>
-                <input className='auth__input' type="password" placeholder='Enter password' value={password} onChange={handleChangePassword}/>
-                <input className='auth__input' type="password" placeholder='Confirm password' value={confirmedPassword} onChange={handleChangeConfirmedPassword}/>
+
+                <input   className='auth__input' type={passwordType} placeholder='Enter password' value={password} onChange={handleChangePassword} required/>
+                {!isVisible && <AiOutlineEyeInvisible className='eyeicon' onClick={togglePassword} />}
+                {isVisible && <AiOutlineEye className='eyeicon' onClick={togglePassword}/>}    
+                
+                <input   className='auth__input' type={passwordType} placeholder='Confirm password' value={confirmedPassword} onChange={handleChangeConfirmedPassword} required/>
+                {!isVisible && <AiOutlineEyeInvisible className='eyeicon' onClick={togglePassword} />}
+                {isVisible && <AiOutlineEye className='eyeicon' onClick={togglePassword}/>}    
+                        
+                {/* <input className='auth__input' type="password" placeholder='Enter password' value={password} onChange={handleChangePassword}/>
+                <input className='auth__input' type="password" placeholder='Confirm password' value={confirmedPassword} onChange={handleChangeConfirmedPassword}/> */}
                 <button className='auth__btn' onClick={onRegister} >Register</button>          
                 <div className='sign'>            
                     <p className='sign__title'  onClick={handleLogin}><FaLock className='sign__icon'/>Log In</p>

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: "Montserrat", sans-serif;
   background-color: #d0dfeb;
@@ -19,7 +20,7 @@ body {
 .auth__wraper .auth__title {
   color: white;
   font-weight: bold;
-  font-size: 4em;
+  font-size: 4rem;
   margin-bottom: 2rem;
   margin-top: 1rem;
 }
@@ -166,6 +167,237 @@ body {
   }
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+/* ----------------
+    Media Queries
+------------------*/
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+@media (max-width: 1440px) {
+  .auth__wraper {
+    width: 20rem;
+    height: 27rem;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .auth__wraper .auth__title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  .auth__wraper .auth__input {
+    width: 80%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    height: 2rem;
+  }
+  .auth__wraper .auth__input:focus {
+    outline-width: 0.15rem;
+  }
+  .auth__wraper .password__input {
+    width: 80%;
+    margin: 0.5rem 0;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    height: 2rem;
+  }
+  .auth__wraper .password__input:focus {
+    outline-width: 0.15rem;
+  }
+  .auth__wraper .eyeicon {
+    float: right;
+    left: 35%;
+    bottom: 8%;
+    font-size: 1.4rem;
+  }
+  .auth__wraper .auth__btn {
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 8rem;
+    font-size: 1.5rem;
+  }
+  .auth__wraper .logwith {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .auth__wraper .social__wraper .social__icon {
+    font-size: 2rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+  .auth__wraper .sign {
+    margin-top: 1rem;
+  }
+  .auth__wraper .sign .sign__title {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  .auth__wraper .sign .sign__icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+  }
+}
+/* Pantallas grandes (desktops de menos de 1200px) */
+/* Pantallas medianas (tablets de menos de 992px) */
+/* Pantallas pequeñas (móviles en landscape de menos de 768px) */
+/* Pantallas muy pequeñas (móviles en portrait de menos de 576px) */
+@media (max-width: 576px) {
+  .auth__wraper {
+    width: 20rem;
+    height: 32rem;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .auth__wraper .auth__title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  .auth__wraper .auth__input {
+    width: 80%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    height: 2rem;
+  }
+  .auth__wraper .auth__input:focus {
+    outline-width: 0.15rem;
+  }
+  .auth__wraper .password__input {
+    width: 80%;
+    margin: 0.5rem 0;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    height: 2rem;
+  }
+  .auth__wraper .password__input:focus {
+    outline-width: 0.15rem;
+  }
+  .auth__wraper .eyeicon {
+    float: right;
+    left: 35%;
+    bottom: 9%;
+    font-size: 1.6rem;
+  }
+  .auth__wraper .auth__btn {
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 8rem;
+    font-size: 1.5rem;
+  }
+  .auth__wraper .logwith {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .auth__wraper .social__wraper .social__icon {
+    font-size: 2rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+  .auth__wraper .sign {
+    margin-top: 1rem;
+  }
+  .auth__wraper .sign .sign__title {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  .auth__wraper .sign .sign__icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 375px) {
+  .auth__wraper {
+    width: 20rem;
+    height: 32rem;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .auth__wraper .auth__title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  .auth__wraper .auth__input {
+    width: 80%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    height: 2rem;
+  }
+  .auth__wraper .auth__input:focus {
+    outline-width: 0.15rem;
+  }
+  .auth__wraper .password__input {
+    width: 80%;
+    margin: 0.5rem 0;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    height: 2rem;
+  }
+  .auth__wraper .password__input:focus {
+    outline-width: 0.15rem;
+  }
+  .auth__wraper .eyeicon {
+    float: right;
+    left: 35%;
+    bottom: 9%;
+    font-size: 1.6rem;
+  }
+  .auth__wraper .auth__btn {
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 8rem;
+    font-size: 1.5rem;
+  }
+  .auth__wraper .logwith {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .auth__wraper .social__wraper .social__icon {
+    font-size: 2rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+  .auth__wraper .sign {
+    margin-top: 1rem;
+  }
+  .auth__wraper .sign .sign__title {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  .auth__wraper .sign .sign__icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
   }
 }
 

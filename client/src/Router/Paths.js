@@ -9,12 +9,7 @@ export const PATHS = {
         {
             path: '/user/dashboard',            
             element: <Dashboard/>
-        },
-
-        {
-            path: '/admin/dashboard',            
-            element: <Admin/>
-        },
+        },      
         
         {
             path: '/home',            
@@ -24,8 +19,7 @@ export const PATHS = {
         {
             path: '*',            
             element: <Home/>
-        }, 
-     
+        },      
     ],
 
     
@@ -40,7 +34,7 @@ export const PATHS = {
         {
             path: '*',            
             element: <Home/>
-        }, 
+        },        
         
     ],    
 
@@ -59,8 +53,7 @@ export const PATHS = {
         {
             path: '*',            
             element: <Home/>
-        }, 
-     
+        },      
     ],
 
 }
