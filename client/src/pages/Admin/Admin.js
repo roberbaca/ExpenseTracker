@@ -1,14 +1,14 @@
 import React, { useState, useEffect }from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
 import { showAllUsersAction } from '../../Redux/slices/users';
 import { showAllCategoriesAction } from '../../Redux/slices/category';
-import { IoTrashBinSharp } from 'react-icons/io5';
 import { RiAdminLine } from 'react-icons/ri';
-import { ToastContainer, toast } from 'react-toastify';
+import AddCategoryModal from '../../components/Modals/AddCategoryModal'
+import { AiOutlinePlus } from 'react-icons/ai';
 import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/Admin.css';
 import '../../styles/Global.css';
+import CategoryCard from '../../components/Card/CategoryCard';
 
 const Admin = () => {
     
@@ -16,6 +16,10 @@ const Admin = () => {
   const [dropdownValue, setDropdownValue] = useState("all");
   const [isChecked, setIsChecked] = useState(true);
   const [isDashboardActive, setIsDashboardActive] = useState("user"); 
+  const [isModalOpen, setModalIsOpen] = useState(false);
+  const [isCategoryChecked, setIsCategoryChecked] = useState(true);
+  const [isSortedBy, setIsSortedBy] = useState("id");  
+  const [sortedCategories, setSortedCategories] = useState([]); 
   
   const usersList  = useSelector(store => store.users.usersList); 
   const categories = useSelector(store => store.category.categoriesList);
@@ -37,11 +41,26 @@ const Admin = () => {
     setIsDashboardActive(e.target.value);                  
   };
 
+  const addCategory = () => {
+    setModalIsOpen(true);        
+  } 
+
+  const handleOnChange = (e) => {
+    setIsCategoryChecked(!isCategoryChecked);
+    setIsSortedBy(e.target.value);              
+};
+
+
   useEffect(() => {         
     dispatch( showAllCategoriesAction() );    
     dispatch( showAllUsersAction(token) );                                      
   }, [])
 
+
+  useEffect(() => {        
+    setSortedCategories([...categories]);          
+    dispatch( showAllCategoriesAction(token) );          
+}, [JSON.stringify(categories)])
 
   return (
     <section className="admin__dashboard">
@@ -99,21 +118,42 @@ const Admin = () => {
     { isDashboardActive === "category" && <div className='category__dashboard'>      
         <div className='search__wraper'>            
           <input type="text" placeholder='Search by category name...' className='searchbar' onChange={handleSearch}/>         
+          <div className='sort__wraper'>
+                <p className='sort__title'>Sort by:</p>
+                <div className='sort__checkboxwraper'>
+                    <div className='checkbox__wraper'>
+                        <input type="checkbox" id='id' value={"id"} className="sort__checkbox" checked={isCategoryChecked} onChange={handleOnChange}/>
+                        <label htmlFor="id" className='checkbox__label'>Id</label>
+                    </div>
+                    <div className='checkbox__wraper'>
+                        <input type="checkbox" id='name' value={"name"} className="sort__checkbox" checked={!isCategoryChecked} onChange={handleOnChange}/>
+                        <label htmlFor="name" className='checkbox__label'>Name</label>
+                    </div>
+                </div>
+            </div>            
         </div>
+
         
         <div className='table__wraper'>       
           <div className='table__content'>
-          { categories.filter( category => category.title.toUpperCase().includes(searchvalue)).map( (category, index) => (
-                <div index = {index} className='category__card'>
-                   <p className="category__id"># {category.id}</p>
-                   <p className="category__title">{category.title}</p>
-                   <IoTrashBinSharp className="delete__icon"/>                 
-                </div>        
-          )) }       
+          {  isSortedBy === "id" ? 
+                [...categories].sort((a, b) =>  (a.id) - (b.id)).filter(category => category.title.toUpperCase().includes(searchvalue)).map( (category, index) => (               
+                  <CategoryCard key = {index} id={category.id} title={category.title}/>)) :
+
+                [...categories].sort((a, b) => a.title - b.title).filter(category => category.title.toUpperCase().includes(searchvalue)).map( (category, index) => (               
+                  <CategoryCard key = {index} id={category.id} title={category.title}/>))
+            }    
+
           </div> 
         </div>
-    </div> }
 
+        <div className='add__wraper'>
+            <AiOutlinePlus className='add__icon' onClick={addCategory}/>
+        </div>
+
+        {/* Pop Ups (Modal) */}        
+        <AddCategoryModal open={isModalOpen} onClose={() => setModalIsOpen(false)}></AddCategoryModal>  
+    </div> }
 
       </section>
   )

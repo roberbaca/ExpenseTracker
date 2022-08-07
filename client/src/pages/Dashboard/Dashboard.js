@@ -62,8 +62,7 @@ const Dashboard = () => {
         setSortedExpenses([...expenses]);  
         dispatch( getTotalBalanceAction(token) ); 
         handleDropdown({target: {value: dropdownValue}});  
-        dispatch( showAllExpensesAction(token) );      
-        //console.log("new expenses: ", expenses)
+        dispatch( showAllExpensesAction(token) );          
     }, [JSON.stringify(expenses)])
 
 

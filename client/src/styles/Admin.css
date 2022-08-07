@@ -12,7 +12,7 @@ body {
   width: 15%;
   height: 40rem;
   margin: 1rem;
-  margin-right: 3rem;
+  margin-right: 1rem;
   background-color: #2c4e6b;
   padding: 1rem;
   border-radius: 1rem;
@@ -170,7 +170,7 @@ body {
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
   background: linear-gradient(90deg, rgb(24, 51, 75) 0%, rgb(57, 94, 123) 100%);
   border-radius: 1rem;
-  width: 16rem;
+  width: 20rem;
   height: 2rem;
 }
 .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__id {
@@ -184,12 +184,46 @@ body {
   font-size: 1.5rem;
   color: #d0dfeb;
 }
-.admin__dashboard .category__dashboard .table__wraper .table__content .category__card .delete__icon {
+.admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .delete__icon {
   font-size: 1.3rem;
   width: 3rem;
   color: #ff473d;
 }
-.admin__dashboard .category__dashboard .table__wraper .table__content .category__card .delete__icon:hover {
+.admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .delete__icon:hover {
+  cursor: pointer;
+  animation: shake 0.5s;
+}
+.admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .edit__icon {
+  font-size: 1.3rem;
+  width: 3rem;
+  color: #86cc6d;
+}
+.admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .edit__icon:hover {
+  cursor: pointer;
+  animation: shake 0.5s;
+}
+.admin__dashboard .category__dashboard .add__wraper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 5rem;
+  width: 80%;
+}
+.admin__dashboard .category__dashboard .add__wraper .add__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+  margin-right: 2rem;
+  background: linear-gradient(to right bottom, hsl(150deg, 71%, 73%), #86cc6d);
+  padding: 0.4rem;
+  border-radius: 100%;
+  box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
+}
+.admin__dashboard .category__dashboard .add__wraper .add__icon:hover {
   cursor: pointer;
   animation: shake 0.5s;
 }
@@ -258,6 +292,63 @@ body {
   outline-style: dashed;
   outline-width: 0.2rem;
   outline-offset: 0.3rem;
+}
+
+.sort__wraper {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-left: 4rem;
+}
+.sort__wraper .checkbox__wraper {
+  margin-right: 1rem;
+  height: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.sort__wraper .checkbox__wraper .checkbox__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(222deg, 20%, 35%);
+  margin-left: 0.5rem;
+}
+.sort__wraper .sort__checkboxwraper {
+  display: flex;
+}
+.sort__wraper .sort__checkboxwraper .sort__checkbox {
+  appearance: none;
+  font: inherit;
+  display: grid;
+  place-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 20%;
+  border: none;
+  background: white;
+  box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
+  color: hsl(222deg, 20%, 35%);
+  margin: 0;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+.sort__wraper .sort__checkboxwraper .sort__checkbox::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 20%;
+  border: none;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1.5rem 1.5rem hsl(150deg, 62%, 65%);
+  background-color: CanvasText;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+.sort__wraper .sort__checkboxwraper .sort__checkbox:checked::before {
+  transform: scale(1);
 }
 
 /*# sourceMappingURL=Admin.css.map */

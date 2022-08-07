@@ -10,10 +10,6 @@ import '../../styles/Home.css';
 import '../../styles/Auth.css';
 import '../../styles/Global.css';
 
-//import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
-//import Register from '../../components/Register/Register';
-
-
 const Home = () => {
 
     const [isLogin, setIsLogin] = useState(true);
@@ -74,31 +70,23 @@ const Home = () => {
         }
     }
 
-    // REVISAR
     useEffect(() => {
         if (token) {
-            dispatch( getUserInfoAction(token) );   
-                                               
+            dispatch( getUserInfoAction(token) );                                                  
         }        
     }, [token]) 
 
-    useEffect(() => {             
-
-        console.log("rol", role); 
+    useEffect(() => {         
         if ( userInfo.role == "admin") {                       
             navigate("/admin/dashboard");    
         } else if ( userInfo.role == "") {                        
             navigate("/user/dashboard");    
-        }         
-        
-              
+        }                    
     }, [userInfo]) 
 
 
   return (
     <section className='home'>
-
-        {/* <LoadingSpinner/> */}
 
         {isLogin && <div className='auth'>       
             <div className='auth__wraper'>
@@ -108,12 +96,12 @@ const Home = () => {
             {!isVisible && <AiOutlineEyeInvisible className='eyeicon' onClick={togglePassword} />}
             {isVisible && <AiOutlineEye className='eyeicon' onClick={togglePassword}/>}            
             <button className='auth__btn' type='submit' onClick={onLogin}>Sign In</button>
-            <p className='logwith'>Or login with:</p>
+            {/* <p className='logwith'>Or login with:</p>
             <div className='social__wraper'>
                 <FaGithubAlt className='social__icon'/>
                 <FaGoogle className='social__icon'/>
                 <FaFacebook className='social__icon'/>
-            </div>
+            </div> */}
             <div className='sign'>            
                 <p className='sign__title' onClick={handleRegister}><FaUser className='sign__icon'/>Sign Up</p>
             </div>

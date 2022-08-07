@@ -67,7 +67,7 @@ body {
 .auth__wraper .eyeicon {
   float: right;
   left: 35%;
-  bottom: 7%;
+  bottom: 12%;
   position: relative;
   z-index: 2;
   color: hsl(222deg, 20%, 35%);
