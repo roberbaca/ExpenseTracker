@@ -7,8 +7,7 @@ export const authSlice = createSlice({
     name: "auth",
     initialState: {
         token: null,      
-        userInfo: {},
-        // message: null,        
+        userInfo: {},                
     },
     reducers: {
         login: (state, action) => {
@@ -71,11 +70,9 @@ export const getUserInfoAction = (token)  => async (dispatch) => {
                 email: response.data.email,
                 role: response.data.role,
                 id: response.data.userId
-            }        
+            }   
 
-            //dispatch(getUserInfo(userInfo));    
-            dispatch(getUserInfo(response.data));    
-            console.log(response.data);
+            dispatch(getUserInfo(response.data));          
             const notify = () => toast("👋 Welcome " + userInfo.name + " !" );
             notify();     
         }      
@@ -91,7 +88,7 @@ export const registerAction = ( name, email, password, role ) => async (dispatch
     try {
         const response = await axiosInstance.post('/auth/register', { name, email, password, role });  // llamada al back y obtenemos el token               
         dispatch(register());  
-        const notify = () => toast("✔️ Register successful");
+        const notify = () => toast("✔️ Register successful, please Login");
         notify();                     
 
     } catch (error) {

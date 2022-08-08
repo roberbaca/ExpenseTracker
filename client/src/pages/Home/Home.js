@@ -64,7 +64,7 @@ const Home = () => {
 
     const onRegister = () => {
         if (password === confirmedPassword) {
-            dispatch( registerAction( name, email, password) );
+            dispatch( registerAction( name, email, password, "") );
         } else {
             passwordNotify();
         }
