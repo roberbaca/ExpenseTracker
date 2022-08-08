@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: "Montserrat", sans-serif;
   background-color: #d0dfeb;
@@ -349,6 +350,573 @@ body {
 }
 .sort__wraper .sort__checkboxwraper .sort__checkbox:checked::before {
   transform: scale(1);
+}
+
+/* ----------------
+    Media Queries
+------------------*/
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+/* Pantallas grandes (desktops de menos de 1200px) */
+@media (max-width: 1200px) {
+  .admin__dashboard .dashboard__menu {
+    width: 20%;
+    height: 36rem;
+  }
+  .admin__dashboard .dashboard__menu .dashboard__header .dashboard__title {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard {
+    width: 85%;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card {
+    width: 12rem;
+    height: 7rem;
+    margin: 0.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header {
+    margin-bottom: 2rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .userdata__id {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .role__admin {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .role__user {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .admin__dashboard .category__dashboard {
+    width: 85%;
+    margin: 1rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card {
+    padding: 1rem;
+    margin: 0.5rem;
+    width: 16rem;
+    height: 2rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__id {
+    font-size: 1.3rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__title {
+    font-size: 1.3rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .delete__icon {
+    font-size: 1.2rem;
+    width: 2rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .edit__icon {
+    font-size: 1.2rem;
+    width: 2rem;
+  }
+  .admin__dashboard .category__dashboard .add__wraper {
+    margin-bottom: 5rem;
+    width: 72%;
+  }
+  .admin__dashboard .category__dashboard .add__wraper .add__icon {
+    font-size: 3rem;
+    margin-right: 2rem;
+    padding: 0.4rem;
+  }
+  .admin__dashboard .search__wraper {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .admin__dashboard .search__wraper .searchbar {
+    width: 40%;
+    margin: 0;
+    margin-right: 2rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    height: 2rem;
+  }
+  .admin__dashboard .search__wraper .searchbar:focus {
+    outline-width: 0.2rem;
+    outline-offset: 0.3rem;
+  }
+  .admin__dashboard .search__wraper .sort__title {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-left: 0.5rem;
+  }
+  .admin__dashboard .search__wraper .select__wraper {
+    width: 20%;
+  }
+  .admin__dashboard .search__wraper .select__wraper .select {
+    width: 100%;
+    font-size: 1rem;
+    height: 3rem;
+  }
+  .admin__dashboard .search__wraper .select__wraper .select:focus {
+    outline-width: 0.2rem;
+    outline-offset: 0.3rem;
+  }
+  .admin__dashboard .sort__wraper {
+    width: 25%;
+    margin-left: 4rem;
+  }
+  .admin__dashboard .sort__wraper .checkbox__wraper {
+    margin-right: 1rem;
+    height: 3rem;
+  }
+  .admin__dashboard .sort__wraper .checkbox__wraper .checkbox__label {
+    margin-left: 0.5rem;
+  }
+}
+/* Pantallas medianas (tablets de menos de 992px) */
+/* Pantallas pequeñas (móviles en landscape de menos de 768px) */
+@media (max-width: 768px) {
+  .admin__dashboard .dashboard__menu {
+    width: 30%;
+    height: 36rem;
+  }
+  .admin__dashboard .dashboard__menu .dashboard__header .dashboard__title {
+    font-size: 1.2rem;
+  }
+  .admin__dashboard .dashboard__menu .dashboard__header .dashboard__icon {
+    font-size: 4rem;
+  }
+  .admin__dashboard .dashboard__menu .checkbox__container .checkbox__wraper .checkbox__label {
+    font-size: 1rem;
+  }
+  .admin__dashboard .dashboard__menu .checkbox__container .checkbox__wraper .checkbox {
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+  .admin__dashboard .users__dashboard {
+    width: 85%;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card {
+    width: 12rem;
+    height: 7rem;
+    margin: 0.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header {
+    margin-bottom: 2rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .userdata__id {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .role__admin {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .role__user {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .admin__dashboard .category__dashboard {
+    width: 85%;
+    margin: 1rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card {
+    padding: 1rem;
+    margin: 0.5rem;
+    width: 12rem;
+    height: 2rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__id {
+    font-size: 1rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__title {
+    font-size: 1rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .delete__icon {
+    font-size: 1rem;
+    width: 1.5rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .edit__icon {
+    font-size: 1rem;
+    width: 1.5rem;
+  }
+  .admin__dashboard .category__dashboard .add__wraper {
+    margin-bottom: 5rem;
+    width: 68%;
+  }
+  .admin__dashboard .category__dashboard .add__wraper .add__icon {
+    font-size: 3rem;
+    margin-right: 2rem;
+    padding: 0.4rem;
+  }
+  .admin__dashboard .search__wraper {
+    width: 100%;
+    margin-bottom: 2rem;
+    justify-content: flex-start;
+  }
+  .admin__dashboard .search__wraper .searchbar {
+    width: 40%;
+    margin: 0;
+    margin-right: 1rem;
+    font-size: 1rem;
+    height: 2rem;
+  }
+  .admin__dashboard .search__wraper .searchbar:focus {
+    outline-width: 0.2rem;
+    outline-offset: 0.3rem;
+  }
+  .admin__dashboard .search__wraper .sort__title {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-left: 0.5rem;
+  }
+  .admin__dashboard .search__wraper .select__wraper {
+    width: 30%;
+  }
+  .admin__dashboard .search__wraper .select__wraper .select {
+    width: 100%;
+    font-size: 1rem;
+    height: 3rem;
+  }
+  .admin__dashboard .search__wraper .select__wraper .select:focus {
+    outline-width: 0.2rem;
+    outline-offset: 0.3rem;
+  }
+  .admin__dashboard .sort__wraper {
+    width: 25%;
+    margin-left: 0.5rem;
+  }
+  .admin__dashboard .sort__wraper .checkbox__wraper {
+    margin-right: 1rem;
+    height: 3rem;
+  }
+  .admin__dashboard .sort__wraper .checkbox__wraper .checkbox__label {
+    margin-left: 0.5rem;
+  }
+}
+/* Pantallas muy pequeñas (móviles en portrait de menos de 576px) */
+@media (max-width: 576px) {
+  .admin__dashboard {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .admin__dashboard .dashboard__menu {
+    width: 20rem;
+    height: 7rem;
+    margin: 0;
+  }
+  .admin__dashboard .dashboard__menu .dashboard__header {
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  .admin__dashboard .dashboard__menu .dashboard__header .dashboard__title {
+    font-size: 1.2rem;
+  }
+  .admin__dashboard .dashboard__menu .dashboard__header .dashboard__icon {
+    font-size: 2rem;
+    margin-left: 2rem;
+  }
+  .admin__dashboard .dashboard__menu .checkbox__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .admin__dashboard .dashboard__menu .checkbox__container .checkbox__wraper {
+    margin-bottom: 0;
+  }
+  .admin__dashboard .dashboard__menu .checkbox__container .checkbox__wraper .checkbox__label {
+    font-size: 1rem;
+  }
+  .admin__dashboard .dashboard__menu .checkbox__container .checkbox__wraper .checkbox {
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+  .admin__dashboard .users__dashboard {
+    width: 85%;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card {
+    width: 16rem;
+    height: 7rem;
+    margin: 0.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header {
+    margin-bottom: 2rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .userdata__id {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .role__admin {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .role__user {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .admin__dashboard .category__dashboard {
+    width: 100%;
+    margin: 1rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content {
+    justify-content: center;
+    margin-bottom: 6rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card {
+    padding: 1rem;
+    margin: 0.5rem;
+    width: 20rem;
+    height: 2rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__id {
+    font-size: 1rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__title {
+    font-size: 1rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .delete__icon {
+    font-size: 1rem;
+    width: 1.5rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .edit__icon {
+    font-size: 1rem;
+    width: 1.5rem;
+  }
+  .admin__dashboard .category__dashboard .add__wraper {
+    margin-bottom: 5rem;
+    width: 105%;
+  }
+  .admin__dashboard .category__dashboard .add__wraper .add__icon {
+    font-size: 3rem;
+    margin-right: 2rem;
+    padding: 0.4rem;
+  }
+  .admin__dashboard .search__wraper {
+    width: 100%;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .admin__dashboard .search__wraper .searchbar {
+    width: 80%;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    height: 2rem;
+  }
+  .admin__dashboard .search__wraper .searchbar:focus {
+    outline-width: 0.2rem;
+    outline-offset: 0.3rem;
+  }
+  .admin__dashboard .search__wraper .sort__title {
+    font-size: 1rem;
+    margin: 0;
+    margin-right: 0.5rem;
+  }
+  .admin__dashboard .search__wraper .select__wraper {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .admin__dashboard .search__wraper .select__wraper .select {
+    width: 50%;
+    font-size: 1rem;
+    height: 3rem;
+  }
+  .admin__dashboard .search__wraper .select__wraper .select:focus {
+    outline-width: 0.2rem;
+    outline-offset: 0.3rem;
+  }
+  .admin__dashboard .sort__wraper {
+    width: 80%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .admin__dashboard .sort__wraper .checkbox__wraper {
+    margin-right: 1rem;
+    height: 3rem;
+  }
+  .admin__dashboard .sort__wraper .checkbox__wraper .checkbox__label {
+    margin-left: 0.5rem;
+  }
+}
+@media (max-width: 375px) {
+  .admin__dashboard {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .admin__dashboard .dashboard__menu {
+    width: 16rem;
+    height: 7rem;
+    margin: 0;
+  }
+  .admin__dashboard .dashboard__menu .dashboard__header {
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  .admin__dashboard .dashboard__menu .dashboard__header .dashboard__title {
+    font-size: 1rem;
+  }
+  .admin__dashboard .dashboard__menu .dashboard__header .dashboard__icon {
+    font-size: 1.5rem;
+    margin-left: 0rem;
+  }
+  .admin__dashboard .dashboard__menu .checkbox__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .admin__dashboard .dashboard__menu .checkbox__container .checkbox__wraper {
+    margin-bottom: 0;
+  }
+  .admin__dashboard .dashboard__menu .checkbox__container .checkbox__wraper .checkbox__label {
+    font-size: 0.8rem;
+  }
+  .admin__dashboard .dashboard__menu .checkbox__container .checkbox__wraper .checkbox {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+    margin-right: 0rem;
+    margin-left: 0rem;
+  }
+  .admin__dashboard .users__dashboard {
+    width: 85%;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card {
+    width: 16rem;
+    height: 7rem;
+    margin: 0.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header {
+    margin-bottom: 2rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .userdata__id {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .role__admin {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .role__user {
+    font-size: 1.5rem;
+  }
+  .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .admin__dashboard .category__dashboard {
+    width: 100%;
+    margin: 1rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content {
+    justify-content: center;
+    margin-bottom: 6rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card {
+    padding: 1rem;
+    margin: 0.5rem;
+    width: 16rem;
+    height: 2rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__id {
+    font-size: 1rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__title {
+    font-size: 1rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .delete__icon {
+    font-size: 1rem;
+    width: 1.5rem;
+  }
+  .admin__dashboard .category__dashboard .table__wraper .table__content .category__card .category__icons .edit__icon {
+    font-size: 1rem;
+    width: 1.5rem;
+  }
+  .admin__dashboard .category__dashboard .add__wraper {
+    margin-bottom: 5rem;
+    width: 105%;
+  }
+  .admin__dashboard .category__dashboard .add__wraper .add__icon {
+    font-size: 3rem;
+    margin-right: 2rem;
+    padding: 0.4rem;
+  }
+  .admin__dashboard .search__wraper {
+    width: 100%;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .admin__dashboard .search__wraper .searchbar {
+    width: 80%;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    height: 2rem;
+  }
+  .admin__dashboard .search__wraper .searchbar:focus {
+    outline-width: 0.2rem;
+    outline-offset: 0.3rem;
+  }
+  .admin__dashboard .search__wraper .sort__title {
+    font-size: 1rem;
+    margin: 0;
+    margin-right: 0.5rem;
+  }
+  .admin__dashboard .search__wraper .select__wraper {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .admin__dashboard .search__wraper .select__wraper .select {
+    width: 50%;
+    font-size: 1rem;
+    height: 3rem;
+  }
+  .admin__dashboard .search__wraper .select__wraper .select:focus {
+    outline-width: 0.2rem;
+    outline-offset: 0.3rem;
+  }
+  .admin__dashboard .sort__wraper {
+    width: 80%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .admin__dashboard .sort__wraper .checkbox__wraper {
+    margin-right: 1rem;
+    height: 3rem;
+  }
+  .admin__dashboard .sort__wraper .checkbox__wraper .checkbox__label {
+    margin-left: 0.5rem;
+  }
 }
 
 /*# sourceMappingURL=Admin.css.map */

@@ -115,15 +115,13 @@ const Home = () => {
                 <input className='auth__input' type="text" placeholder='Enter email' value={email} onChange={handleChangeEmail}/>
 
                 <input   className='auth__input' type={passwordType} placeholder='Enter password' value={password} onChange={handleChangePassword} required/>
-                {!isVisible && <AiOutlineEyeInvisible className='eyeicon' onClick={togglePassword} />}
-                {isVisible && <AiOutlineEye className='eyeicon' onClick={togglePassword}/>}    
+                {!isVisible && <AiOutlineEyeInvisible className='pass__eyeicon' onClick={togglePassword} />}
+                {isVisible && <AiOutlineEye className='pass__eyeicon' onClick={togglePassword}/>}    
                 
                 <input   className='auth__input' type={passwordType} placeholder='Confirm password' value={confirmedPassword} onChange={handleChangeConfirmedPassword} required/>
-                {!isVisible && <AiOutlineEyeInvisible className='eyeicon' onClick={togglePassword} />}
-                {isVisible && <AiOutlineEye className='eyeicon' onClick={togglePassword}/>}    
-                        
-                {/* <input className='auth__input' type="password" placeholder='Enter password' value={password} onChange={handleChangePassword}/>
-                <input className='auth__input' type="password" placeholder='Confirm password' value={confirmedPassword} onChange={handleChangeConfirmedPassword}/> */}
+                {!isVisible && <AiOutlineEyeInvisible className='confirm__eyeicon' onClick={togglePassword} />}
+                {isVisible && <AiOutlineEye className='confirm__eyeicon' onClick={togglePassword}/>}                          
+        
                 <button className='auth__btn' onClick={onRegister} >Register</button>          
                 <div className='sign'>            
                     <p className='sign__title'  onClick={handleLogin}><FaLock className='sign__icon'/>Log In</p>

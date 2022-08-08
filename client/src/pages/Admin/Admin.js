@@ -47,7 +47,7 @@ const Admin = () => {
 
   const handleOnChange = (e) => {
     setIsCategoryChecked(!isCategoryChecked);
-    setIsSortedBy(e.target.value);              
+    setIsSortedBy(e.target.value);        
 };
 
 
@@ -140,7 +140,7 @@ const Admin = () => {
                 [...categories].sort((a, b) =>  (a.id) - (b.id)).filter(category => category.title.toUpperCase().includes(searchvalue)).map( (category, index) => (               
                   <CategoryCard key = {index} id={category.id} title={category.title}/>)) :
 
-                [...categories].sort((a, b) => a.title - b.title).filter(category => category.title.toUpperCase().includes(searchvalue)).map( (category, index) => (               
+                [...categories].sort((c, d) => c.title.localeCompare(d.title)).filter(category => category.title.toUpperCase().includes(searchvalue)).map( (category, index) => (               
                   <CategoryCard key = {index} id={category.id} title={category.title}/>))
             }    
 

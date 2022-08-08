@@ -13,6 +13,36 @@
     margin-bottom: 2rem;    
     box-shadow: 3px 3px 6px Global.$shadow;
 
+    .pass__eyeicon {     
+      float: right;      
+      left: 35%;  
+      bottom: 8%;
+      position: relative;
+      z-index: 2;  
+      color: Global.$txt-main;
+      font-size: 1.6rem;
+      font-weight: 300; 
+      
+      &:hover {
+        cursor: pointer;
+      }
+    }    
+    
+    .confirm__eyeicon {     
+      float: right;      
+      left: 35%;  
+      bottom: 8%;
+      position: relative;
+      z-index: 2;  
+      color: Global.$txt-main;
+      font-size: 1.6rem;
+      font-weight: 300; 
+      
+      &:hover {
+        cursor: pointer;
+      }
+    }  
+
     .auth__title {
         color: white;
         font-weight: bold;
@@ -68,11 +98,11 @@
       .eyeicon {     
         float: right;      
         left: 35%;  
-        bottom: 12%;
+        bottom: 13%;
         position: relative;
         z-index: 2;  
         color: Global.$txt-main;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         font-weight: 300; 
         
         &:hover {
@@ -149,6 +179,9 @@
       
     }
 }
+
+
+  
 
 
 
@@ -248,7 +281,7 @@
       .eyeicon {     
         float: right;      
         left: 35%;  
-        bottom: 8%;
+        bottom: 15%;
         font-size: 1.4rem;
       }       
 
@@ -360,7 +393,7 @@
     .eyeicon {     
       float: right;      
       left: 35%;  
-      bottom: 9%;
+      bottom: 15%;
       font-size: 1.6rem;
     }       
 
@@ -451,7 +484,7 @@
     .eyeicon {     
       float: right;      
       left: 35%;  
-      bottom: 9%;
+      bottom: 15%;
       font-size: 1.6rem;
     }       
 

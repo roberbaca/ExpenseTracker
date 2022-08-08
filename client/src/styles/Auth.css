@@ -17,6 +17,32 @@ body {
   margin-bottom: 2rem;
   box-shadow: 3px 3px 6px hsla(0deg, 0%, 0%, 0.16);
 }
+.auth__wraper .pass__eyeicon {
+  float: right;
+  left: 35%;
+  bottom: 8%;
+  position: relative;
+  z-index: 2;
+  color: hsl(222deg, 20%, 35%);
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+.auth__wraper .pass__eyeicon:hover {
+  cursor: pointer;
+}
+.auth__wraper .confirm__eyeicon {
+  float: right;
+  left: 35%;
+  bottom: 8%;
+  position: relative;
+  z-index: 2;
+  color: hsl(222deg, 20%, 35%);
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+.auth__wraper .confirm__eyeicon:hover {
+  cursor: pointer;
+}
 .auth__wraper .auth__title {
   color: white;
   font-weight: bold;
@@ -67,11 +93,11 @@ body {
 .auth__wraper .eyeicon {
   float: right;
   left: 35%;
-  bottom: 12%;
+  bottom: 13%;
   position: relative;
   z-index: 2;
   color: hsl(222deg, 20%, 35%);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 300;
 }
 .auth__wraper .eyeicon:hover {
@@ -214,7 +240,7 @@ body {
   .auth__wraper .eyeicon {
     float: right;
     left: 35%;
-    bottom: 8%;
+    bottom: 15%;
     font-size: 1.4rem;
   }
   .auth__wraper .auth__btn {
@@ -292,7 +318,7 @@ body {
   .auth__wraper .eyeicon {
     float: right;
     left: 35%;
-    bottom: 9%;
+    bottom: 15%;
     font-size: 1.6rem;
   }
   .auth__wraper .auth__btn {
@@ -366,7 +392,7 @@ body {
   .auth__wraper .eyeicon {
     float: right;
     left: 35%;
-    bottom: 9%;
+    bottom: 15%;
     font-size: 1.6rem;
   }
   .auth__wraper .auth__btn {

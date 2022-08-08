@@ -12,12 +12,13 @@
     padding-bottom: 0.5rem; 
     margin-bottom: 1rem;
     padding-left: 2rem;
-    padding-right: 2rem;    
+    padding-right: 2rem;  
    
     .header__logo {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
+        width: 50%;
 
         .header__title {           
             color: Global.$secondary;
@@ -34,8 +35,10 @@
     
     .header__authwraper {
         display: flex;
+        justify-content: flex-end;
+        align-items: center;
         flex-direction: row;
-        //justify-content: flex-end;
+        width: 50%;
 
         .icon__wraper {
             display: flex;
@@ -95,21 +98,23 @@
         margin-bottom: 1rem;
         padding-left: 2rem;
         padding-right: 2rem;
+        justify-content: space-between;
 
         .header__logo {
-            
+            width: 75%;
             .header__title {           
                 font-size: 3rem;
            }
 
             .sitelogo {
                 width: 3rem;
-                margin-left: 2rem;
+                margin-left: 0rem;
                 margin-right: 2rem;
             }
         }
         
-        .header__authwraper {            
+        .header__authwraper {    
+            width: 25%;        
             .icon__wraper {
                 margin-left: 2rem;
                 .auth__icon {      
@@ -149,34 +154,32 @@
 @media (max-width: 576px) { 
          
     .header__wraper {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem; 
+        padding: 0.5rem;        
         margin-bottom: 1rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-
+        
         .header__logo {
-            
+            width: 75%;
             .header__title {           
-                font-size: 2.3rem;
+                font-size: 1.7rem;
            }
 
             .sitelogo {
                 width: 3rem;
                 margin-left: 0;
-                margin-right: 1rem;
+                margin-right: 0.5rem;
             }
         }
         
-        .header__authwraper {            
+        .header__authwraper {   
+            width: 25%;         
             .icon__wraper {
-                margin-left: 2rem;
+                margin-left: 1rem;
                 .auth__icon {      
-                    font-size: 2rem;        
-                    padding: 1rem;
+                    font-size: 1.3rem;        
+                    padding: 0.8rem;
                 }
                 .auth__title {
-                    font-size: 1rem;
+                    font-size: 0.8rem;
                 }
             }
         }
@@ -188,34 +191,33 @@
 @media (max-width: 375px) { 
 
     .header__wraper {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem; 
+        padding: 0.5rem;        
         margin-bottom: 1rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-
+        
         .header__logo {
-            
+            width: 75%;
             .header__title {           
-                font-size: 2rem;
+                font-size: 1.5rem;
            }
 
             .sitelogo {
                 width: 3rem;
                 margin-left: 0;
-                margin-right: 1rem;
+                margin-right: 0.5rem;
             }
         }
         
-        .header__authwraper {            
-            .icon__wraper {
-                margin-left: 2rem;
+        .header__authwraper {   
+            width: 25%;         
+            .icon__wraper {           
+                margin: 0;
+                margin-left: 1rem;
                 .auth__icon {      
-                    font-size: 2rem;        
-                    padding: 1rem;
+                    font-size: 1rem;        
+                    padding: 0.5rem;                    
                 }
                 .auth__title {
-                    font-size: 1rem;
+                    font-size: 0.8rem;
                 }
             }
         }

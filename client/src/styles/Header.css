@@ -19,8 +19,9 @@ body {
 }
 .header__wraper .header__logo {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  width: 50%;
 }
 .header__wraper .header__logo .header__title {
   color: #d0dfeb;
@@ -34,7 +35,10 @@ body {
 }
 .header__wraper .header__authwraper {
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
   flex-direction: row;
+  width: 50%;
 }
 .header__wraper .header__authwraper .icon__wraper {
   display: flex;
@@ -76,14 +80,21 @@ body {
     margin-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    justify-content: space-between;
+  }
+  .header__wraper .header__logo {
+    width: 75%;
   }
   .header__wraper .header__logo .header__title {
     font-size: 3rem;
   }
   .header__wraper .header__logo .sitelogo {
     width: 3rem;
-    margin-left: 2rem;
+    margin-left: 0rem;
     margin-right: 2rem;
+  }
+  .header__wraper .header__authwraper {
+    width: 25%;
   }
   .header__wraper .header__authwraper .icon__wraper {
     margin-left: 2rem;
@@ -102,56 +113,63 @@ body {
 /* Pantallas muy pequeñas (móviles en portrait de menos de 576px) */
 @media (max-width: 576px) {
   .header__wraper {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem;
     margin-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  }
+  .header__wraper .header__logo {
+    width: 75%;
   }
   .header__wraper .header__logo .header__title {
-    font-size: 2.3rem;
+    font-size: 1.7rem;
   }
   .header__wraper .header__logo .sitelogo {
     width: 3rem;
     margin-left: 0;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+  }
+  .header__wraper .header__authwraper {
+    width: 25%;
   }
   .header__wraper .header__authwraper .icon__wraper {
-    margin-left: 2rem;
+    margin-left: 1rem;
   }
   .header__wraper .header__authwraper .icon__wraper .auth__icon {
-    font-size: 2rem;
-    padding: 1rem;
+    font-size: 1.3rem;
+    padding: 0.8rem;
   }
   .header__wraper .header__authwraper .icon__wraper .auth__title {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 @media (max-width: 375px) {
   .header__wraper {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem;
     margin-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  }
+  .header__wraper .header__logo {
+    width: 75%;
   }
   .header__wraper .header__logo .header__title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .header__wraper .header__logo .sitelogo {
     width: 3rem;
     margin-left: 0;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+  }
+  .header__wraper .header__authwraper {
+    width: 25%;
   }
   .header__wraper .header__authwraper .icon__wraper {
-    margin-left: 2rem;
+    margin: 0;
+    margin-left: 1rem;
   }
   .header__wraper .header__authwraper .icon__wraper .auth__icon {
-    font-size: 2rem;
-    padding: 1rem;
+    font-size: 1rem;
+    padding: 0.5rem;
   }
   .header__wraper .header__authwraper .icon__wraper .auth__title {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 
