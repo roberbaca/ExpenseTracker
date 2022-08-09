@@ -56,7 +56,7 @@ const loginUser = async (req, res) => {
             return;
         }
     }
-    console.log("logueado");
+    //console.log("logueado");
     res.status(403).json({ message: "Email or password not valid" });
 }
 

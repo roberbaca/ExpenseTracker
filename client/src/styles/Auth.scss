@@ -1,289 +1,276 @@
 @use "./Global.scss";
 
 .auth__wraper {
-    display: flex;    
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 25rem;
-    height: 35rem; 
-    background: Global.$main;
-    border-radius: 1.5rem;
-    padding: 1rem;
-    margin-bottom: 2rem;    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 25rem;
+  height: 35rem;
+  background: Global.$main;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 3px 3px 6px Global.$shadow;
+
+  .pass__eyeicon {
+    float: right;
+    left: 35%;
+    bottom: 8%;
+    position: relative;
+    z-index: 2;
+    color: Global.$txt-main;
+    font-size: 1.6rem;
+    font-weight: 300;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .confirm__eyeicon {
+    float: right;
+    left: 35%;
+    bottom: 8%;
+    position: relative;
+    z-index: 2;
+    color: Global.$txt-main;
+    font-size: 1.6rem;
+    font-weight: 300;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .auth__title {
+    color: white;
+    font-weight: bold;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
+
+  .auth__input {
+    width: 80%;
+    margin: 0.5rem 0;
+    border-radius: 2rem;
+    border: none;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    background: Global.$secondary;
+    box-shadow: 3px 3px 6px Global.$shadow;
+    color: Global.$txt-main;
+    font-size: 1rem;
+    font-weight: 300;
+    height: 2rem;
+
+    &:focus {
+      outline-color: Global.$okey;
+      outline-style: dashed;
+      outline-width: 0.2rem;
+      outline-offset: 0.3rem;
+    }
+  }
+
+  .password__input {
+    width: 80%;
+    margin: 0.5rem 0;
+    border-radius: 2rem;
+    border: none;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    background: Global.$secondary;
+    box-shadow: 3px 3px 6px Global.$shadow;
+    color: Global.$txt-main;
+    font-size: 1rem;
+    font-weight: 300;
+    height: 2rem;
+
+    &:focus {
+      outline-color: Global.$okey;
+      outline-style: dashed;
+      outline-width: 0.2rem;
+      outline-offset: 0.3rem;
+    }
+  }
+
+  .eyeicon {
+    float: right;
+    left: 35%;
+    bottom: 13%;
+    position: relative;
+    z-index: 2;
+    color: Global.$txt-main;
+    font-size: 1.6rem;
+    font-weight: 300;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .auth__btn {
+    background: Global.$accept;
+    border-radius: 2rem;
+    border: none;
+    padding: 0.5rem;
+    margin-top: 2rem;
+    color: Global.$txt-main;
+    box-sizing: border-box;
+    width: 8rem;
+    font-size: 1.5rem;
+    font-weight: bold;
     box-shadow: 3px 3px 6px Global.$shadow;
 
-    .pass__eyeicon {     
-      float: right;      
-      left: 35%;  
-      bottom: 8%;
-      position: relative;
-      z-index: 2;  
+    &:hover {
+      cursor: pointer;
+      animation: shake 0.5s;
+    }
+  }
+
+  .logwith {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .social__wraper {
+    .social__icon {
       color: Global.$txt-main;
-      font-size: 1.6rem;
-      font-weight: 300; 
-      
+      font-size: 2.5rem;
+      margin: 0.5rem;
+      background-color: Global.$secondary;
+      padding: 0.5rem;
+      border-radius: 100%;
+      box-shadow: 3px 3px 6px Global.$shadow;
+
       &:hover {
         cursor: pointer;
+        animation: shake 0.5s;
       }
-    }    
-    
-    .confirm__eyeicon {     
-      float: right;      
-      left: 35%;  
-      bottom: 8%;
-      position: relative;
-      z-index: 2;  
-      color: Global.$txt-main;
-      font-size: 1.6rem;
-      font-weight: 300; 
-      
+    }
+  }
+
+  .sign {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: 1rem;
+
+    .sign__title {
+      color: Global.$error;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 1rem;
+
       &:hover {
         cursor: pointer;
+        animation: shake 0.5s;
       }
-    }  
-
-    .auth__title {
-        color: white;
-        font-weight: bold;
-        font-size: 4rem;        
-        margin-bottom: 2rem;
-        margin-top: 1rem;
     }
 
-    .auth__input {
-        width: 80%;
-        margin: 0.5rem 0;
-        border-radius: 2rem;
-        border: none;
-        padding: 0.5rem;
-        padding-left: 1rem;
-        background: Global.$secondary;
-        box-shadow: 3px 3px 6px Global.$shadow;
-        color: Global.$txt-main;
-        font-size: 1rem;
-        font-weight: 300;
-        height: 2rem;    
-        
-        &:focus {
-          outline-color: Global.$okey;
-          outline-style:dashed;  
-          outline-width: 0.2rem;    
-          outline-offset: 0.3rem;  
-        }
-    } 
-
-      .password__input {   
-        width: 80%;
-        margin: 0.5rem 0;
-        border-radius: 2rem;
-        border: none;
-        padding: 0.5rem;
-        padding-left: 1rem;
-        background: Global.$secondary;
-        box-shadow: 3px 3px 6px Global.$shadow;
-        color: Global.$txt-main;
-        font-size: 1rem;
-        font-weight: 300;
-        height: 2rem;                         
-              
-        &:focus {
-          outline-color: Global.$okey;
-          outline-style:dashed;  
-          outline-width: 0.2rem;    
-          outline-offset: 0.3rem;          
-        }        
-      }
-      
-      .eyeicon {     
-        float: right;      
-        left: 35%;  
-        bottom: 13%;
-        position: relative;
-        z-index: 2;  
-        color: Global.$txt-main;
-        font-size: 1.6rem;
-        font-weight: 300; 
-        
-        &:hover {
-          cursor: pointer;
-        }
-      }       
-
-    .auth__btn {
-        background: Global.$accept;   
-        border-radius: 2rem;
-        border: none;        
-        padding: 0.5rem;
-        margin-top: 2rem;
-        color: Global.$txt-main;
-        box-sizing: border-box;
-        width: 8rem;
-        font-size: 1.5rem;
-        font-weight: bold;
-        box-shadow: 3px 3px 6px Global.$shadow;
-
-        &:hover {
-            cursor: pointer;
-            animation: shake 0.5s;
-        }
-    }       
-  
-
-    .logwith {
-        color: white;
-        font-size: 1.5rem;
-        font-weight: bold;
+    .sign__icon {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
     }
-
-    .social__wraper {
-        .social__icon {
-            color: Global.$txt-main;
-            font-size: 2.5rem;
-            margin:0.5rem;
-            background-color: Global.$secondary;
-            padding: 0.5rem;
-            border-radius: 100%;
-            box-shadow: 3px 3px 6px Global.$shadow;
-
-            &:hover {
-                cursor: pointer;
-                animation: shake 0.5s;
-            }
-        }     
-    }
-
-    .sign {      
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        width: 100%;
-        margin-top: 1rem;      
-
-        .sign__title {
-            color: Global.$error;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-top: 1rem;   
-
-            &:hover {
-                cursor: pointer;
-                animation: shake 0.5s;
-            }         
-        }
-     
-        .sign__icon {
-            margin-right: 0.5rem;
-            font-size: 1.2rem;            
-        }
-      
-    }
+  }
 }
-
-
-  
-
-
 
 @keyframes shake {
-    0% {
-      transform: translate(1px, 1px) rotate(0deg);
-    }
-    10% {
-      transform: translate(-1px, -2px) rotate(-1deg);
-    }
-    20% {
-      transform: translate(-3px, 0px) rotate(1deg);
-    }
-    30% {
-      transform: translate(3px, 2px) rotate(0deg);
-    }
-    40% {
-      transform: translate(1px, -1px) rotate(1deg);
-    }
-    50% {
-      transform: translate(-1px, 2px) rotate(-1deg);
-    }
-    60% {
-      transform: translate(-3px, 1px) rotate(0deg);
-    }
-    70% {
-      transform: translate(3px, 1px) rotate(-1deg);
-    }
-    80% {
-      transform: translate(-1px, -1px) rotate(1deg);
-    }
-    90% {
-      transform: translate(1px, 2px) rotate(0deg);
-    }
-    100% {
-      transform: translate(1px, -2px) rotate(-1deg);
-    }
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
-
-
-
 
 /* ----------------
     Media Queries
 ------------------*/
 
 /* Pantallas extra grandes (desktops de mas de 1400px) */
-@media (min-width: 1440px) { 
-   
-    
+@media (min-width: 1440px) {
 }
-
 
 /* Pantallas extra grandes (desktops de mas de 1400px) */
-@media (max-width: 1440px) { 
+@media (max-width: 1440px) {
   .auth__wraper {
     width: 20rem;
-    height: 27rem; 
+    height: 27rem;
     border-radius: 1.5rem;
     padding: 1rem;
-    margin-bottom: 1rem;    
-    
+    margin-bottom: 1rem;
+
     .auth__title {
-        font-size: 3rem;        
-        margin-bottom: 1rem;
-        margin-top: 1rem;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
     }
 
     .auth__input {
-        width: 80%;
-        margin: 0.5rem 0;
-        padding: 0.5rem;
-        padding-left: 1rem;
-        font-size: 1rem;
-        height: 2rem;    
-        
-        &:focus {
-          outline-width: 0.15rem;  
-        }
-    } 
+      width: 80%;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      padding-left: 1rem;
+      font-size: 1rem;
+      height: 2rem;
 
-      .password__input {   
-        width: 80%;
-        margin: 0.5rem 0;
-        border-radius: 2rem;
-        padding: 0.5rem;
-        padding-left: 1rem;
-        font-size: 1rem;
-        font-weight: 300;
-        height: 2rem;                         
-              
-        &:focus {
-          outline-width: 0.15rem;          
-        }        
+      &:focus {
+        outline-width: 0.15rem;
       }
-      
-      .eyeicon {     
-        float: right;      
-        left: 35%;  
-        bottom: 15%;
-        font-size: 1.4rem;
-      }       
+    }
+
+    .password__input {
+      width: 80%;
+      margin: 0.5rem 0;
+      border-radius: 2rem;
+      padding: 0.5rem;
+      padding-left: 1rem;
+      font-size: 1rem;
+      font-weight: 300;
+      height: 2rem;
+
+      &:focus {
+        outline-width: 0.15rem;
+      }
+    }
+
+    .eyeicon {
+      float: right;
+      left: 35%;
+      bottom: 15%;
+      font-size: 1.4rem;
+    }
 
     .auth__btn {
       border-radius: 2rem;
@@ -291,8 +278,8 @@
       margin-top: 1rem;
       margin-bottom: 1rem;
       width: 8rem;
-      font-size: 1.5rem;       
-    }        
+      font-size: 1.5rem;
+    }
 
     .logwith {
       font-size: 1rem;
@@ -304,60 +291,50 @@
     .social__wraper {
       .social__icon {
         font-size: 2rem;
-        margin:0.5rem;
+        margin: 0.5rem;
         padding: 0.5rem;
-      }     
+      }
     }
 
-    .sign {      
-      margin-top: 1rem;      
+    .sign {
+      margin-top: 1rem;
 
       .sign__title {
         font-size: 1.2rem;
-        margin: 0;            
+        margin: 0;
       }
-     
+
       .sign__icon {
         margin-right: 0.5rem;
-        font-size: 1.2rem;            
-      }      
+        font-size: 1.2rem;
+      }
     }
   }
 }
-
 
 /* Pantallas grandes (desktops de menos de 1200px) */
-@media (max-width: 1200px) { 
-     
+@media (max-width: 1200px) {
 }
-
 
 /* Pantallas medianas (tablets de menos de 992px) */
-@media (max-width: 992px) { 
-
+@media (max-width: 992px) {
 }
-
 
 /* Pantallas pequeñas (móviles en landscape de menos de 768px) */
-@media (max-width: 768px) { 
- 
-  
+@media (max-width: 768px) {
 }
-
 
 /* Pantallas muy pequeñas (móviles en portrait de menos de 576px) */
-@media (max-width: 576px) { 
-    
-     
+@media (max-width: 576px) {
   .auth__wraper {
     width: 20rem;
-    height: 32rem; 
+    height: 32rem;
     border-radius: 1.5rem;
     padding: 1rem;
-    margin-bottom: 1rem;    
-    
+    margin-bottom: 1rem;
+
     .auth__title {
-      font-size: 3rem;        
+      font-size: 3rem;
       margin-bottom: 1rem;
       margin-top: 1rem;
     }
@@ -368,14 +345,14 @@
       padding: 0.5rem;
       padding-left: 1rem;
       font-size: 1rem;
-      height: 2rem;     
-        
-      &:focus {
-        outline-width: 0.15rem;  
-      }
-    } 
+      height: 2rem;
 
-    .password__input {   
+      &:focus {
+        outline-width: 0.15rem;
+      }
+    }
+
+    .password__input {
       width: 80%;
       margin: 0.5rem 0;
       border-radius: 2rem;
@@ -383,19 +360,19 @@
       padding-left: 1rem;
       font-size: 1rem;
       font-weight: 300;
-      height: 2rem;                         
-              
+      height: 2rem;
+
       &:focus {
-        outline-width: 0.15rem;          
-      }        
+        outline-width: 0.15rem;
+      }
     }
-      
-    .eyeicon {     
-      float: right;      
-      left: 35%;  
+
+    .eyeicon {
+      float: right;
+      left: 35%;
       bottom: 15%;
       font-size: 1.6rem;
-    }       
+    }
 
     .auth__btn {
       border-radius: 2rem;
@@ -403,8 +380,8 @@
       margin-top: 1rem;
       margin-bottom: 1rem;
       width: 8rem;
-      font-size: 1.5rem;       
-    }        
+      font-size: 1.5rem;
+    }
 
     .logwith {
       font-size: 1.3rem;
@@ -416,39 +393,37 @@
     .social__wraper {
       .social__icon {
         font-size: 2rem;
-        margin:0.5rem;
+        margin: 0.5rem;
         padding: 0.5rem;
-      }     
+      }
     }
 
-    .sign {      
-      margin-top: 1rem;      
+    .sign {
+      margin-top: 1rem;
 
       .sign__title {
         font-size: 1.2rem;
-        margin: 0;            
+        margin: 0;
       }
-     
+
       .sign__icon {
         margin-right: 0.5rem;
-        font-size: 1.2rem;            
-      }      
+        font-size: 1.2rem;
+      }
     }
   }
-   
 }
 
-@media (max-width: 375px) { 
-   
+@media (max-width: 375px) {
   .auth__wraper {
-    width: 20rem;
-    height: 32rem; 
+    width: 16rem;
+    height: 26rem;
     border-radius: 1.5rem;
     padding: 1rem;
-    margin-bottom: 1rem;    
-    
+    margin-bottom: 1rem;
+
     .auth__title {
-      font-size: 3rem;        
+      font-size: 3rem;
       margin-bottom: 1rem;
       margin-top: 1rem;
     }
@@ -459,14 +434,14 @@
       padding: 0.5rem;
       padding-left: 1rem;
       font-size: 1rem;
-      height: 2rem;     
-        
-      &:focus {
-        outline-width: 0.15rem;  
-      }
-    } 
+      height: 2rem;
 
-    .password__input {   
+      &:focus {
+        outline-width: 0.15rem;
+      }
+    }
+
+    .password__input {
       width: 80%;
       margin: 0.5rem 0;
       border-radius: 2rem;
@@ -474,19 +449,19 @@
       padding-left: 1rem;
       font-size: 1rem;
       font-weight: 300;
-      height: 2rem;                         
-              
+      height: 2rem;
+
       &:focus {
-        outline-width: 0.15rem;          
-      }        
+        outline-width: 0.15rem;
+      }
     }
-      
-    .eyeicon {     
-      float: right;      
-      left: 35%;  
+
+    .eyeicon {
+      float: right;
+      left: 35%;
       bottom: 15%;
       font-size: 1.6rem;
-    }       
+    }
 
     .auth__btn {
       border-radius: 2rem;
@@ -494,8 +469,8 @@
       margin-top: 1rem;
       margin-bottom: 1rem;
       width: 8rem;
-      font-size: 1.5rem;       
-    }        
+      font-size: 1.5rem;
+    }
 
     .logwith {
       font-size: 1.3rem;
@@ -507,23 +482,23 @@
     .social__wraper {
       .social__icon {
         font-size: 2rem;
-        margin:0.5rem;
+        margin: 0.5rem;
         padding: 0.5rem;
-      }     
+      }
     }
 
-    .sign {      
-      margin-top: 1rem;      
+    .sign {
+      margin-top: 1rem;
 
       .sign__title {
         font-size: 1.2rem;
-        margin: 0;            
+        margin: 0;
       }
-     
+
       .sign__icon {
         margin-right: 0.5rem;
-        font-size: 1.2rem;            
-      }      
+        font-size: 1.2rem;
+      }
     }
   }
 }

@@ -172,5 +172,4 @@ const deleteExpense = async (id) => {
     }
 }
 
-
 module.exports = { create, getExpensesByCategory, getTotalAmount, getAllExpenses, getTotalAmountByCategory, editExpense, deleteExpense };

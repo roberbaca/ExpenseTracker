@@ -640,6 +640,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 5rem;
   }
   .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card {
     width: 16rem;
@@ -802,27 +803,28 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 5rem;
   }
   .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card {
     width: 16rem;
-    height: 7rem;
+    height: 5rem;
     margin: 0.5rem;
   }
   .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .userdata__id {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .role__admin {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata__header .role__user {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   .admin__dashboard .users__dashboard .table__wraper .table__content .userdata__card .userdata {
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   .admin__dashboard .category__dashboard {
     width: 100%;

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../styles/Global.css';
 import '../../styles/Footer.css';
-import { FaGithubAlt, FaLinkedin } from "react-icons/fa";
+import { FaGithubAlt } from "react-icons/fa";
 import { AiFillMail } from "react-icons/ai";
 import { GrLinkedinOption } from "react-icons/gr";
 

@@ -505,6 +505,11 @@ body {
   .dashboard__section .dashboard__amountsummary .dashboard__info {
     font-size: 1.2rem;
   }
+  .dashboard__section .cards__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .dashboard__section .add__wraper .add__icon {
     font-size: 3rem;
     margin-right: 2rem;

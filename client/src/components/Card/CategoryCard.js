@@ -8,8 +8,7 @@ import { deleteCategoryAction, updateCategoryAction } from '../../Redux/slices/c
 import { IoTrashBinSharp } from 'react-icons/io5';
 
 const CategoryCard = ( {id, title } ) => {
-
-  const categories = useSelector(store => store.category.categoriesList);
+  
   const token  = useSelector(store => store.auth.token); 
   
   const [isEditCategoryModalOpen, setEditCategoryModalIsOpen] = useState(false);

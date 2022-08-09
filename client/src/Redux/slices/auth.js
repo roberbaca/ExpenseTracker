@@ -41,7 +41,7 @@ export const loginAction = ( email, password ) => async (dispatch) => {
         const response = await axiosInstance.post('/auth/login', { email, password });  // llamada al back y obtenemos el token       
         const token = response.data.accessToken;       
         dispatch(login(token));           
-        console.log(token);   
+        //console.log(token);   
         const notify = () => toast("✔️ Login successful");
         notify();             
 

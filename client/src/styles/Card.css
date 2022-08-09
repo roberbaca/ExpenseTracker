@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: "Montserrat", sans-serif;
   background-color: #d0dfeb;
@@ -89,6 +90,46 @@ body {
   margin: 0;
   width: 100%;
   text-align: right;
+}
+
+/* ----------------
+    Media Queries
+------------------*/
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+/* Pantallas extra grandes (desktops de mas de 1400px) */
+/* Pantallas grandes (desktops de menos de 1200px) */
+/* Pantallas medianas (tablets de menos de 992px) */
+/* Pantallas pequeñas (móviles en landscape de menos de 768px) */
+/* Pantallas muy pequeñas (móviles en portrait de menos de 576px) */
+@media (max-width: 576px) {
+  .card__wraper {
+    width: 20rem;
+    height: 12rem;
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .card__wraper .icons__wraper .card__icons .card__icon--delete {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .card__wraper .icons__wraper .card__icons .card__icon--edit {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .card__wraper .title__container .card__category {
+    font-size: 1.1rem;
+  }
+  .card__wraper .title__container .card__title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .card__wraper .title__container .card__date {
+    font-size: 1rem;
+    margin: 0;
+  }
+  .card__wraper .card__amount {
+    font-size: 2rem;
+  }
 }
 
 /*# sourceMappingURL=Card.css.map */

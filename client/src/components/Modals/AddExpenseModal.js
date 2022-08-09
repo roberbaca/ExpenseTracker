@@ -48,8 +48,7 @@ export default function AddExpenseModal({ open, children, onClose }) {
     }
 
   const handleChangeDate = (e) => {    
-    let myDate = moment.utc(e.target.value).format('YYYY-MM-DD');
-    //console.log(myDate);
+    let myDate = moment.utc(e.target.value).format('YYYY-MM-DD');    
     setNewDate(myDate);
   }
 
@@ -74,15 +73,9 @@ export default function AddExpenseModal({ open, children, onClose }) {
             </select>
             <input className='modal__input' type="text" placeholder='Title' value={title} onChange={handleChangeTitle} required/>
             <input className='modal__input' type="number" placeholder='Amount' value={amount} onInput={handleChangeAmount} required/>
-            <input className='modal__input' type="date" placeholder='Date' onChange={handleChangeDate} required />
-            {/* <textarea className='modal__textarea' type="text" placeholder='Description (optional)' /> */}
+            <input className='modal__input' type="date" placeholder='Date' onChange={handleChangeDate} required />            
             <button className='modal__btn' type='submit' onClick={createExpense}>Submit</button>   
         </div>
-
-
-        {/* <div className='modal__infocontainer'>
-        {children}
-        </div>     */}
       </div>
     </>,
     document.getElementById('portal')

@@ -1,226 +1,202 @@
 @use "./Global.scss";
 
-
 .header__wraper {
-    background: Global.$main;
-    box-shadow: 3px 3px 6px Global.$shadow;
+  background: Global.$main;
+  box-shadow: 3px 3px 6px Global.$shadow;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  .header__logo {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem; 
-    margin-bottom: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;  
-   
-    .header__logo {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 50%;
+    width: 50%;
 
-        .header__title {           
-            color: Global.$secondary;
-            font-size: 5em;
-            margin: 0;
-        }
-
-        .sitelogo {
-            width: 6rem;
-            margin-left: 2rem;
-            margin-right: 2rem;
-        }
+    .header__title {
+      color: Global.$secondary;
+      font-size: 5em;
+      margin: 0;
     }
-    
-    .header__authwraper {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        flex-direction: row;
-        width: 50%;
 
-        .icon__wraper {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-left: 2rem;
-
-            .auth__icon {      
-                color: white;
-                display: flex;        
-                align-items: center;     
-                justify-content: center;               
-                color: Global.$txt-main;
-                font-size: 2rem;        
-                background-color: Global.$secondary;
-                padding: 1rem;
-                border-radius: 100%;
-                box-shadow: 3px 3px 6px Global.$shadow;            
-
-                &:hover {
-                    cursor: pointer;
-                    animation: shake 0.5s;
-                }
-            }
-
-            .auth__title {
-                color: Global.$secondary;
-                font-size: 1rem;
-            }
-        }
-
+    .sitelogo {
+      width: 6rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
     }
+  }
+
+  .header__authwraper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
+
+    .icon__wraper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: 2rem;
+
+      .auth__icon {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: Global.$txt-main;
+        font-size: 2rem;
+        background-color: Global.$secondary;
+        padding: 1rem;
+        border-radius: 100%;
+        box-shadow: 3px 3px 6px Global.$shadow;
+
+        &:hover {
+          cursor: pointer;
+          animation: shake 0.5s;
+        }
+      }
+
+      .auth__title {
+        color: Global.$secondary;
+        font-size: 1rem;
+      }
+    }
+  }
 }
-
-
-
-
 
 /* ----------------
     Media Queries
 ------------------*/
 
 /* Pantallas extra grandes (desktops de mas de 1400px) */
-@media (min-width: 1440px) { 
-   
-    
+@media (min-width: 1440px) {
 }
-
 
 /* Pantallas extra grandes (desktops de mas de 1400px) */
-@media (max-width: 1440px) { 
-    
-    .header__wraper {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem; 
-        margin-bottom: 1rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        justify-content: space-between;
+@media (max-width: 1440px) {
+  .header__wraper {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    justify-content: space-between;
 
-        .header__logo {
-            width: 75%;
-            .header__title {           
-                font-size: 3rem;
-           }
+    .header__logo {
+      width: 75%;
+      .header__title {
+        font-size: 3rem;
+      }
 
-            .sitelogo {
-                width: 3rem;
-                margin-left: 0rem;
-                margin-right: 2rem;
-            }
-        }
-        
-        .header__authwraper {    
-            width: 25%;        
-            .icon__wraper {
-                margin-left: 2rem;
-                .auth__icon {      
-                    font-size: 2rem;        
-                    padding: 1rem;
-                }
-                .auth__title {
-                    font-size: 1rem;
-                }
-            }
-        }
+      .sitelogo {
+        width: 3rem;
+        margin-left: 0rem;
+        margin-right: 2rem;
+      }
     }
-    
-}
 
+    .header__authwraper {
+      width: 25%;
+      .icon__wraper {
+        margin-left: 2rem;
+        .auth__icon {
+          font-size: 2rem;
+          padding: 1rem;
+        }
+        .auth__title {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
 
 /* Pantallas grandes (desktops de menos de 1200px) */
-@media (max-width: 1200px) { 
-     
+@media (max-width: 1200px) {
 }
-
 
 /* Pantallas medianas (tablets de menos de 992px) */
-@media (max-width: 992px) { 
-
+@media (max-width: 992px) {
 }
-
 
 /* Pantallas pequeñas (móviles en landscape de menos de 768px) */
-@media (max-width: 768px) { 
- 
-  
+@media (max-width: 768px) {
 }
-
 
 /* Pantallas muy pequeñas (móviles en portrait de menos de 576px) */
-@media (max-width: 576px) { 
-         
-    .header__wraper {
-        padding: 0.5rem;        
-        margin-bottom: 1rem;
-        
-        .header__logo {
-            width: 75%;
-            .header__title {           
-                font-size: 1.7rem;
-           }
+@media (max-width: 576px) {
+  .header__wraper {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
 
-            .sitelogo {
-                width: 3rem;
-                margin-left: 0;
-                margin-right: 0.5rem;
-            }
-        }
-        
-        .header__authwraper {   
-            width: 25%;         
-            .icon__wraper {
-                margin-left: 1rem;
-                .auth__icon {      
-                    font-size: 1.3rem;        
-                    padding: 0.8rem;
-                }
-                .auth__title {
-                    font-size: 0.8rem;
-                }
-            }
-        }
+    .header__logo {
+      width: 75%;
+      .header__title {
+        font-size: 1.7rem;
+      }
+
+      .sitelogo {
+        width: 3rem;
+        margin-left: 0;
+        margin-right: 0.5rem;
+      }
     }
 
-   
+    .header__authwraper {
+      width: 25%;
+      .icon__wraper {
+        margin-left: 1rem;
+        .auth__icon {
+          font-size: 1.3rem;
+          padding: 0.8rem;
+        }
+        .auth__title {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
 }
 
-@media (max-width: 375px) { 
+@media (max-width: 375px) {
+  .header__wraper {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
 
-    .header__wraper {
-        padding: 0.5rem;        
-        margin-bottom: 1rem;
-        
-        .header__logo {
-            width: 75%;
-            .header__title {           
-                font-size: 1.5rem;
-           }
+    .header__logo {
+      width: 75%;
+      .header__title {
+        font-size: 1.5rem;
+      }
 
-            .sitelogo {
-                width: 3rem;
-                margin-left: 0;
-                margin-right: 0.5rem;
-            }
-        }
-        
-        .header__authwraper {   
-            width: 25%;         
-            .icon__wraper {           
-                margin: 0;
-                margin-left: 1rem;
-                .auth__icon {      
-                    font-size: 1rem;        
-                    padding: 0.5rem;                    
-                }
-                .auth__title {
-                    font-size: 0.8rem;
-                }
-            }
-        }
+      .sitelogo {
+        width: 3rem;
+        margin-left: 0;
+        margin-right: 0.5rem;
+      }
     }
 
+    .header__authwraper {
+      width: 25%;
+      .icon__wraper {
+        margin: 0;
+        margin-left: 1rem;
+        .auth__icon {
+          font-size: 1rem;
+          padding: 0.5rem;
+        }
+        .auth__title {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
 }

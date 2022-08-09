@@ -56,6 +56,4 @@ const updateCategory = async (req, res) => {
 }
 
 
-
-
 module.exports = { create, findAll, deleteCategory, updateCategory };

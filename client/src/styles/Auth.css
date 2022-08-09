@@ -354,8 +354,8 @@ body {
 }
 @media (max-width: 375px) {
   .auth__wraper {
-    width: 20rem;
-    height: 32rem;
+    width: 16rem;
+    height: 26rem;
     border-radius: 1.5rem;
     padding: 1rem;
     margin-bottom: 1rem;
