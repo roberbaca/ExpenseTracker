@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/roberbaca/ExpenseTracker">
+  <a href="https://expensetrackerpern.web.app/">
     <img src="https://user-images.githubusercontent.com/83043304/140669718-0a350618-f217-4247-9d91-42d00c4c292f.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -14,7 +14,7 @@
      <br />
      <br />
      <br />
-      <a href="expensetrackerpern.firebaseapp.com"><strong>Live</strong></a>
+      <a href="https://expensetrackerpern.web.app/"><strong>Live Website</strong></a>
     </p>   
 </div>
 
@@ -43,7 +43,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![login_screenshot](https://user-images.githubusercontent.com/83043304/183782353-934eff68-f694-4c2c-a3e6-41ee4d4bf727.png)
+
+![user_screenshot](https://user-images.githubusercontent.com/83043304/183782365-98e68e24-0d7a-4264-b5ea-d2f92756e765.png)
+
+![admin_screenshot](https://user-images.githubusercontent.com/83043304/183782384-632c9089-1fe6-49a5-8735-4cddeacdf19f.png)
+
+
 
 If you've ever decided to get a handle on your cash flow, you know that the first step is knowing how you're spending your money. That's something really low on the fun-to-do meter.
 
