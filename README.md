@@ -112,12 +112,7 @@ Project Link: [https://github.com/roberbaca/ExpenseTracker](https://github.com/r
 
 Resources I find helpful and would like to give credit to. 
 
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
 * [Color Gradient](https://cssgradient.io/)
 * [Modern CSS solutions](https://moderncss.dev/)
 * [Club Mediator](https://www.cluemediator.com/)
