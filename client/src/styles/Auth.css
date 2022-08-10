@@ -208,6 +208,16 @@ body {
     padding: 1rem;
     margin-bottom: 1rem;
   }
+  .auth__wraper .pass__eyeicon {
+    left: 35%;
+    bottom: 8%;
+    font-size: 1.6rem;
+  }
+  .auth__wraper .confirm__eyeicon {
+    left: 35%;
+    bottom: 8%;
+    font-size: 1.6rem;
+  }
   .auth__wraper .auth__title {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -286,6 +296,16 @@ body {
     padding: 1rem;
     margin-bottom: 1rem;
   }
+  .auth__wraper .pass__eyeicon {
+    left: 35%;
+    bottom: 9%;
+    font-size: 1.4rem;
+  }
+  .auth__wraper .confirm__eyeicon {
+    left: 35%;
+    bottom: 9%;
+    font-size: 1.4rem;
+  }
   .auth__wraper .auth__title {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -319,7 +339,7 @@ body {
     float: right;
     left: 35%;
     bottom: 15%;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   .auth__wraper .auth__btn {
     border-radius: 2rem;
@@ -355,23 +375,23 @@ body {
 @media (max-width: 375px) {
   .auth__wraper {
     width: 16rem;
-    height: 26rem;
+    height: 24rem;
     border-radius: 1.5rem;
     padding: 1rem;
     margin-bottom: 1rem;
   }
   .auth__wraper .auth__title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-top: 0;
   }
   .auth__wraper .auth__input {
     width: 80%;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.2rem;
     padding-left: 1rem;
     font-size: 1rem;
-    height: 2rem;
   }
   .auth__wraper .auth__input:focus {
     outline-width: 0.15rem;
@@ -380,11 +400,10 @@ body {
     width: 80%;
     margin: 0.5rem 0;
     border-radius: 2rem;
-    padding: 0.5rem;
+    padding: 0.2rem;
     padding-left: 1rem;
     font-size: 1rem;
     font-weight: 300;
-    height: 2rem;
   }
   .auth__wraper .password__input:focus {
     outline-width: 0.15rem;
@@ -393,13 +412,13 @@ body {
     float: right;
     left: 35%;
     bottom: 15%;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   .auth__wraper .auth__btn {
     border-radius: 2rem;
     padding: 0.5rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     width: 8rem;
     font-size: 1.5rem;
   }
