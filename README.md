@@ -110,7 +110,7 @@ Project Link: [https://github.com/roberbaca/ExpenseTracker](https://github.com/r
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Resources I find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+Resources I find helpful and would like to give credit to. 
 
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
