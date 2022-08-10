@@ -43,17 +43,15 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+If you've ever decided to get a handle on your cash flow, you know that the first step is knowing how you're spending your money. That's something really low on the fun-to-do meter.
+
+Expense tracker app help you collect and classify your purchases so that you can identify areas that might be trimmed and to get an idea of where your money’s going, or it might be a stepping stone toward making and following a budget
+
 ![login_screenshot](https://user-images.githubusercontent.com/83043304/183782353-934eff68-f694-4c2c-a3e6-41ee4d4bf727.png)
 
 ![user_screenshot](https://user-images.githubusercontent.com/83043304/183782365-98e68e24-0d7a-4264-b5ea-d2f92756e765.png)
 
 ![admin_screenshot](https://user-images.githubusercontent.com/83043304/183782384-632c9089-1fe6-49a5-8735-4cddeacdf19f.png)
-
-
-
-If you've ever decided to get a handle on your cash flow, you know that the first step is knowing how you're spending your money. That's something really low on the fun-to-do meter.
-
-Expense tracker app help you collect and classify your purchases so that you can identify areas that might be trimmed and to get an idea of where your money’s going, or it might be a stepping stone toward making and following a budget
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
